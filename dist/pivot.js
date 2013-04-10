@@ -10,6 +10,8 @@
   white: true, indent: 2 */
 /*global pivot, Element, Modernizr */
 
+/* compile order: util, gallery, photo, flickr*/
+
 (function (window) {
 
   var pivot = window.pivot || (window.pivot = {}),
@@ -286,9 +288,9 @@
     feedArguments = { perPage: this.rows * this.columns };
 
     // Choose feed
-    if (options.userId) {
-      this.feed = pivot.flickr.feeds.user;
-      feedArguments.userId = options.userId;
+    if (options.jsonName) {
+      this.feed = pivot.flickr.feeds.jsonFeed;
+      feedArguments.jsonName = options.jsonName;
     } else if (options.groupId) {
       this.feed = pivot.flickr.feeds.group;
       feedArguments.groupId = options.groupId;
@@ -805,7 +807,7 @@
       // Add page url property based on flickr page url template
       data.pageURL = supplant(pivot.flickr.pageURL, data);
 
-      data.title = data.title || "Untitled";
+      data.title = data.description._content || "Untitled";
       this.setCaption(supplant(pivot.flickr.captionTemplate, data));
       this.setSource(supplant(pivot.flickr.sourceURLs[this.quality], data));
     },
@@ -889,18 +891,18 @@
 
     sourceURLs: {
       high: "http://farm{farm}.static.flickr.com/{server}/{id}_{secret}_b.jpg",
-      medium: "http://farm{farm}.static.flickr.com/{server}/{id}_{secret}_z.jpg",
+      medium: "http://dlduckworth.com/{category}/{project}/{imageName_lg}",
       low: "http://farm{farm}.static.flickr.com/{server}/{id}_{secret}_m.jpg"
     },
 
-    pageURL: "http://www.flickr.com/photos/{owner}/{id}",
+    pageURL: "http://dlduckworth.com/{category}/{project}/{imageName_lg}",
 
     feeds: {
-      user: "http://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos&api_key=6fff138dbd0fbe330c07a67c47c9cc21&user_id={userId}&per_page={perPage}&page={page}&extras=description,owner_name&format=json&nojsoncallback=1",
+      jsonFeed: "../json/{jsonName}.json",
 
       group: "http://api.flickr.com/services/rest/?method=flickr.groups.pools.getPhotos&api_key=6fff138dbd0fbe330c07a67c47c9cc21&group_id={groupId}&per_page={perPage}&page={page}&extras=description,owner_name&format=json&nojsoncallback=1",
 
-      interesting: "http://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=6fff138dbd0fbe330c07a67c47c9cc21&per_page={perPage}&page={page}&extras=description,owner_name&format=json&nojsoncallback=1"
+      interesting: "../json/interface_mixprototype.json"
     }
   };
 

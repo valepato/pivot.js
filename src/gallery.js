@@ -23,9 +23,9 @@
     feedArguments = { perPage: this.rows * this.columns };
 
     // Choose feed
-    if (options.userId) {
-      this.feed = pivot.flickr.feeds.user;
-      feedArguments.userId = options.userId;
+    if (options.jsonName) {
+      this.feed = pivot.flickr.feeds.jsonFeed;
+      feedArguments.jsonName = options.jsonName;
     } else if (options.groupId) {
       this.feed = pivot.flickr.feeds.group;
       feedArguments.groupId = options.groupId;

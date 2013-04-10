@@ -106,7 +106,7 @@
       // Add page url property based on flickr page url template
       data.pageURL = supplant(pivot.flickr.pageURL, data);
 
-      data.title = data.title || "Untitled";
+      data.title = data.description._content || "Untitled";
       this.setCaption(supplant(pivot.flickr.captionTemplate, data));
       this.setSource(supplant(pivot.flickr.sourceURLs[this.quality], data));
     },

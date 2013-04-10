@@ -9,3 +9,5 @@
   newcap: true, noarg: true, noempty: true, overvar: true, undef: true,
   white: true, indent: 2 */
 /*global pivot, Element, Modernizr */
+
+/* compile order: util, gallery, photo, flickr*/
