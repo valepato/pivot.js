@@ -19,6 +19,9 @@
     this.loadEvent = document.createEvent("Events");
     this.loadEvent.initEvent("load", true, false);
 
+    this.projectLoadEvent = document.createEvent("Events");
+    this.projectLoadEvent.initEvent("projectLoad", true, false);
+
     // Setup DOM
     // ---------
 
@@ -174,6 +177,7 @@
       if (pivot.util.matchesSelector(this.container, ".pivot.zoomed .p-photo.selected")) {
         event.stopPropagation();
         this.container.classList.toggle("flipped");
+        this.container.dispatchEvent(this.projectLoadEvent);
       }
     }
 
