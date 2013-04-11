@@ -111,8 +111,10 @@
 
     window.addEventListener("resize", this.constrainLayout, false);
     this.trackingPlane.addEventListener("load", this.onPhotoLoaded.bind(this), false);
+    this.trackingPlane.addEventListener("projectLoad", this.onSelectedClickDelegate.bind(this), false);
     document.addEventListener("keydown", this.onKeyDown.bind(this), false);
     pivot.util.delegate(this.viewport, ".p-photo", "click", this.onPhotoClickDelegate.bind(this));
+    //pivot.util.delegate(this.viewport, ".pivot.zoomed .p-photo.selected", "click", this.onSelectedClickDelegate.bind(this));
     this.viewport.addEventListener("mousewheel", this.onViewportMouseWheel.bind(this), false);
     this.viewport.addEventListener("DOMMouseScroll", this.onViewportMouseWheel.bind(this), false);
     this.refresh.addEventListener("click", this.getNextFlickrPage, false);
@@ -345,6 +347,8 @@
     onPhotoClickDelegate: function (event) {
       var photo = pivot.util.ancestor(event.target, ".p-photo");
 
+      console.error('another message');
+
       if (event.target !== photo) {
         event.stopPropagation();
       }
@@ -355,11 +359,32 @@
       }
     },
 
+    onSelectedClickDelegate: function (event) {
+      //console.error('Node clicked');
+
+
+      // var photo = pivot.util.ancestor(event.target, ".pivot.zoomed .p-photo.selected");
+
+      // if (event.target !== photo) {
+      //   event.stopPropagation();
+      // }
+      // this.sendFlickrRequest(supplant(this.feed, {page: this.page}));
+      // if (this.zoomed && data.type == "node") {
+      //   this.sendFlickrRequest(supplant(this.feed, {page: this.page}));
+      // }
+    },
+
     onViewportMouseWheel: function (event) {
-      if (event.wheelDelta || event.detail < 0) {
-        this.zoomOut();
-      } else {
-        this.onPhotoClickDelegate(event);
+        if (event.wheelDelta || event.detail < 0) {
+          this.zoomOut();
+        } else {
+          var photo = pivot.util.ancestor(event.target, ".p-photo");
+          if (event.target !== photo) {
+          event.stopPropagation();
+        } else {
+
+          this.onPhotoClickDelegate(event);
+        }
       }
     },
 
