@@ -12,7 +12,6 @@
     this.column = options.column;
     this.rows = options.rows;
     this.id = options.id
-    this.child = options.child;
     this.quality = options.quality;
 
 
@@ -21,13 +20,13 @@
     this.loadEvent = document.createEvent("Events");
     this.loadEvent.initEvent("load", true, false);
 
-    this.projectLoadEvent = document.createEvent("Events");
-    this.projectLoadEvent.initEvent("projectLoad", true, false);
+    this.nodeLoadEvent = document.createEvent("Events");
+    this.nodeLoadEvent.initEvent("nodeLoad", true, false);
 
     // Setup DOM
     // ---------
 
-    this.container = pivot.util.makeElement("figure", {
+    this.container = pivot.util.makeElement("itemCard", {
       "class": "p-photo loading no-img",
       "data-row": this.row,
       "data-column": this.column
@@ -108,16 +107,14 @@
     },
 
     insertFlickrData: function (data) {
-      // Add page url property based on flickr page url template
-
-      //console.error(data)
+      // Add page url and other properties from json
 
       photoProperties = data;
       data.pageURL = supplant(pivot.flickr.pageURL, data);
 
       this.container.setAttribute("id",this.id);
-      this.container.setAttribute("title", this.child)
-
+      this.container.objectType = data.objectType;
+      this.container.childProject = data.childProject;
 
       data.title = data.description._content || "Untitled";
       this.setCaption(supplant(pivot.flickr.captionTemplate, data));
@@ -186,9 +183,17 @@
     onImageWrapperClick: function (event) {
       if (pivot.util.matchesSelector(this.container, ".pivot.zoomed .p-photo.selected")) {
         event.stopPropagation();
-        this.container.classList.toggle("flipped");
 
-        this.container.dispatchEvent(this.projectLoadEvent);
+        //get parent of parent of imagewrapper which has
+        var e = event.target.parentNode;
+        e = e.parentNode;
+
+        //if card is not a node show the back otherwise load children of node
+        if (e.objectType !== "nodeCard") {
+          this.container.classList.toggle("flipped");
+        } else {
+          this.container.dispatchEvent(this.nodeLoadEvent);
+        }
       }
     }
 

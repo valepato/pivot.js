@@ -7,8 +7,8 @@
         "photo": 
         [
             {
-                "type": "node",
-                "child": "dimsong",
+                "objectType": "nodeCard",
+                "childProject": "dimsong",
                 "imagePath": "portfolio2010/images",
                 "category": "interface",
                 "project": "projectsInterfaceIcons",
@@ -22,8 +22,8 @@
             }, 
 
             {
-                "type": "node",
-                "child": "interface_mixprototype",
+                "objectType": "nodeCard",
+                "childProject": "interface_mixprototype",
                 "imagePath": "portfolio2010/images",
                 "category": "interface",
                 "project": "projectsInterfaceIcons",
@@ -37,8 +37,8 @@
             }, 
 
             {
-                "type": "node",
-                "child": "projectphoenix",
+                "objectType": "nodeCard",
+                "childProject": "projectphoenix",
                 "imagePath": "portfolio2010/images",
                 "category": "interface",
                 "project": "projectsInterfaceIcons",
@@ -52,8 +52,8 @@
             }, 
 
             {
-                "type": "node",
-                "child": "misc",
+                "objectType": "nodeCard",
+                "childProject": "misc",
                 "imagePath": "portfolio2010/images",
                 "category": "interface",
                 "project": "projectsInterfaceIcons",
@@ -67,8 +67,8 @@
             }, 
 
             {
-                "type": "node",
-                "child": "remixprototype",
+                "objectType": "nodeCard",
+                "childProject": "remixprototype",
                 "imagePath": "portfolio2010/images",
                 "category": "interface",
                 "project": "projectsInterfaceIcons",
@@ -82,8 +82,8 @@
             }, 
 
             {
-                "type": "node",
-                "child": "scratch",
+                "objectType": "nodeCard",
+                "childProject": "scratch",
                 "imagePath": "portfolio2010/images",
                 "category": "interface",
                 "project": "projectsInterfaceIcons",
@@ -97,8 +97,8 @@
             }, 
 
             {
-                "type": "node",
-                "child": "herochannel",
+                "objectType": "nodeCard",
+                "childProject": "herochannel",
                 "imagePath": "portfolio2010/images",
                 "category": "interface",
                 "project": "projectsInterfaceIcons",
@@ -112,8 +112,8 @@
             }, 
 
             {
-                "type": "node",
-                "child": "funpark",
+                "objectType": "nodeCard",
+                "childProject": "funpark",
                 "imagePath": "portfolio2010/images",
                 "category": "interface",
                 "project": "projectsInterfaceIcons",
@@ -127,8 +127,8 @@
             }, 
 
             {
-                "type": "node",
-                "child": "web",
+                "objectType": "nodeCard",
+                "childProject": "web",
                 "imagePath": "portfolio2010/images",
                 "category": "interface",
                 "project": "projectsInterfaceIcons",

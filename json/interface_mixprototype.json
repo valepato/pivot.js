@@ -5,37 +5,23 @@
         "perpage": 2,
         "total": 2,
         "photo": [{
+                "objectType": "imageCard",
+                "childProject": "fuckyou",
                 "imagePath": "portfolio2010/images/",
                 "category": "interface/",
                 "project": "mixprototype/",
                 "imageName_lg": "01_titlescreen_LG.jpg",
-                "id": "8631253867",
-                "owner": "7470307@N06",
-                "secret": "84d168c424",
-                "server": "8545",
-                "farm": 9,
-                "title": "",
-                "ispublic": 1,
-                "isfriend": 0,
-                "isfamily": 0,
                 "description": {
                     "_content": "Interface designs"
                 },
                 "ownername": ".Betina."
             }, {
+                "objectType": "imageCard",
+                "childProject": "fuckyou",
                 "imagePath": "portfolio2010/images/",
                 "category": "interface/",
                 "project": "mixprototype/",
                 "imageName_lg": "02_cityselection_LG.jpg",
-                "id": "8631275288",
-                "owner": "78331455@N05",
-                "secret": "9ce76b1293",
-                "server": "8123",
-                "farm": 9,
-                "title": "The rush home",
-                "ispublic": 1,
-                "isfriend": 0,
-                "isfamily": 0,
                 "description": {
                     "_content": ""
                 },

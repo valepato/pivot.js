@@ -371,7 +371,7 @@
 
     window.addEventListener("resize", this.constrainLayout, false);
     this.trackingPlane.addEventListener("load", this.onPhotoLoaded.bind(this), false);
-    this.trackingPlane.addEventListener("projectLoad", this.onSelectedClickDelegate.bind(this), false);
+    this.trackingPlane.addEventListener("nodeLoad", this.onSelectedClickDelegate.bind(this), false);
     document.addEventListener("keydown", this.onKeyDown.bind(this), false);
     pivot.util.delegate(this.viewport, ".p-photo", "click", this.onPhotoClickDelegate.bind(this));
     this.viewport.addEventListener("mousewheel", this.onViewportMouseWheel.bind(this), false);
@@ -426,7 +426,6 @@
     // ---------------
 
     getColumn: function (i, row) {
-      console.error(this.columns);
       if (i > (this.columns - 1)) {
         column = i - (this.columns * row); // 8 > 3, 8 - 4 = 4
       } else {
@@ -441,19 +440,16 @@
     },
 
     getPhotoGrid: function (data) {
-      if (this.firstRun){
-        for (var i=0;i<data.photos.photo.length;i++)
-        {
-          this.photos.push(new pivot.Photo( {
-            container: this.trackingPlane,
-            row: this.getRow(i),
-            column: this.getColumn(i,row),
-            rows: this.rows,
-            quality: this.quality,
-            id: ('imageItem'+i),
-            child: data.photos.photo[i].child
-          }));
-        }
+      for (var i=0;i<data.photos.photo.length;i++)
+      {
+        this.photos.push(new pivot.Photo( {
+          container: this.trackingPlane,
+          row: this.getRow(i),
+          column: this.getColumn(i,row),
+          rows: this.rows,
+          quality: this.quality,
+          id: ('imageItem'+i)
+        }));
       }
     },
 
@@ -495,8 +491,10 @@
 
     onFlickrResult: function (data) {
 
-      //set up photo grid
-      this.getPhotoGrid(data);
+      //set up photo grid, but check to see if it's already been initialized
+      if (this.firstRun) {
+        this.getPhotoGrid(data);
+      }
       this.firstRun = false;
 
       data.photos.photo.forEach(
@@ -644,8 +642,6 @@
     onPhotoClickDelegate: function (event) {
       var photo = pivot.util.ancestor(event.target, ".p-photo");
 
-      console.error('another message');
-
       if (event.target !== photo) {
         event.stopPropagation();
       }
@@ -657,9 +653,11 @@
     },
 
     onSelectedClickDelegate: function (event) {
-      console.error(event.target.title);
+      if (this.zoomed) {
+        this.zoomOut();
+      }
 
-      this.sendFlickrRequest(supplant(pivot.flickr.feeds.jsonFeed, {jsonName: event.target.title}));
+      this.sendFlickrRequest(supplant(pivot.flickr.feeds.jsonFeed, {jsonName: event.target.childProject}));
     },
 
     onViewportMouseWheel: function (event) {
@@ -761,7 +759,6 @@
     this.column = options.column;
     this.rows = options.rows;
     this.id = options.id
-    this.child = options.child;
     this.quality = options.quality;
 
 
@@ -770,13 +767,13 @@
     this.loadEvent = document.createEvent("Events");
     this.loadEvent.initEvent("load", true, false);
 
-    this.projectLoadEvent = document.createEvent("Events");
-    this.projectLoadEvent.initEvent("projectLoad", true, false);
+    this.nodeLoadEvent = document.createEvent("Events");
+    this.nodeLoadEvent.initEvent("nodeLoad", true, false);
 
     // Setup DOM
     // ---------
 
-    this.container = pivot.util.makeElement("figure", {
+    this.container = pivot.util.makeElement("itemCard", {
       "class": "p-photo loading no-img",
       "data-row": this.row,
       "data-column": this.column
@@ -857,16 +854,14 @@
     },
 
     insertFlickrData: function (data) {
-      // Add page url property based on flickr page url template
-
-      //console.error(data)
+      // Add page url and other properties from json
 
       photoProperties = data;
       data.pageURL = supplant(pivot.flickr.pageURL, data);
 
       this.container.setAttribute("id",this.id);
-      this.container.setAttribute("title", this.child)
-
+      this.container.objectType = data.objectType;
+      this.container.childProject = data.childProject;
 
       data.title = data.description._content || "Untitled";
       this.setCaption(supplant(pivot.flickr.captionTemplate, data));
@@ -935,9 +930,17 @@
     onImageWrapperClick: function (event) {
       if (pivot.util.matchesSelector(this.container, ".pivot.zoomed .p-photo.selected")) {
         event.stopPropagation();
-        this.container.classList.toggle("flipped");
 
-        this.container.dispatchEvent(this.projectLoadEvent);
+        //get parent of parent of imagewrapper which has
+        var e = event.target.parentNode;
+        e = e.parentNode;
+
+        //if card is not a node show the back otherwise load children of node
+        if (e.objectType !== "nodeCard") {
+          this.container.classList.toggle("flipped");
+        } else {
+          this.container.dispatchEvent(this.nodeLoadEvent);
+        }
       }
     }
 
