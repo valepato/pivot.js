@@ -42,6 +42,8 @@
     // Holds pivot.Photos
     this.photos = [];
 
+    this.firstRun = true;
+
     // Tilt settings/variables
     // -----------------------
     this.allowedRotation = options.allowedRotation || (window.orientation) ? 120 : 90;
@@ -84,17 +86,10 @@
     this.trackingPlane = pivot.util.makeElement("div", { "class": "p-tracking-plane" });
     this.tiltPlane.appendChild(this.trackingPlane);
 
-    for (row = 0; row < this.rows; row++) {
-      for (column = 0; column < this.columns; column++) {
-        this.photos.push(new pivot.Photo({
-          container: this.trackingPlane,
-          row: row,
-          column: column,
-          rows: this.rows,
-          quality: this.quality
-        }));
-      }
-    }
+    this.getFlickrPage = this.getFlickrPage.bind(this);
+    setTimeout(this.getFlickrPage, 400);
+
+
 
     this.controls = pivot.util.makeElement("div", { "class": "p-controls" });
 
@@ -114,7 +109,6 @@
     this.trackingPlane.addEventListener("projectLoad", this.onSelectedClickDelegate.bind(this), false);
     document.addEventListener("keydown", this.onKeyDown.bind(this), false);
     pivot.util.delegate(this.viewport, ".p-photo", "click", this.onPhotoClickDelegate.bind(this));
-    //pivot.util.delegate(this.viewport, ".pivot.zoomed .p-photo.selected", "click", this.onSelectedClickDelegate.bind(this));
     this.viewport.addEventListener("mousewheel", this.onViewportMouseWheel.bind(this), false);
     this.viewport.addEventListener("DOMMouseScroll", this.onViewportMouseWheel.bind(this), false);
     this.refresh.addEventListener("click", this.getNextFlickrPage, false);
@@ -139,8 +133,7 @@
     // --------------
 
     this.zoomOut();
-    this.getFlickrPage = this.getFlickrPage.bind(this);
-    setTimeout(this.getFlickrPage, 400);
+
     this.setSelectedPhoto(this.getPhoto(0, 0));
 
   };
@@ -161,6 +154,41 @@
       } else {
         this.zoomPlane.style.top = (height - width) / 2 + "px";
         this.zoomPlane.style.left = 0;
+      }
+    },
+
+    // Set up photo grid
+    // ---------------
+
+    getColumn: function (i, row) {
+      console.error(this.columns);
+      if (i > (this.columns - 1)) {
+        column = i - (this.columns * row); // 8 > 3, 8 - 4 = 4
+      } else {
+        column = (i);
+      }
+      return column;
+    },
+
+    getRow: function (i) {
+      row = Math.floor(i / this.columns);
+      return row;
+    },
+
+    getPhotoGrid: function (data) {
+      if (this.firstRun){
+        for (var i=0;i<data.photos.photo.length;i++)
+        {
+          this.photos.push(new pivot.Photo( {
+            container: this.trackingPlane,
+            row: this.getRow(i),
+            column: this.getColumn(i,row),
+            rows: this.rows,
+            quality: this.quality,
+            id: ('imageItem'+i),
+            child: data.photos.photo[i].child
+          }));
+        }
       }
     },
 
@@ -189,6 +217,47 @@
       this.track();
 
       return photo;
+    },
+
+    // Flickr XHR
+    // ----------
+
+    sendFlickrRequest: function (feed) {
+      this.photoLoadCount = 0;
+      this.container.classList.add("gallery-loading");
+      pivot.util.getJSON(feed, this.onFlickrResult);
+    },
+
+    onFlickrResult: function (data) {
+
+      //set up photo grid
+      this.getPhotoGrid(data);
+      this.firstRun = false;
+
+      data.photos.photo.forEach(
+      function (data, index) {
+        this.photos[index].insertFlickrData(data);
+      }, this);
+
+      // If amount of photos returned is less than space available clear source of unused photos.
+      // Increase photoLoadCount by unused amount as setting source to '' does not generate event.
+      this.photoLoadCount += this.photos.length - data.photos.photo.length;
+      this.photos.slice(data.photos.photo.length).forEach(
+
+      function (photo) {
+        photo.setSource('');
+      });
+    },
+
+    getFlickrPage: function (page) {
+      this.page = (page > 0) ? page : 1;
+      this.sendFlickrRequest(supplant(this.feed, {
+        page: this.page
+      }));
+    },
+
+    getNextFlickrPage: function () {
+      this.getFlickrPage(this.page + 1);
     },
 
     cycle: function (direction) {
@@ -228,43 +297,6 @@
       }
 
       this.setSelectedPhoto(this.getPhoto(row, column));
-    },
-
-    // Flickr XHR
-    // ----------
-
-    sendFlickrRequest: function (feed) {
-      this.photoLoadCount = 0;
-      this.container.classList.add("gallery-loading");
-      pivot.util.getJSON(feed, this.onFlickrResult);
-    },
-
-    onFlickrResult: function (data) {
-      data.photos.photo.forEach(
-
-      function (data, index) {
-        this.photos[index].insertFlickrData(data);
-      }, this);
-
-      // If amount of photos returned is less than space available clear source of unused photos.
-      // Increase photoLoadCount by unused amount as setting source to '' does not generate event.
-      this.photoLoadCount += this.photos.length - data.photos.photo.length;
-      this.photos.slice(data.photos.photo.length).forEach(
-
-      function (photo) {
-        photo.setSource('');
-      });
-    },
-
-    getFlickrPage: function (page) {
-      this.page = (page > 0) ? page : 1;
-      this.sendFlickrRequest(supplant(this.feed, {
-        page: this.page
-      }));
-    },
-
-    getNextFlickrPage: function () {
-      this.getFlickrPage(this.page + 1);
     },
 
     // 3D movement
@@ -360,18 +392,9 @@
     },
 
     onSelectedClickDelegate: function (event) {
-      //console.error('Node clicked');
+      console.error(event.target.title);
 
-
-      // var photo = pivot.util.ancestor(event.target, ".pivot.zoomed .p-photo.selected");
-
-      // if (event.target !== photo) {
-      //   event.stopPropagation();
-      // }
-      // this.sendFlickrRequest(supplant(this.feed, {page: this.page}));
-      // if (this.zoomed && data.type == "node") {
-      //   this.sendFlickrRequest(supplant(this.feed, {page: this.page}));
-      // }
+      this.sendFlickrRequest(supplant(pivot.flickr.feeds.jsonFeed, {jsonName: event.target.title}));
     },
 
     onViewportMouseWheel: function (event) {

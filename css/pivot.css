@@ -146,7 +146,7 @@
   left: 5%;
   width: 90%;
   height: 90%;
-  border: 10px solid #fff;
+  border: 0px solid #fff;
   background: #fff;
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding-box;
@@ -355,6 +355,6 @@
   }
 
   .p-image-wrapper {
-    border-width: 5px;
+    border-width: 0px;
   }
 }

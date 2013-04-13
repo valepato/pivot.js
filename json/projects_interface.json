@@ -4,36 +4,137 @@
         "pages": 1,
         "perpage": 2,
         "total": 2,
-        "photo": [{
-                "category": "portfolio2010/images/interface",
-                "project": "mixprototype",
-                "imageName_lg": "01_titlescreen_LG.jpg",
+        "photo": 
+        [
+            {
+                "type": "node",
+                "child": "dimsong",
+                "imagePath": "portfolio2010/images",
+                "category": "interface",
+                "project": "projectsInterfaceIcons",
+                "imageName_lg": "dimsong.jpg",
                 "id": "8631253867",
-                "owner": "7470307@N06",
-                "secret": "84d168c424",
-                "server": "8545",
-                "farm": 9,
                 "title": "",
-                "ispublic": 1,
-                "isfriend": 0,
-                "isfamily": 0,
                 "description": {
                     "_content": "Interface designs"
                 },
                 "ownername": ".Betina."
-            }, {
-                "category": "portfolio2010/images/interface",
-                "project": "mixprototype",
-                "imageName_lg": "02_cityselection_LG.jpg",
+            }, 
+
+            {
+                "type": "node",
+                "child": "interface_mixprototype",
+                "imagePath": "portfolio2010/images",
+                "category": "interface",
+                "project": "projectsInterfaceIcons",
+                "imageName_lg": "mixPrototype.jpg",
+                "id": "8631253867",
+                "title": "",
+                "description": {
+                    "_content": "Interface designs"
+                },
+                "ownername": ".Betina."
+            }, 
+
+            {
+                "type": "node",
+                "child": "projectphoenix",
+                "imagePath": "portfolio2010/images",
+                "category": "interface",
+                "project": "projectsInterfaceIcons",
+                "imageName_lg": "projectPhoenix.jpg",
+                "id": "8631253867",
+                "title": "",
+                "description": {
+                    "_content": "Interface designs"
+                },
+                "ownername": ".Betina."
+            }, 
+
+            {
+                "type": "node",
+                "child": "misc",
+                "imagePath": "portfolio2010/images",
+                "category": "interface",
+                "project": "projectsInterfaceIcons",
+                "imageName_lg": "miscInterface.jpg",
+                "id": "8631253867",
+                "title": "",
+                "description": {
+                    "_content": "Interface designs"
+                },
+                "ownername": ".Betina."
+            }, 
+
+            {
+                "type": "node",
+                "child": "remixprototype",
+                "imagePath": "portfolio2010/images",
+                "category": "interface",
+                "project": "projectsInterfaceIcons",
+                "imageName_lg": "remixer.jpg",
+                "id": "8631253867",
+                "title": "",
+                "description": {
+                    "_content": "Interface designs"
+                },
+                "ownername": ".Betina."
+            }, 
+
+            {
+                "type": "node",
+                "child": "scratch",
+                "imagePath": "portfolio2010/images",
+                "category": "interface",
+                "project": "projectsInterfaceIcons",
+                "imageName_lg": "scratch.jpg",
+                "id": "8631253867",
+                "title": "",
+                "description": {
+                    "_content": "Interface designs"
+                },
+                "ownername": ".Betina."
+            }, 
+
+            {
+                "type": "node",
+                "child": "herochannel",
+                "imagePath": "portfolio2010/images",
+                "category": "interface",
+                "project": "projectsInterfaceIcons",
+                "imageName_lg": "vipPass.jpg",
+                "id": "8631253867",
+                "title": "",
+                "description": {
+                    "_content": "Interface designs"
+                },
+                "ownername": ".Betina."
+            }, 
+
+            {
+                "type": "node",
+                "child": "funpark",
+                "imagePath": "portfolio2010/images",
+                "category": "interface",
+                "project": "projectsInterfaceIcons",
+                "imageName_lg": "funpark.jpg",
+                "id": "8631253867",
+                "title": "",
+                "description": {
+                    "_content": "Interface designs"
+                },
+                "ownername": ".Betina."
+            }, 
+
+            {
+                "type": "node",
+                "child": "web",
+                "imagePath": "portfolio2010/images",
+                "category": "interface",
+                "project": "projectsInterfaceIcons",
+                "imageName_lg": "web.jpg",
                 "id": "8631275288",
-                "owner": "78331455@N05",
-                "secret": "9ce76b1293",
-                "server": "8123",
-                "farm": 9,
                 "title": "The rush home",
-                "ispublic": 1,
-                "isfriend": 0,
-                "isfamily": 0,
                 "description": {
                     "_content": ""
                 },

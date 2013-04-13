@@ -8,11 +8,11 @@
 
     sourceURLs: {
       high: "http://farm{farm}.static.flickr.com/{server}/{id}_{secret}_b.jpg",
-      medium: "http://dlduckworth.com/{category}/{project}/{imageName_lg}",
+      medium: "http://dlduckworth.com/{imagePath}/{category}/{project}/{imageName_lg}",
       low: "http://farm{farm}.static.flickr.com/{server}/{id}_{secret}_m.jpg"
     },
 
-    pageURL: "http://dlduckworth.com/{category}/{project}/{imageName_lg}",
+    pageURL: "http://dlduckworth.com/{imagePath}/{category}/{project}/{imageName_lg}",
 
     feeds: {
       jsonFeed: "../json/{jsonName}.json",

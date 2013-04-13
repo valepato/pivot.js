@@ -5,8 +5,9 @@
         "perpage": 2,
         "total": 2,
         "photo": [{
-                "category": "portfolio2010/images/interface",
-                "project": "mixprototype",
+                "imagePath": "portfolio2010/images/",
+                "category": "interface/",
+                "project": "mixprototype/",
                 "imageName_lg": "01_titlescreen_LG.jpg",
                 "id": "8631253867",
                 "owner": "7470307@N06",
@@ -18,12 +19,13 @@
                 "isfriend": 0,
                 "isfamily": 0,
                 "description": {
-                    "_content": "Clorindo Testa, with Bill."
+                    "_content": "Interface designs"
                 },
                 "ownername": ".Betina."
             }, {
-                "category": "portfolio2010/images/interface",
-                "project": "mixprototype",
+                "imagePath": "portfolio2010/images/",
+                "category": "interface/",
+                "project": "mixprototype/",
                 "imageName_lg": "02_cityselection_LG.jpg",
                 "id": "8631275288",
                 "owner": "78331455@N05",

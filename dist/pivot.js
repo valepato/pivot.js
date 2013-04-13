@@ -307,6 +307,8 @@
     // Holds pivot.Photos
     this.photos = [];
 
+    this.firstRun = true;
+
     // Tilt settings/variables
     // -----------------------
     this.allowedRotation = options.allowedRotation || (window.orientation) ? 120 : 90;
@@ -349,17 +351,10 @@
     this.trackingPlane = pivot.util.makeElement("div", { "class": "p-tracking-plane" });
     this.tiltPlane.appendChild(this.trackingPlane);
 
-    for (row = 0; row < this.rows; row++) {
-      for (column = 0; column < this.columns; column++) {
-        this.photos.push(new pivot.Photo({
-          container: this.trackingPlane,
-          row: row,
-          column: column,
-          rows: this.rows,
-          quality: this.quality
-        }));
-      }
-    }
+    this.getFlickrPage = this.getFlickrPage.bind(this);
+    setTimeout(this.getFlickrPage, 400);
+
+
 
     this.controls = pivot.util.makeElement("div", { "class": "p-controls" });
 
@@ -376,6 +371,7 @@
 
     window.addEventListener("resize", this.constrainLayout, false);
     this.trackingPlane.addEventListener("load", this.onPhotoLoaded.bind(this), false);
+    this.trackingPlane.addEventListener("projectLoad", this.onSelectedClickDelegate.bind(this), false);
     document.addEventListener("keydown", this.onKeyDown.bind(this), false);
     pivot.util.delegate(this.viewport, ".p-photo", "click", this.onPhotoClickDelegate.bind(this));
     this.viewport.addEventListener("mousewheel", this.onViewportMouseWheel.bind(this), false);
@@ -402,8 +398,7 @@
     // --------------
 
     this.zoomOut();
-    this.getFlickrPage = this.getFlickrPage.bind(this);
-    setTimeout(this.getFlickrPage, 400);
+
     this.setSelectedPhoto(this.getPhoto(0, 0));
 
   };
@@ -424,6 +419,41 @@
       } else {
         this.zoomPlane.style.top = (height - width) / 2 + "px";
         this.zoomPlane.style.left = 0;
+      }
+    },
+
+    // Set up photo grid
+    // ---------------
+
+    getColumn: function (i, row) {
+      console.error(this.columns);
+      if (i > (this.columns - 1)) {
+        column = i - (this.columns * row); // 8 > 3, 8 - 4 = 4
+      } else {
+        column = (i);
+      }
+      return column;
+    },
+
+    getRow: function (i) {
+      row = Math.floor(i / this.columns);
+      return row;
+    },
+
+    getPhotoGrid: function (data) {
+      if (this.firstRun){
+        for (var i=0;i<data.photos.photo.length;i++)
+        {
+          this.photos.push(new pivot.Photo( {
+            container: this.trackingPlane,
+            row: this.getRow(i),
+            column: this.getColumn(i,row),
+            rows: this.rows,
+            quality: this.quality,
+            id: ('imageItem'+i),
+            child: data.photos.photo[i].child
+          }));
+        }
       }
     },
 
@@ -452,6 +482,47 @@
       this.track();
 
       return photo;
+    },
+
+    // Flickr XHR
+    // ----------
+
+    sendFlickrRequest: function (feed) {
+      this.photoLoadCount = 0;
+      this.container.classList.add("gallery-loading");
+      pivot.util.getJSON(feed, this.onFlickrResult);
+    },
+
+    onFlickrResult: function (data) {
+
+      //set up photo grid
+      this.getPhotoGrid(data);
+      this.firstRun = false;
+
+      data.photos.photo.forEach(
+      function (data, index) {
+        this.photos[index].insertFlickrData(data);
+      }, this);
+
+      // If amount of photos returned is less than space available clear source of unused photos.
+      // Increase photoLoadCount by unused amount as setting source to '' does not generate event.
+      this.photoLoadCount += this.photos.length - data.photos.photo.length;
+      this.photos.slice(data.photos.photo.length).forEach(
+
+      function (photo) {
+        photo.setSource('');
+      });
+    },
+
+    getFlickrPage: function (page) {
+      this.page = (page > 0) ? page : 1;
+      this.sendFlickrRequest(supplant(this.feed, {
+        page: this.page
+      }));
+    },
+
+    getNextFlickrPage: function () {
+      this.getFlickrPage(this.page + 1);
     },
 
     cycle: function (direction) {
@@ -491,43 +562,6 @@
       }
 
       this.setSelectedPhoto(this.getPhoto(row, column));
-    },
-
-    // Flickr XHR
-    // ----------
-
-    sendFlickrRequest: function (feed) {
-      this.photoLoadCount = 0;
-      this.container.classList.add("gallery-loading");
-      pivot.util.getJSON(feed, this.onFlickrResult);
-    },
-
-    onFlickrResult: function (data) {
-      data.photos.photo.forEach(
-
-      function (data, index) {
-        this.photos[index].insertFlickrData(data);
-      }, this);
-
-      // If amount of photos returned is less than space available clear source of unused photos.
-      // Increase photoLoadCount by unused amount as setting source to '' does not generate event.
-      this.photoLoadCount += this.photos.length - data.photos.photo.length;
-      this.photos.slice(data.photos.photo.length).forEach(
-
-      function (photo) {
-        photo.setSource('');
-      });
-    },
-
-    getFlickrPage: function (page) {
-      this.page = (page > 0) ? page : 1;
-      this.sendFlickrRequest(supplant(this.feed, {
-        page: this.page
-      }));
-    },
-
-    getNextFlickrPage: function () {
-      this.getFlickrPage(this.page + 1);
     },
 
     // 3D movement
@@ -610,6 +644,8 @@
     onPhotoClickDelegate: function (event) {
       var photo = pivot.util.ancestor(event.target, ".p-photo");
 
+      console.error('another message');
+
       if (event.target !== photo) {
         event.stopPropagation();
       }
@@ -620,11 +656,23 @@
       }
     },
 
+    onSelectedClickDelegate: function (event) {
+      console.error(event.target.title);
+
+      this.sendFlickrRequest(supplant(pivot.flickr.feeds.jsonFeed, {jsonName: event.target.title}));
+    },
+
     onViewportMouseWheel: function (event) {
-      if (event.wheelDelta || event.detail < 0) {
-        this.zoomOut();
-      } else {
-        this.onPhotoClickDelegate(event);
+        if (event.wheelDelta || event.detail < 0) {
+          this.zoomOut();
+        } else {
+          var photo = pivot.util.ancestor(event.target, ".p-photo");
+          if (event.target !== photo) {
+          event.stopPropagation();
+        } else {
+
+          this.onPhotoClickDelegate(event);
+        }
       }
     },
 
@@ -712,13 +760,18 @@
     this.row = options.row;
     this.column = options.column;
     this.rows = options.rows;
-
+    this.id = options.id
+    this.child = options.child;
     this.quality = options.quality;
+
 
     // Define load event to bubble towards gallery
     // when the photo is done loading (or failed loading)
     this.loadEvent = document.createEvent("Events");
     this.loadEvent.initEvent("load", true, false);
+
+    this.projectLoadEvent = document.createEvent("Events");
+    this.projectLoadEvent.initEvent("projectLoad", true, false);
 
     // Setup DOM
     // ---------
@@ -805,7 +858,15 @@
 
     insertFlickrData: function (data) {
       // Add page url property based on flickr page url template
+
+      //console.error(data)
+
+      photoProperties = data;
       data.pageURL = supplant(pivot.flickr.pageURL, data);
+
+      this.container.setAttribute("id",this.id);
+      this.container.setAttribute("title", this.child)
+
 
       data.title = data.description._content || "Untitled";
       this.setCaption(supplant(pivot.flickr.captionTemplate, data));
@@ -875,6 +936,8 @@
       if (pivot.util.matchesSelector(this.container, ".pivot.zoomed .p-photo.selected")) {
         event.stopPropagation();
         this.container.classList.toggle("flipped");
+
+        this.container.dispatchEvent(this.projectLoadEvent);
       }
     }
 
@@ -891,11 +954,11 @@
 
     sourceURLs: {
       high: "http://farm{farm}.static.flickr.com/{server}/{id}_{secret}_b.jpg",
-      medium: "http://dlduckworth.com/{category}/{project}/{imageName_lg}",
+      medium: "http://dlduckworth.com/{imagePath}/{category}/{project}/{imageName_lg}",
       low: "http://farm{farm}.static.flickr.com/{server}/{id}_{secret}_m.jpg"
     },
 
-    pageURL: "http://dlduckworth.com/{category}/{project}/{imageName_lg}",
+    pageURL: "http://dlduckworth.com/{imagePath}/{category}/{project}/{imageName_lg}",
 
     feeds: {
       jsonFeed: "../json/{jsonName}.json",

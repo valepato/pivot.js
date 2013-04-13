@@ -11,8 +11,10 @@
     this.row = options.row;
     this.column = options.column;
     this.rows = options.rows;
-
+    this.id = options.id
+    this.child = options.child;
     this.quality = options.quality;
+
 
     // Define load event to bubble towards gallery
     // when the photo is done loading (or failed loading)
@@ -107,7 +109,15 @@
 
     insertFlickrData: function (data) {
       // Add page url property based on flickr page url template
+
+      //console.error(data)
+
+      photoProperties = data;
       data.pageURL = supplant(pivot.flickr.pageURL, data);
+
+      this.container.setAttribute("id",this.id);
+      this.container.setAttribute("title", this.child)
+
 
       data.title = data.description._content || "Untitled";
       this.setCaption(supplant(pivot.flickr.captionTemplate, data));
@@ -177,6 +187,7 @@
       if (pivot.util.matchesSelector(this.container, ".pivot.zoomed .p-photo.selected")) {
         event.stopPropagation();
         this.container.classList.toggle("flipped");
+
         this.container.dispatchEvent(this.projectLoadEvent);
       }
     }
