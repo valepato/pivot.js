@@ -14,6 +14,8 @@
     this.id = options.id
     this.quality = options.quality;
 
+    this.aspectRatio = 1;
+
 
     // Define load event to bubble towards gallery
     // when the photo is done loading (or failed loading)
@@ -31,6 +33,7 @@
       "data-row": this.row,
       "data-column": this.column
     });
+
     this.container.style[transform] = supplant("translate3d({x}%, {y}%, 1px)", {
       x: this.column * 100,
       y: this.row * 100
@@ -52,17 +55,14 @@
 
     this.container.appendChild(this.backing);
 
-    this.imageWrapper = pivot.util.makeElement("div", {
-      "class": "p-image-wrapper"
-    });
+    this.imageWrapper = pivot.util.makeElement("div", {"class": "p-image-wrapper"});
+
     this.container.appendChild(this.imageWrapper);
 
     this.caption = pivot.util.makeElement("figcaption");
     this.imageWrapper.appendChild(this.caption);
 
-    this.image = pivot.util.makeElement("img", {
-      draggable: false
-    });
+    this.image = pivot.util.makeElement("img", {draggable: false});
     this.imageWrapper.appendChild(this.image);
 
     this.imagePreloader = new Image();
@@ -116,7 +116,7 @@
       this.container.objectType = data.objectType;
       this.container.childProject = data.childProject;
 
-      data.title = data.description._content || "Untitled";
+      data.title = data.title || "Untitled";
       this.setCaption(supplant(pivot.flickr.captionTemplate, data));
       this.setSource(supplant(pivot.flickr.sourceURLs[this.quality], data));
     },
@@ -133,19 +133,20 @@
       var ar = this.image.naturalWidth / this.image.naturalHeight;
 
       // Setup dimensions/offsets so image wrapper is centered
-      if (ar > 1) {
+      if (ar < 1) {
         this.wrapperDimensions = supplant("top: {top}%; left: 5%; width: 90%; height: {height}%;", {
-          top: (100 - 90 / ar) / 2,
-          height: 90 / ar
+          top: 5,
+          height: 90
         });
       } else {
         this.wrapperDimensions = supplant("top: 5%; left: {left}%; width: {width}%; height: 90%;", {
-          left: (100 - 90 * ar) / 2,
-          width: 90 * ar
+          left: 5,
+          width: 90
         });
       }
 
-      this.imageWrapper.style.cssText = this.wrapperDimensions;
+     this.imageWrapper.style.cssText = this.wrapperDimensions;
+
 
       // Unhides image wrapper
       this.container.classList.remove("loading");

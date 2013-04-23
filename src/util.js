@@ -83,8 +83,8 @@
       }
     }, false);
 
-    request.open("GET", url, true);
-    request.send();
+      request.open("GET", url, true);
+      request.send();
   }
 
   // Normalized mouse position local to element

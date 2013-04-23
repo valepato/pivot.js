@@ -96,8 +96,8 @@
       }
     }, false);
 
-    request.open("GET", url, true);
-    request.send();
+      request.open("GET", url, true);
+      request.send();
   }
 
   // Normalized mouse position local to element
@@ -279,9 +279,6 @@
 
     this.quality = options.quality || "medium";
 
-    this.rows = options.rows;
-    this.columns = options.columns;
-
     this.page = 1;
     this.perPage = this.rows * this.columns;
 
@@ -304,10 +301,14 @@
     // Holds amount of photos loaded or timed out
     this.photoLoadCount = 0;
 
+    // Aspect ratio of the images, Fix: make data driven
+    this.aspectRatio = 1.78;
+
     // Holds pivot.Photos
     this.photos = [];
 
-    this.firstRun = true;
+    this.rows = 2;
+    this.columns = 3;
 
     // Tilt settings/variables
     // -----------------------
@@ -354,12 +355,19 @@
     this.getFlickrPage = this.getFlickrPage.bind(this);
     setTimeout(this.getFlickrPage, 400);
 
-
-
     this.controls = pivot.util.makeElement("div", { "class": "p-controls" });
 
     this.refresh = pivot.util.makeElement("button", { "class": "p-refresh" });
     this.controls.appendChild(this.refresh);
+
+    this.galleryControls = pivot.util.makeElement("div", { "class": "p-galleryControls" });
+
+    this.backButton = pivot.util.makeElement("button", { "class": "p-backButton" });
+    this.galleryControls.appendChild(this.backButton);
+    this.viewport.appendChild(this.galleryControls);
+
+    this.backButton.currentProjectParent = options.currentProjectParent || "";
+    console.error(this.backButton.currentProjectParent);
 
     this.constrainLayout();
 
@@ -374,9 +382,10 @@
     this.trackingPlane.addEventListener("nodeLoad", this.onSelectedClickDelegate.bind(this), false);
     document.addEventListener("keydown", this.onKeyDown.bind(this), false);
     pivot.util.delegate(this.viewport, ".p-photo", "click", this.onPhotoClickDelegate.bind(this));
-    this.viewport.addEventListener("mousewheel", this.onViewportMouseWheel.bind(this), false);
-    this.viewport.addEventListener("DOMMouseScroll", this.onViewportMouseWheel.bind(this), false);
-    this.refresh.addEventListener("click", this.getNextFlickrPage, false);
+    // this.viewport.addEventListener("mousewheel", this.onViewportMouseWheel.bind(this), false);
+    // this.viewport.addEventListener("DOMMouseScroll", this.onViewportMouseWheel.bind(this), false);
+    this.refresh.addEventListener("click", this.onCloseButton, false);
+    this.backButton.addEventListener("click", this.onBackButton, false);
 
     this.zoomOut = this.zoomOut.bind(this);
     this.container.addEventListener("click", this.zoomOut, false);
@@ -407,14 +416,15 @@
 
     // Make zoomPlane square and centered within viewport
     constrainLayout: function () {
-      var width = this.container.offsetWidth,
-          height = this.container.offsetHeight,
+      var width = this.container.clientWidth,
+          height = this.container.clientHeight,
           min = Math.min(width, height);
 
-      this.zoomPlane.style.width = this.zoomPlane.style.height = min + "px";
+      this.zoomPlane.style.width = (height * this.aspectRatio) + "px";
+      this.zoomPlane.style.height = height + "px";
 
       if (width > height) {
-        this.zoomPlane.style.left = (width - height) / 2 + "px";
+        this.zoomPlane.style.left = (width - (height * this.aspectRatio)) / 2 + "px";
         this.zoomPlane.style.top = 0;
       } else {
         this.zoomPlane.style.top = (height - width) / 2 + "px";
@@ -425,21 +435,13 @@
     // Set up photo grid
     // ---------------
 
-    getColumn: function (i, row) {
-      if (i > (this.columns - 1)) {
-        column = i - (this.columns * row); // 8 > 3, 8 - 4 = 4
-      } else {
-        column = (i);
-      }
-      return column;
-    },
-
-    getRow: function (i) {
-      row = Math.floor(i / this.columns);
-      return row;
-    },
-
     getPhotoGrid: function (data) {
+      if (data.photos.photo.length < this.columns) {
+        this.columns = data.photos.photo.length;
+      }
+      this.rows = Math.ceil(data.photos.photo.length / this.columns);
+      this.zoomOut();
+
       for (var i=0;i<data.photos.photo.length;i++)
       {
         this.photos.push(new pivot.Photo( {
@@ -452,6 +454,21 @@
         }));
       }
     },
+
+    getRow: function (i) {
+      row = Math.floor(i / this.columns);
+      return row;
+    },
+
+    getColumn: function (i, row) {
+      if (i > (this.columns - 1)) {
+        column = i - (this.columns * row);
+      } else {
+        column = (i);
+      }
+      return column;
+    },
+
 
     // Photo selection
     // ---------------
@@ -490,12 +507,7 @@
     },
 
     onFlickrResult: function (data) {
-
-      //set up photo grid, but check to see if it's already been initialized
-      if (this.firstRun) {
-        this.getPhotoGrid(data);
-      }
-      this.firstRun = false;
+      this.getPhotoGrid(data);
 
       data.photos.photo.forEach(
       function (data, index) {
@@ -506,7 +518,6 @@
       // Increase photoLoadCount by unused amount as setting source to '' does not generate event.
       this.photoLoadCount += this.photos.length - data.photos.photo.length;
       this.photos.slice(data.photos.photo.length).forEach(
-
       function (photo) {
         photo.setSource('');
       });
@@ -656,8 +667,26 @@
       if (this.zoomed) {
         this.zoomOut();
       }
+      pivot.setup({quality: 'medium', jsonName: event.target.childProject, /*wrapper: document.getElementById("about"),*/ currentProjectParent: this.feed});
+    },
 
-      this.sendFlickrRequest(supplant(pivot.flickr.feeds.jsonFeed, {jsonName: event.target.childProject}));
+    getCurrentFileName: function (path) {
+      this.path = path;
+      this.p_filename = this.path.substr(this.path.lastIndexOf("/") + 1);
+      this.p_filename = this.p_filename.substring(0,(this.p_filename.lastIndexOf(".")));
+      return this.p_filename;
+    },
+
+    onBackButton: function (event) {
+      this.path = pivot.Gallery.prototype.getCurrentFileName(event.target.currentProjectParent);
+      if (this.path) {
+        pivot.setup({quality: 'medium', jsonName: this.path/*, wrapper: document.getElementById("about")*/});
+      }
+    },
+
+    onCloseButton: function (event) {
+      this.container = pivot.util.ancestor(event.target, ".pivot");
+      this.container.classList.add("gallery-fadeOut");
     },
 
     onViewportMouseWheel: function (event) {
@@ -735,11 +764,13 @@
     onOrientationChange: function (event) {
       this.constrainLayout();
     }
-
   };
 
   pivot.setup = function (options) {
     if (Modernizr && Modernizr.matchesselector && Modernizr.csstransforms3d) {
+      if ($('.pivot').length != 0) {
+        $('.pivot').remove();
+      }
       return new pivot.Gallery(options);
     }
   };
@@ -761,6 +792,8 @@
     this.id = options.id
     this.quality = options.quality;
 
+    this.aspectRatio = 1;
+
 
     // Define load event to bubble towards gallery
     // when the photo is done loading (or failed loading)
@@ -778,6 +811,7 @@
       "data-row": this.row,
       "data-column": this.column
     });
+
     this.container.style[transform] = supplant("translate3d({x}%, {y}%, 1px)", {
       x: this.column * 100,
       y: this.row * 100
@@ -799,17 +833,14 @@
 
     this.container.appendChild(this.backing);
 
-    this.imageWrapper = pivot.util.makeElement("div", {
-      "class": "p-image-wrapper"
-    });
+    this.imageWrapper = pivot.util.makeElement("div", {"class": "p-image-wrapper"});
+
     this.container.appendChild(this.imageWrapper);
 
     this.caption = pivot.util.makeElement("figcaption");
     this.imageWrapper.appendChild(this.caption);
 
-    this.image = pivot.util.makeElement("img", {
-      draggable: false
-    });
+    this.image = pivot.util.makeElement("img", {draggable: false});
     this.imageWrapper.appendChild(this.image);
 
     this.imagePreloader = new Image();
@@ -863,7 +894,7 @@
       this.container.objectType = data.objectType;
       this.container.childProject = data.childProject;
 
-      data.title = data.description._content || "Untitled";
+      data.title = data.title || "Untitled";
       this.setCaption(supplant(pivot.flickr.captionTemplate, data));
       this.setSource(supplant(pivot.flickr.sourceURLs[this.quality], data));
     },
@@ -880,19 +911,20 @@
       var ar = this.image.naturalWidth / this.image.naturalHeight;
 
       // Setup dimensions/offsets so image wrapper is centered
-      if (ar > 1) {
+      if (ar < 1) {
         this.wrapperDimensions = supplant("top: {top}%; left: 5%; width: 90%; height: {height}%;", {
-          top: (100 - 90 / ar) / 2,
-          height: 90 / ar
+          top: 5,
+          height: 90
         });
       } else {
         this.wrapperDimensions = supplant("top: 5%; left: {left}%; width: {width}%; height: 90%;", {
-          left: (100 - 90 * ar) / 2,
-          width: 90 * ar
+          left: 5,
+          width: 90
         });
       }
 
-      this.imageWrapper.style.cssText = this.wrapperDimensions;
+     this.imageWrapper.style.cssText = this.wrapperDimensions;
+
 
       // Unhides image wrapper
       this.container.classList.remove("loading");
@@ -953,7 +985,7 @@
   var pivot = window.pivot || (window.pivot = {});
 
   pivot.flickr = {
-    captionTemplate: '<h1><a href="{pageURL}" target="blank" tabindex="-1">{title}</a></h1><p> By {ownername}</p>',
+    captionTemplate: '<h1><a href="{pageURL}" target="blank" tabindex="-1">{title}</a></h1><p>{description}</p>',
 
     sourceURLs: {
       high: "http://farm{farm}.static.flickr.com/{server}/{id}_{secret}_b.jpg",
