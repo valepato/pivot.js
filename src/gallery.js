@@ -45,6 +45,8 @@
     this.rows = 2;
     this.columns = 3;
 
+    var oldBodyMarginRight = $("body").css("margin-right");
+
     // Tilt settings/variables
     // -----------------------
     this.allowedRotation = options.allowedRotation || (window.orientation) ? 120 : 90;
@@ -90,19 +92,17 @@
     this.getFlickrPage = this.getFlickrPage.bind(this);
     setTimeout(this.getFlickrPage, 400);
 
+    //set up back and close buttons
     this.controls = pivot.util.makeElement("div", { "class": "p-controls" });
-
+    this.refreshContainer = pivot.util.makeElement("div", { "class": "p-refresh-container" });
     this.refresh = pivot.util.makeElement("button", { "class": "p-refresh" });
-    this.controls.appendChild(this.refresh);
-
-    this.galleryControls = pivot.util.makeElement("div", { "class": "p-galleryControls" });
-
+    this.backButtonContainer = pivot.util.makeElement("div", { "class": "p-backButton-container" });
     this.backButton = pivot.util.makeElement("button", { "class": "p-backButton" });
-    this.galleryControls.appendChild(this.backButton);
-    this.viewport.appendChild(this.galleryControls);
-
+    this.backButtonContainer.appendChild(this.backButton);
+    this.refreshContainer.appendChild(this.refresh);
+    this.controls.appendChild(this.backButtonContainer);
+    this.controls.appendChild(this.refreshContainer);
     this.backButton.currentProjectParent = options.currentProjectParent || "";
-    console.error(this.backButton.currentProjectParent);
 
     this.constrainLayout();
 
@@ -117,11 +117,11 @@
     this.trackingPlane.addEventListener("nodeLoad", this.onSelectedClickDelegate.bind(this), false);
     document.addEventListener("keydown", this.onKeyDown.bind(this), false);
     pivot.util.delegate(this.viewport, ".p-photo", "click", this.onPhotoClickDelegate.bind(this));
-    //
-    // ADD EVENT LISTENTER TO DELETE GALLERY ON CLOSE
-    //pivot.util.delegate(this.viewport, ".pivot.gallery-fadeOut", "animationend", this.onPhotoClickDelegate.bind(this));
+
+    // Turnning off scroll wheel for now
     // this.viewport.addEventListener("mousewheel", this.onViewportMouseWheel.bind(this), false);
     // this.viewport.addEventListener("DOMMouseScroll", this.onViewportMouseWheel.bind(this), false);
+
     this.refresh.addEventListener("click", this.onCloseButton, false);
     this.backButton.addEventListener("click", this.onBackButton, false);
 
@@ -402,10 +402,14 @@
     },
 
     onSelectedClickDelegate: function (event) {
-      if (this.zoomed) {
-        this.zoomOut();
+      this.childProject = event.target.childProject;
+      if (this.childProject) {
+        if (this.zoomed) {
+          this.zoomOut();
+        }
+        pivot.setup({quality: 'medium', jsonName: this.childProject, /*wrapper: document.getElementById("about"),*/ currentProjectParent: this.feed});
       }
-      pivot.setup({quality: 'medium', jsonName: event.target.childProject, /*wrapper: document.getElementById("about"),*/ currentProjectParent: this.feed});
+
     },
 
     getCurrentFileName: function (path) {
@@ -425,6 +429,7 @@
     onCloseButton: function (event) {
       this.container = pivot.util.ancestor(event.target, ".pivot");
       this.container.classList.add("gallery-fadeOut");
+      pivot.Gallery.prototype.onClose();
     },
 
     onViewportMouseWheel: function (event) {
@@ -501,6 +506,27 @@
 
     onOrientationChange: function (event) {
       this.constrainLayout();
+    },
+
+    onShow: function () {
+        // Turn off scroll bars to prevent the scroll wheel from affecting the main page.  Make sure turning off the scrollbars doesn't shift the position of the content.
+        // This solution works Chrome 12, Firefox 4, IE 7/8/9, and Safari 5.
+        // It turns off the scroll bars, but doesn't prevent the scrolling, in Opera 11 and Safari 5.
+        var oldBodyOuterWidth = $("body").outerWidth(true);
+        var newBodyOuterWidth;
+        $("html").css("overflow-y", "hidden");
+        newBodyOuterWidth = $("body").outerWidth(true);
+        $("body").css("margin-right", (newBodyOuterWidth - oldBodyOuterWidth + parseInt(this.oldBodyMarginRight)) + "px");
+        $("#mainMenu").css("width", oldBodyOuterWidth + "px");
+    },
+
+    onClose: function () {
+        $('.menu-bar').children().each( function( index ) {
+          $(this).removeClass('menu-bar-selected');
+        });
+        var html = $("html");
+        html.css("overflow-y", "scroll");
+        $("#mainMenu").css("width", "100%");
     }
   };
 

@@ -1,0 +1,161 @@
+{
+    "photos": {
+        "photo": 
+        [
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "modeling",
+                "project": "house",
+                "imageName_lg": "001house18_3_LG.jpg",
+                "title": "The Flat",
+                "description": ""
+            }, 
+            
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "modeling",
+                "project": "house",
+                "imageName_lg": "002house15_LG.jpg",
+                "title": "The Flat",
+                "description": ""
+            }, 
+            
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "modeling",
+                "project": "house",
+                "imageName_lg": "003house14_LG.jpg",
+                "title": "The Flat",
+                "description": ""
+            }, 
+            
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "modeling",
+                "project": "house",
+                "imageName_lg": "004house12_LG.jpg",
+                "title": "The Flat",
+                "description": ""
+            }, 
+            
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "modeling",
+                "project": "house",
+                "imageName_lg": "005house11_LG.jpg",
+                "title": "The Flat",
+                "description": ""
+            }, 
+            
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "modeling",
+                "project": "house",
+                "imageName_lg": "006house10_LG.jpg",
+                "title": "The Flat",
+                "description": ""
+            }, 
+            
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "modeling",
+                "project": "house",
+                "imageName_lg": "007house9_LG.jpg",
+                "title": "The Flat",
+                "description": ""
+            }, 
+            
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "modeling",
+                "project": "house",
+                "imageName_lg": "008house8_LG.jpg",
+                "title": "The Flat",
+                "description": ""
+            }, 
+            
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "modeling",
+                "project": "house",
+                "imageName_lg": "009house7_LG.jpg",
+                "title": "The Flat",
+                "description": ""
+            }, 
+            
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "modeling",
+                "project": "house",
+                "imageName_lg": "010house6_LG.jpg",
+                "title": "The Flat",
+                "description": ""
+            }, 
+            
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "modeling",
+                "project": "house",
+                "imageName_lg": "011house5_LG.jpg",
+                "title": "The Flat",
+                "description": ""
+            }, 
+            
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "modeling",
+                "project": "house",
+                "imageName_lg": "012house4_LG.jpg",
+                "title": "The Flat",
+                "description": ""
+            }, 
+            
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "modeling",
+                "project": "house",
+                "imageName_lg": "013house2_LG.jpg",
+                "title": "The Flat",
+                "description": ""
+            },
+
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "modeling",
+                "project": "house",
+                "imageName_lg": "014house1_LG.jpg",
+                "title": "The Flat",
+                "description": ""
+            }
+        ]
+    },
+    "stat": "ok"
+}

@@ -4,7 +4,7 @@
         [
             {
                 "objectType": "nodeCard",
-                "childProject": "dimsong",
+                "childProject": "interface_dimsong",
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "projectsInterfaceIcons",
@@ -26,7 +26,7 @@
 
             {
                 "objectType": "nodeCard",
-                "childProject": "projectphoenix",
+                "childProject": "interface_projectphoenix",
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "projectsInterfaceIcons",
@@ -37,7 +37,7 @@
 
             {
                 "objectType": "nodeCard",
-                "childProject": "misc",
+                "childProject": "interface_misc",
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "projectsInterfaceIcons",
@@ -48,7 +48,7 @@
 
             {
                 "objectType": "nodeCard",
-                "childProject": "remixprototype",
+                "childProject": "interface_remixprototype",
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "projectsInterfaceIcons",
@@ -59,7 +59,7 @@
 
             {
                 "objectType": "nodeCard",
-                "childProject": "scratch",
+                "childProject": "interface_scratch",
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "projectsInterfaceIcons",
@@ -70,7 +70,7 @@
 
             {
                 "objectType": "nodeCard",
-                "childProject": "herochannel",
+                "childProject": "interface_herochannel",
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "projectsInterfaceIcons",
@@ -81,7 +81,7 @@
 
             {
                 "objectType": "nodeCard",
-                "childProject": "funpark",
+                "childProject": "interface_funpark",
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "projectsInterfaceIcons",
@@ -92,7 +92,7 @@
 
             {
                 "objectType": "nodeCard",
-                "childProject": "web",
+                "childProject": "interface_web",
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "projectsInterfaceIcons",

@@ -1,0 +1,29 @@
+{
+    "photos": {
+        "photo": 
+        [
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "animation",
+                "project": "comps",
+                "imageName_lg": "01_phoenix.jpg",
+                "title": "Demo Comp",
+                "description": ""
+            }, 
+            
+             {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "animation",
+                "project": "comps",
+                "imageName_lg": "02_viz.jpg",
+                "title": "Demo Comp",
+                "description": ""
+            }
+        ]
+    },
+    "stat": "ok"
+}

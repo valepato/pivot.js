@@ -1,0 +1,95 @@
+{
+    "photos": {
+        "photo": 
+        [
+            {
+                "objectType": "nodeCard",
+                "childProject": "design_heroconcepts",
+                "imagePath": "portfolio/images",
+                "category": "designs",
+                "project": "projectsDesignsIcons",
+                "imageName_lg": "titleMocks.jpg",
+                "title": "",
+                "description": ""
+            }, 
+
+            {
+                "objectType": "nodeCard",
+                "childProject": "design_mixconcepts",
+                "imagePath": "portfolio/images",
+                "category": "designs",
+                "project": "projectsDesignsIcons",
+                "imageName_lg": "splashScreens.jpg",
+                "title": "",
+                "description": ""
+            }, 
+
+            {
+                "objectType": "nodeCard",
+                "childProject": "design_neonelectric",
+                "imagePath": "portfolio/images",
+                "category": "designs",
+                "project": "projectsDesignsIcons",
+                "imageName_lg": "neonElectric.jpg",
+                "title": "",
+                "description": ""
+            }, 
+
+            {
+                "objectType": "nodeCard",
+                "childProject": "design_friskyfliers",
+                "imagePath": "portfolio/images",
+                "category": "designs",
+                "project": "projectsDesignsIcons",
+                "imageName_lg": "friskyFliers.jpg",
+                "title": "",
+                "description": ""
+            }, 
+
+            {
+                "objectType": "nodeCard",
+                "childProject": "design_branding",
+                "imagePath": "portfolio/images",
+                "category": "designs",
+                "project": "projectsDesignsIcons",
+                "imageName_lg": "branding.jpg",
+                "title": "",
+                "description": ""
+            }, 
+
+            {
+                "objectType": "nodeCard",
+                "childProject": "design_clothing",
+                "imagePath": "portfolio/images",
+                "category": "designs",
+                "project": "projectsDesignsIcons",
+                "imageName_lg": "clothing.jpg",
+                "title": "",
+                "description": ""
+            }, 
+
+            {
+                "objectType": "nodeCard",
+                "childProject": "design_labelart",
+                "imagePath": "portfolio/images",
+                "category": "designs",
+                "project": "projectsDesignsIcons",
+                "imageName_lg": "recordArt.jpg",
+                "title": "",
+                "description": ""
+            }, 
+
+            {
+                "objectType": "nodeCard",
+                "childProject": "design_miscfliers",
+                "imagePath": "portfolio/images",
+                "category": "designs",
+                "project": "projectsDesignsIcons",
+                "imageName_lg": "miscDesigns.jpg",
+                "title": "",
+                "description": ""
+            }
+        ]
+    },
+    "stat": "ok"
+}

@@ -1,0 +1,40 @@
+{
+    "photos": {
+        "photo": 
+        [
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "modeling",
+                "project": "archive",
+                "imageName_lg": "002_speaker_LG.jpg",
+                "title": "Alley Way",
+                "description": ""
+            }, 
+            
+             {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "modeling",
+                "project": "archive",
+                "imageName_lg": "003_trop_LG.jpg",
+                "title": "Alley Way",
+                "description": ""
+            }, 
+            
+             {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "modeling",
+                "project": "archive",
+                "imageName_lg": "004_tropical_LG.jpg",
+                "title": "Alley Way",
+                "description": ""
+            }
+        ]
+    },
+    "stat": "ok"
+}

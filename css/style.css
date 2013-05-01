@@ -1,53 +1,285 @@
 /**
- * Parallax Scrolling Tutorial
- * For NetTuts+
+ * Portfolio Site
  *  
- * Author: Mohiuddin Parekh
- *	http://www.mohi.me
- * 	@mohiuddinparekh   
+ *  Author: David Duckworth
+ *	http://www.dlduckworth.com
+ * 	valepato@gmail.com   
  */
 
 
-body{
-	margin:0;
-	padding:0;
+html {
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
+body {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: #fff;
+    font-family: helvetica, arial, sans-serif;
+    font-size: 13px;
+}
+
+@font-face {
+    font-family: 'DezenProRegular';
+    src: url('../webfonts/26B594_0_0.eot');
+    src: url('../webfonts/26B594_0_0.eot?#iefix') format('embedded-opentype'),url('../webfonts/26B594_0_0.woff') format('woff'),url('../webfonts/26B594_0_0.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Museo-500';
+    src: url('../webfonts/26D0ED_1_0.eot');
+    src: url('../webfonts/26D0ED_1_0.eot?#iefix') format('embedded-opentype'),url('../webfonts/26D0ED_1_0.woff') format('woff'),url('../webfonts/26D0ED_1_0.ttf') format('truetype');
+}
+
+.bigHeaderText {
+    font-family: 'DezenProRegular';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 280px;
+    color: #0D151F;
+    text-align: center;
+    text-shadow: 0px -1px 0px rgba(148,159,168, 0.5),
+    0px 10px 5px rgba(17,20,22, 0.5); 
+}
+
+/*.menuBarText {
+    font-family: 'Museo-500';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 42px;
+    color: #0D151F;
+    text-align: center;
+    text-shadow: 0px 2px 0px rgba(115,122,127, 0.5); 
+}*/
 
 #home { 
-	background: url(../images/home.jpg) 50% 0 no-repeat fixed; 
-	height: 1000px;  
+	/*background: url(../images/spacer.png) 50% 1000 no-repeat scroll; */
+	height: 2000px;
+    /*top: 0; */ 
 	margin: 0 auto; 
     width: 100%; 
     max-width: 1920px; 
-    position: relative; 
-    box-shadow: 0 0 50px rgba(0,0,0,0.8);
+    position: relative;
+    /*box-shadow: 0 0 50px rgba(0,0,0,0.8);*/
 }
+
 #about { 
-	background: url(../images/about.jpg) 50% 0 no-repeat fixed; 
-	height: 1000px;
+	/*background: url(../images/spacer.png) 50% 1000 no-repeat scroll; */
+	height: 2000px;
+  /*top: 4000;*/
 	margin: 0 auto; 
-    width: 100%; 
-    max-width: 1920px; 
-    position: relative; 
-    box-shadow: 0 0 50px rgba(0,0,0,0.8);
+  width: 100%; 
+  max-width: 1920px; 
+  position: relative;  
+  /*box-shadow: 0 0 50px rgba(0,0,0,0.8);*/
+}
+
+#portfolio { 
+	/*background: url(../images/spacer.png) 50% 1000 no-repeat scroll;*/
+	height: 2000px;
+  /*top: 8000;*/
+	margin: 0 auto; 
+  width: 100%; 
+  max-width: 1920px; 
+  position: relative; 
+  /*box-shadow: 0 0 50px rgba(0,0,0,0.8);*/
 }
 
 #me { 
-	background: url(../images/about.jpg) 50% 0 no-repeat fixed; 
-	height: 1000px;
-	margin: 0 auto; 
-    width: 100%; 
-    max-width: 1920px; 
-    position: relative; 
-    box-shadow: 0 0 50px rgba(0,0,0,0.8);
+  /*background: url(../images/spacer.png) 50% 1000 no-repeat scroll;*/
+  height: 2000px;
+  /*top: 12000;*/
+  margin: 0 auto; 
+  width: 100%; 
+  max-width: 1920px; 
+  position: relative;
+  /*box-shadow: 0 0 50px rgba(0,0,0,0.8);*/
 }
-/* Introduction */
 
-#home article { background: url("../images/intro.png") no-repeat scroll center top transparent; height: 458px; position: absolute; text-indent: -9999px; top: 291px; width: 100%; }
 
-#about article { background: url("../images/parallax.png") no-repeat scroll center top transparent; height: 458px; position: absolute; text-indent: -9999px; top: 291px; width: 100%; }
+/*---------------------------------------------------*/
 
-#me article { background: url("../images/intro.png") no-repeat scroll center top transparent; height: 458px; position: absolute; text-indent: -9999px; top: 291px; width: 100%; }
+#mainMenu {
+  width: 100%;
+  top: 625px;
+  left: 50%;
+  position:relative;
+  z-index: 900;
+  pointer-events:none;
+}
+
+.menu-bar {
+  width: 850px;
+  height: 38px;
+  left: -425px;
+  margin: 0px 0px 0px 0px;
+  padding: 6px 6px 0px 6px;
+  line-height: 100%;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  box-shadow: 2px 2px 3px #000000;
+  -webkit-box-shadow: 2px 2px 3px #000000;
+  -moz-box-shadow: 2px 2px 3px #000000;
+  background: #282C3D;
+  background: linear-gradient(top,  rgba(70, 76, 107, .75),  rgba(40, 44, 61, .75));
+  background: -ms-linear-gradient(top,  rgba(70, 76, 107, .75),  rgba(40, 44, 61, .75));
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(70, 76, 107, .75)), to(rgba(40, 44, 61, .75)));
+  background: -moz-linear-gradient(top,  rgba(70, 76, 107, .75),  rgba(40, 44, 61, .75));
+/*  border: solid 1px #6D6D6D;*/
+  position:relative;
+  pointer-events:visible;
+  z-index:999;
+}
+.menu-bar li {
+  margin: 0px 6px 0px 6px;
+  padding: 0px 0px 6px 0px;
+  float: left;
+  position: relative;
+  list-style: none;
+}
+.menu-bar a {
+  font-family: 'Museo-500';
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: none;
+  font-size: 29px;
+  color: #0D151F;
+  text-align: center;
+  text-shadow: 0px 1px 0px rgba(115,122,127, 0.5); 
+  display: block;
+  padding: 10px 20px 10px 20px;
+  margin: 0;  
+}
+.menu-bar a:hover {
+  color: #B0DCF4;
+  text-shadow: 0px 1px 0px rgba(23,25,33, 0.8), 0px 0px 10px #B0DCF4; 
+  text-decoration: none;
+}
+
+.menu-bar-selected a {
+  color: #6CB5E4;
+  text-shadow: 0px 1px 0px rgba(23,25,33, 0.8), 0px 0px 10px #6CB5E4; 
+  text-decoration: none; 
+}
+
+.menu-bar {
+  display: inline-block;
+}
+
+html[xmlns] #menu-bar {
+  display: block;
+}
+* html #menu-bar {
+  height: 1%;
+}
+
+/*---------------------------------------------------*/
+
+/* foreground (ballons/landscape) */
+#parallax-bg3 {
+    z-index: 3;
+    position: fixed;
+    left: 50%; /* align left edge with center of viewport */
+    top: 0;
+    width: 940px;
+    margin-left: -470px; /* move left by half element's width */
+    }
+    /* balloon */
+    #bg3-1 {
+        position: absolute;
+        top: 300px;
+        left: 70px;
+        }
+    #bg3-2 {
+        position: absolute;
+        top: 2000px;
+        left: -175px;
+        }
+    #bg3-3 {
+        position: absolute;
+        top: 1628px;
+        left: 403px;
+        }
+    #bg3-4 {
+        position: absolute;
+        top: 2700px;
+        left: -85px;
+        }
+/* midground (clouds) */
+#parallax-bg2 {
+    z-index: 2;
+    position: fixed;
+    left: 50%; /* align left edge with center of viewport */
+    top: 0;
+    width: 1200px;
+    margin-left: -600px; /* move left by half element's width */
+    }
+    #bg2-1 {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        }
+    #bg2-2 {
+        position: absolute;
+        top: 300px;
+        left: 1150px;
+        }
+    #bg2-3 {
+        position: absolute;
+        top: 543px;
+        left: -35px;
+        }
+    #bg2-4 {
+        position: absolute;
+        top: 1180px;
+        left: 250px;
+        }
+    #bg2-5 {
+        position: absolute;
+        top: 900px;
+        left: 890px;
+        }
+/* background (clouds) */
+#parallax-bg1 {
+    z-index: 1;
+    position: fixed;
+    left: 50%; /* align left edge with center of viewport */
+    top: 0;
+    width: 1920px;
+    margin-left: -960px; /* move left by half element's width */
+    }
+    #bg1-1 {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        }
+    #bg1-2 {
+        position: absolute;
+        top: 1000px;
+        left: 0px;
+        }
+    #bg1-3 {
+        position: absolute;
+        top: 2000px;
+        left: 0px;
+        }
+    #bg1-4 {
+        position: absolute;
+        top: 3000px;
+        left: 0px;
+        }
+
+/*---------------------------------------------------*/
+
+
+
+
+
 
 

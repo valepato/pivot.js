@@ -1,0 +1,29 @@
+{
+    "photos": {
+        "photo": 
+        [
+            {
+                "objectType": "nodeCard",
+                "childProject": "animation_comps",
+                "imagePath": "portfolio/images",
+                "category": "animation",
+                "project": "projectsAnimationsIcons",
+                "imageName_lg": "comps.jpg",
+                "title": "",
+                "description": ""
+            }, 
+
+            {
+                "objectType": "nodeCard",
+                "childProject": "animation_menuconcepts",
+                "imagePath": "portfolio/images",
+                "category": "animation",
+                "project": "projectsAnimationsIcons",
+                "imageName_lg": "menuanimatics.jpg",
+                "title": "",
+                "description": ""
+            }
+        ]
+    },
+    "stat": "ok"
+}

@@ -1,0 +1,62 @@
+{
+    "photos": {
+        "photo": 
+        [
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "animation",
+                "project": "menuconcepts",
+                "imageName_lg": "01_menuconcept.jpg",
+                "title": "Menu Concept Animatics",
+                "description": ""
+            }, 
+
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "animation",
+                "project": "menuconcepts",
+                "imageName_lg": "02_menuconcept.jpg",
+                "title": "Menu Concept Animatics",
+                "description": ""
+            }, 
+
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "animation",
+                "project": "menuconcepts",
+                "imageName_lg": "03_menuconcept.jpg",
+                "title": "Menu Concept Animatics",
+                "description": ""
+            }, 
+
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "animation",
+                "project": "menuconcepts",
+                "imageName_lg": "04_menuconcept.jpg",
+                "title": "Menu Concept Animatics",
+                "description": ""
+            }, 
+
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "animation",
+                "project": "menuconcepts",
+                "imageName_lg": "05_phone.jpg",
+                "title": "Menu Concept Animatics",
+                "description": ""
+            }            
+        ]
+    },
+    "stat": "ok"
+}

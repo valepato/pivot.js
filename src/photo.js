@@ -65,6 +65,10 @@
     this.image = pivot.util.makeElement("img", {draggable: false});
     this.imageWrapper.appendChild(this.image);
 
+    this.loader = pivot.util.makeElement("img", {"class": "loadingSpinner", draggable: false})
+    this.loader.src = "../images/loader.png"
+    this.backing.appendChild(this.loader);
+
     this.imagePreloader = new Image();
 
     options.container.appendChild(this.container);

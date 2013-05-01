@@ -1,0 +1,51 @@
+{
+    "photos": {
+        "photo": 
+        [
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "designs",
+                "project": "neonelectric",
+                "imageName_lg": "01_poster_LG.jpg",
+                "title": "The Title",
+                "description": "Interface designs"
+            }, 
+            
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "designs",
+                "project": "neonelectric",
+                "imageName_lg": "02_poster_LG.jpg",
+                "title": "The Title",
+                "description": "Interface designs"
+            }, 
+            
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "designs",
+                "project": "neonelectric",
+                "imageName_lg": "03_poster_LG.jpg",
+                "title": "The Title",
+                "description": "Interface designs"
+            }, 
+            
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "designs",
+                "project": "neonelectric",
+                "imageName_lg": "04_poster_LG.jpg",
+                "title": "The Title",
+                "description": "Interface designs"
+            }
+        ]
+    },
+    "stat": "ok"
+}

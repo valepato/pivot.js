@@ -1,0 +1,161 @@
+{
+    "photos": {
+        "photo": 
+        [
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "designs",
+                "project": "branding",
+                "imageName_lg": "001_a_LG.jpg",
+                "title": "Branding",
+                "description": ""
+            }, 
+
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "designs",
+                "project": "branding",
+                "imageName_lg": "002_carsticker_LG.jpg",
+                "title": "Branding",
+                "description": ""
+            }, 
+
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "designs",
+                "project": "branding",
+                "imageName_lg": "003_dfcard1_LG.jpg",
+                "title": "Branding",
+                "description": ""
+            }, 
+
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "designs",
+                "project": "branding",
+                "imageName_lg": "004_highdollar_LG.jpg",
+                "title": "Branding",
+                "description": ""
+            }, 
+
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "designs",
+                "project": "branding",
+                "imageName_lg": "005_dfsweeper_LG.jpg",
+                "title": "Branding",
+                "description": ""
+            }, 
+
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "designs",
+                "project": "branding",
+                "imageName_lg": "006_edible grooves_LG.jpg",
+                "title": "Branding",
+                "description": ""
+            }, 
+
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "designs",
+                "project": "branding",
+                "imageName_lg": "007_bumpshop_orange_LG.jpg",
+                "title": "Branding",
+                "description": ""
+            }, 
+
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "designs",
+                "project": "branding",
+                "imageName_lg": "008_dfcard3_LG.jpg",
+                "title": "Branding",
+                "description": ""
+            }, 
+
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "designs",
+                "project": "branding",
+                "imageName_lg": "009_dfcard4_LG.jpg",
+                "title": "Branding",
+                "description": ""
+            }, 
+
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "designs",
+                "project": "branding",
+                "imageName_lg": "010_dfx logo top_LG.jpg",
+                "title": "Branding",
+                "description": ""
+            }, 
+
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "designs",
+                "project": "branding",
+                "imageName_lg": "011_friskylogo_LG.jpg",
+                "title": "Branding",
+                "description": ""
+            }, 
+
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "designs",
+                "project": "branding",
+                "imageName_lg": "012_dflogo_LG.jpg",
+                "title": "Branding",
+                "description": ""
+            }, 
+
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "designs",
+                "project": "branding",
+                "imageName_lg": "013_deepfixlogo_LG.jpg",
+                "title": "Branding",
+                "description": ""
+            },
+
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "designs",
+                "project": "branding",
+                "imageName_lg": "014_df_triwindow_LG.jpg",
+                "title": "Branding",
+                "description": ""
+            }
+        ]
+    },
+    "stat": "ok"
+}

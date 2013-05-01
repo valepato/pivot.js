@@ -1,0 +1,119 @@
+{
+    "photos": {
+        "photo": 
+        [
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "interface",
+                "project": "remixprototype",
+                "imageName_lg": "01_remix_LG.jpg",
+                "title": "Remix Prototype",
+                "description": "Interface designs"
+            }, 
+
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "interface",
+                "project": "remixprototype",
+                "imageName_lg": "02_remix_LG.jpg",
+                "title": "Remix Prototype",
+                "description": "Interface designs"
+            }, 
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "interface",
+                "project": "remixprototype",
+                "imageName_lg": "03_remix_LG.jpg",
+                "title": "Remix Prototype",
+                "description": "Interface designs"
+            }, 
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "interface",
+                "project": "remixprototype",
+                "imageName_lg": "04_remix_LG.jpg",
+                "title": "Remix Prototype",
+                "description": "Interface designs"
+            }, 
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "interface",
+                "project": "remixprototype",
+                "imageName_lg": "05_remix_LG.jpg",
+                "title": "Remix Prototype",
+                "description": "Interface designs"
+            }, 
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "interface",
+                "project": "remixprototype",
+                "imageName_lg": "06_remix_LG.jpg",
+                "title": "Remix Prototype",
+                "description": "Interface designs"
+            }, 
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "interface",
+                "project": "remixprototype",
+                "imageName_lg": "07_remix_LG.jpg",
+                "title": "Remix Prototype",
+                "description": "Interface designs"
+            }, 
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "interface",
+                "project": "remixprototype",
+                "imageName_lg": "08_remix_LG.jpg",
+                "title": "Remix Prototype",
+                "description": "Interface designs"
+            }, 
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "interface",
+                "project": "remixprototype",
+                "imageName_lg": "09_remix_LG.jpg",
+                "title": "Remix Prototype",
+                "description": "Interface designs"
+            }, 
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "interface",
+                "project": "remixprototype",
+                "imageName_lg": "10_remix_LG.jpg",
+                "title": "Remix Prototype",
+                "description": "Interface designs"
+            }, 
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "interface",
+                "project": "remixprototype",
+                "imageName_lg": "11_remix_LG.jpg",
+                "title": "Remix Prototype",
+                "description": "Interface designs"
+            }
+        ]
+    },
+    "stat": "ok"
+}

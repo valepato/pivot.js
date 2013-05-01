@@ -1,0 +1,21 @@
+
+.parallax-layer {
+    position: absolute;
+}
+
+.site_wrap {
+	width: 100%;
+	max-width: 60rem;
+	min-width: 292px;
+}
+
+    #port {
+      overflow: show;
+      position: fixed;
+      left: 50%;
+      margin-left: -960px;
+      text-align: center;
+      height: 1000px;
+      width: 1920px;
+      
+    }

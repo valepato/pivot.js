@@ -1,0 +1,128 @@
+{
+    "photos": {
+        "photo": 
+        [
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "interface",
+                "project": "web",
+                "imageName_lg": "001digitaljams_LG.jpg",
+                "title": "Web Projects",
+                "description": ""
+            }, 
+
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "interface",
+                "project": "web",
+                "imageName_lg": "002diz_LG.jpg",
+                "title": "Web Projects",
+                "description": ""
+            }, 
+
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "interface",
+                "project": "web",
+                "imageName_lg": "003deepfix_LG.jpg",
+                "title": "Web Projects",
+                "description": ""
+            }, 
+
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "interface",
+                "project": "web",
+                "imageName_lg": "004jonene_LG.jpg",
+                "title": "Web Projects",
+                "description": ""
+            }, 
+
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "interface",
+                "project": "web",
+                "imageName_lg": "005brett_LG.jpg",
+                "title": "Web Projects",
+                "description": ""
+            }, 
+
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "interface",
+                "project": "web",
+                "imageName_lg": "006deepfix_LG.jpg",
+                "title": "Web Projects",
+                "description": ""
+            }, 
+
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "interface",
+                "project": "web",
+                "imageName_lg": "007perspective_LG.jpg",
+                "title": "Web Projects",
+                "description": ""
+            }, 
+
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "interface",
+                "project": "web",
+                "imageName_lg": "008simply_LG.jpg",
+                "title": "Web Projects",
+                "description": ""
+            }, 
+
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "interface",
+                "project": "web",
+                "imageName_lg": "009designer_LG.jpg",
+                "title": "Web Projects",
+                "description": ""
+            }, 
+
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "interface",
+                "project": "web",
+                "imageName_lg": "010machine_LG.jpg",
+                "title": "Web Projects",
+                "description": ""
+            },
+
+            {
+                "objectType": "imageCard",
+                "childProject": "",
+                "imagePath": "portfolio/images",
+                "category": "interface",
+                "project": "web",
+                "imageName_lg": "011shirt_LG.jpg",
+                "title": "Web Projects",
+                "description": ""
+            } 
+        ]
+    },
+    "stat": "ok"
+}
