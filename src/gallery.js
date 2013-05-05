@@ -23,15 +23,11 @@
     if (options.jsonName) {
       this.feed = pivot.flickr.feeds.jsonFeed;
       feedArguments.jsonName = options.jsonName;
-    } else if (options.groupId) {
-      this.feed = pivot.flickr.feeds.group;
-      feedArguments.groupId = options.groupId;
-    } else {
-      this.feed = pivot.flickr.feeds.interesting;
+      // Insert feed arguments
+      this.feed = supplant(this.feed, feedArguments);
     }
 
-    // Insert feed arguments
-    this.feed = supplant(this.feed, feedArguments);
+
 
     // Holds amount of photos loaded or timed out
     this.photoLoadCount = 0;
@@ -41,11 +37,14 @@
 
     // Holds pivot.Photos
     this.photos = [];
+    photosPage = [];
+    currentPage = 0;
 
     this.rows = 2;
     this.columns = 3;
+    this.rowsMax = 4;
 
-    var oldBodyMarginRight = $("body").css("margin-right");
+    var oldBodyMarginRight = $("body").css("margin-right", 10);
 
     // Tilt settings/variables
     // -----------------------
@@ -63,7 +62,9 @@
     // --------------------------------------
 
     this.onFlickrResult = this.onFlickrResult.bind(this);
+    this.getPhotoGrid = this.getPhotoGrid.bind(this);
     this.getNextFlickrPage = this.getNextFlickrPage.bind(this);
+    this.getNewPage = this.getNewPage.bind(this);
     this.constrainLayout = this.constrainLayout.bind(this);
     this.tilt = this.tilt.bind(this);
 
@@ -90,24 +91,45 @@
     this.tiltPlane.appendChild(this.trackingPlane);
 
     this.getFlickrPage = this.getFlickrPage.bind(this);
-    setTimeout(this.getFlickrPage, 400);
+
+    if (options.jsonName){
+      setTimeout(this.getFlickrPage, 400);
+    }
+
+
 
     //set up back and close buttons
     this.controls = pivot.util.makeElement("div", { "class": "p-controls" });
+    //close button
     this.refreshContainer = pivot.util.makeElement("div", { "class": "p-refresh-container" });
     this.refresh = pivot.util.makeElement("button", { "class": "p-refresh" });
+    this.refreshContainer.appendChild(this.refresh);
+    this.controls.appendChild(this.refreshContainer);
+    //back button
     this.backButtonContainer = pivot.util.makeElement("div", { "class": "p-backButton-container" });
     this.backButton = pivot.util.makeElement("button", { "class": "p-backButton" });
     this.backButtonContainer.appendChild(this.backButton);
-    this.refreshContainer.appendChild(this.refresh);
     this.controls.appendChild(this.backButtonContainer);
-    this.controls.appendChild(this.refreshContainer);
     this.backButton.currentProjectParent = options.currentProjectParent || "";
+
+    //setup paging controls
+    this.navControls = pivot.util.makeElement("div", { "class": "p-pageNavControls" });
+    //next page
+    this.nextPageContainer = pivot.util.makeElement("div", { "class": "p-nextPage-container" });
+    this.nextPage = pivot.util.makeElement("button", { "class": "p-nextPage" });
+    this.nextPageContainer.appendChild(this.nextPage);
+    this.navControls.appendChild(this.nextPageContainer);
+    //last page
+    this.lastPageContainer = pivot.util.makeElement("div", { "class": "p-lastPage-container" });
+    this.lastPage = pivot.util.makeElement("button", { "class": "p-lastPage" });
+    this.lastPageContainer.appendChild(this.lastPage);
+    this.navControls.appendChild(this.lastPageContainer);
 
     this.constrainLayout();
 
     this.container.appendChild(this.viewport);
     this.container.appendChild(this.controls);
+    this.container.appendChild(this.navControls);
 
     // Setup events
     // ------------
@@ -124,6 +146,9 @@
 
     this.refresh.addEventListener("click", this.onCloseButton, false);
     this.backButton.addEventListener("click", this.onBackButton, false);
+
+    this.nextPage.addEventListener("click", this.onNextPage.bind(this), false);
+    this.lastPage.addEventListener("click", this.onLastPage, false);
 
     this.zoomOut = this.zoomOut.bind(this);
     this.container.addEventListener("click", this.zoomOut, false);
@@ -174,13 +199,14 @@
     // ---------------
 
     getPhotoGrid: function (data) {
-      if (data.photos.photo.length < this.columns) {
-        this.columns = data.photos.photo.length;
+      console.error("get photo grid: " + data);
+      if (data.length < this.columns) {
+        this.columns = data.length;
       }
-      this.rows = Math.ceil(data.photos.photo.length / this.columns);
+      this.rows = Math.ceil(data.length / this.columns);
       this.zoomOut();
 
-      for (var i=0;i<data.photos.photo.length;i++)
+      for (var i=0;i<data.length;i++)
       {
         this.photos.push(new pivot.Photo( {
           container: this.trackingPlane,
@@ -244,21 +270,46 @@
       pivot.util.getJSON(feed, this.onFlickrResult);
     },
 
-    onFlickrResult: function (data) {
-      this.getPhotoGrid(data);
+    onFlickrResult: function (data, page) {
+      console.error("page: " + page);
 
-      data.photos.photo.forEach(
-      function (data, index) {
-        this.photos[index].insertFlickrData(data);
+      var len = data.photos.photo.length
+        for (var i=0; i < len; i += 9){
+          photosPage.push(data.photos.photo.slice(i, i + 9));
+      }
+
+      this.getPhotoGrid(photosPage[currentPage]);
+
+      photosPage[currentPage].forEach(
+        function (data, index) {
+          this.photos[index].insertFlickrData(data);
       }, this);
+
+      // data.photos.photo.forEach(
+      // function (data, index) {
+      //   console.error("inside the flicker: :" + data)
+      //   this.photos[index].insertFlickrData(data);
+      // }, this);
 
       // If amount of photos returned is less than space available clear source of unused photos.
       // Increase photoLoadCount by unused amount as setting source to '' does not generate event.
-      this.photoLoadCount += this.photos.length - data.photos.photo.length;
-      this.photos.slice(data.photos.photo.length).forEach(
-      function (photo) {
-        photo.setSource('');
-      });
+      // this.photoLoadCount += this.photos.length - data.photos.photo.length;
+      // this.photos.slice(data.photos.photo.length).forEach(
+      // function (photo) {
+      //   photo.setSource('');
+      // });
+    },
+
+    getNewPage: function (page) {
+      this.currentPage = page;
+      this.data = photosPage[this.currentPage];
+
+      this.getPhotoGrid(photosPage[this.currentPage]);
+
+      photosPage[this.currentPage].forEach(
+        function (data, index) {
+          this.photos[index].insertFlickrData(data);
+      }, this);
     },
 
     getFlickrPage: function (page) {
@@ -508,6 +559,11 @@
       this.constrainLayout();
     },
 
+    reloadImages: function () {
+      $('itemcard').remove();
+
+    },
+
     onShow: function () {
         // Turn off scroll bars to prevent the scroll wheel from affecting the main page.  Make sure turning off the scrollbars doesn't shift the position of the content.
         // This solution works Chrome 12, Firefox 4, IE 7/8/9, and Safari 5.
@@ -527,7 +583,21 @@
         var html = $("html");
         html.css("overflow-y", "scroll");
         $("#mainMenu").css("width", "100%");
+    },
+
+    onNextPage: function (event) {
+      console.error("Next Page");
+      if (photosPage.length > 1) {
+        $('itemcard').remove();
+        currentPage += 1;
+      }
+      this.getNewPage(currentPage);
+    },
+
+    onLastPage: function () {
+      console.error("Last Page")
     }
+
   };
 
   pivot.setup = function (options) {

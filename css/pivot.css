@@ -311,6 +311,69 @@
   opacity: 1;
 }
 
+.pivot .p-pageNavControls {
+  -webkit-transition-property: opacity, visibility, top;
+  -webkit-transition-duration: 200ms;
+  -webkit-transition-timing-function: ease-in-out;
+  -moz-transition-property: opacity, visibility, top;
+  -moz-transition-duration: 200ms;
+  -moz-transition-timing-function: ease-in-out;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  position: relative;
+  top: 50%;
+  left: 50%;
+  padding: 0px;
+}
+.pivot.zoomed .p-pageNavControls {
+  top: -50px;
+  opacity: 0.0001;
+  visibility: hidden;
+}
+
+.p-nextPage-container {
+  left: 45%;
+  top: 0px;
+  position: absolute;
+  float: right;
+}
+
+.p-nextPage {
+  background: transparent url(../images/closeButton.svg) center center no-repeat;
+  width: 40px;
+  height: 40px;
+  border: none;
+  outline: none;
+  opacity: .5;
+  cursor: pointer;
+  z-index: 500;
+}
+
+.p-nextPage:hover {
+  opacity: 1;
+}
+
+.p-lastPage-container {
+  left: -45%;
+  top: 0px;
+  position: absolute;
+  float: right;
+}
+
+.p-lastPage {
+  background: transparent url(../images/closeButton.svg) center center no-repeat;
+  width: 40px;
+  height: 40px;
+  border: none;
+  outline: none;
+  opacity: .5;
+  cursor: pointer;
+  z-index: 500;
+}
+
+.p-lastPage:hover {
+  opacity: 1;
+}
 
 /* Animations */
 @-webkit-keyframes loadingSpinner {

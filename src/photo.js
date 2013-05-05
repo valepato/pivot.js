@@ -101,6 +101,7 @@
         this.container.classList.add("loading");
         this.container.classList.remove("flipped");
         this.imagePreloader.src = source;
+        console.error("Preloader source: " + this.imagePreloader.src)
       } else {
         this.onImagePreloaderError();
       }
@@ -113,7 +114,7 @@
     insertFlickrData: function (data) {
       // Add page url and other properties from json
 
-      photoProperties = data;
+      // photoProperties = data;
       data.pageURL = supplant(pivot.flickr.pageURL, data);
 
       this.container.setAttribute("id",this.id);
@@ -186,6 +187,7 @@
     },
 
     onImageWrapperClick: function (event) {
+      console.error("shit fuck your maom")
       if (pivot.util.matchesSelector(this.container, ".pivot.zoomed .p-photo.selected")) {
         event.stopPropagation();
 

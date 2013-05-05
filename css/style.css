@@ -47,16 +47,6 @@ body {
     0px 10px 5px rgba(17,20,22, 0.5); 
 }
 
-/*.menuBarText {
-    font-family: 'Museo-500';
-    font-weight: normal;
-    font-style: normal;
-    font-size: 42px;
-    color: #0D151F;
-    text-align: center;
-    text-shadow: 0px 2px 0px rgba(115,122,127, 0.5); 
-}*/
-
 #home { 
 	/*background: url(../images/spacer.png) 50% 1000 no-repeat scroll; */
 	height: 2000px;
@@ -199,7 +189,7 @@ html[xmlns] #menu-bar {
     #bg3-2 {
         position: absolute;
         top: 2000px;
-        left: -175px;
+        left: 530px;
         }
     #bg3-3 {
         position: absolute;
@@ -208,8 +198,8 @@ html[xmlns] #menu-bar {
         }
     #bg3-4 {
         position: absolute;
-        top: 2700px;
-        left: -85px;
+        top: 2000px;
+        left: -100px;
         }
 /* midground (clouds) */
 #parallax-bg2 {
@@ -227,13 +217,13 @@ html[xmlns] #menu-bar {
         }
     #bg2-2 {
         position: absolute;
-        top: 300px;
-        left: 1150px;
+        top: 2000px;
+        left: -10px;
         }
     #bg2-3 {
         position: absolute;
-        top: 543px;
-        left: -35px;
+        top: 1750px;
+        left: 200px;
         }
     #bg2-4 {
         position: absolute;
@@ -273,6 +263,11 @@ html[xmlns] #menu-bar {
         position: absolute;
         top: 3000px;
         left: 0px;
+        }
+    #bg1-5 {
+        position: absolute;
+        top: 1100px;
+        left: 300px;
         }
 
 /*---------------------------------------------------*/
