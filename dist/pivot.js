@@ -279,20 +279,20 @@
 
     this.quality = options.quality || "medium";
 
-    this.page = 1;
-    this.perPage = this.rows * this.columns;
+    this.currentPage = options.currentPage || 0;
 
-    feedArguments = { perPage: this.rows * this.columns };
+    this.photosPage = options.galleryData
+
+    feedArguments = {};
 
     // Choose feed
     if (options.jsonName) {
       this.feed = pivot.flickr.feeds.jsonFeed;
-      feedArguments.jsonName = options.jsonName;
+
       // Insert feed arguments
+      feedArguments.jsonName = options.jsonName;
       this.feed = supplant(this.feed, feedArguments);
     }
-
-
 
     // Holds amount of photos loaded or timed out
     this.photoLoadCount = 0;
@@ -303,11 +303,11 @@
     // Holds pivot.Photos
     this.photos = [];
     photosPage = [];
-    currentPage = 0;
 
     this.rows = 2;
     this.columns = 3;
-    this.rowsMax = 4;
+    this.rowsMax = 3;
+    this.photoPerPage = this.columns * this.rowsMax;
 
     var oldBodyMarginRight = $("body").css("margin-right", 10);
 
@@ -328,7 +328,6 @@
 
     this.onFlickrResult = this.onFlickrResult.bind(this);
     this.getPhotoGrid = this.getPhotoGrid.bind(this);
-    this.getNextFlickrPage = this.getNextFlickrPage.bind(this);
     this.getNewPage = this.getNewPage.bind(this);
     this.constrainLayout = this.constrainLayout.bind(this);
     this.tilt = this.tilt.bind(this);
@@ -357,11 +356,12 @@
 
     this.getFlickrPage = this.getFlickrPage.bind(this);
 
+    //if data is JSON set up new page else use previously parsed data
     if (options.jsonName){
       setTimeout(this.getFlickrPage, 400);
+    } else {
+      setTimeout(this.getNewPage, 400);
     }
-
-
 
     //set up back and close buttons
     this.controls = pivot.util.makeElement("div", { "class": "p-controls" });
@@ -390,6 +390,7 @@
     this.lastPageContainer.appendChild(this.lastPage);
     this.navControls.appendChild(this.lastPageContainer);
 
+
     this.constrainLayout();
 
     this.container.appendChild(this.viewport);
@@ -413,7 +414,7 @@
     this.backButton.addEventListener("click", this.onBackButton, false);
 
     this.nextPage.addEventListener("click", this.onNextPage.bind(this), false);
-    this.lastPage.addEventListener("click", this.onLastPage, false);
+    this.lastPage.addEventListener("click", this.onLastPage.bind(this), false);
 
     this.zoomOut = this.zoomOut.bind(this);
     this.container.addEventListener("click", this.zoomOut, false);
@@ -436,8 +437,10 @@
 
     this.zoomOut();
 
-    this.setSelectedPhoto(this.getPhoto(0, 0));
+    $(".p-nextPage-container").hide();
+    $(".p-lastPage-container").hide();
 
+    this.setSelectedPhoto(this.getPhoto(0, 0));
   };
 
   pivot.Gallery.prototype = {
@@ -464,13 +467,23 @@
     // ---------------
 
     getPhotoGrid: function (data) {
-      console.error("get photo grid: " + data);
+      //show next and last depending on page
+      if ((this.photosPage.length - 1) > this.currentPage) {
+        $(".p-nextPage-container").show();
+      }
+      if (this.currentPage != 0) {
+        $(".p-lastPage-container").show();
+      }
+
+      //determine how many rows based on # of images & columns
       if (data.length < this.columns) {
         this.columns = data.length;
       }
       this.rows = Math.ceil(data.length / this.columns);
+
       this.zoomOut();
 
+      //set up DOM elements of images
       for (var i=0;i<data.length;i++)
       {
         this.photos.push(new pivot.Photo( {
@@ -526,68 +539,6 @@
       return photo;
     },
 
-    // Flickr XHR
-    // ----------
-
-    sendFlickrRequest: function (feed) {
-      this.photoLoadCount = 0;
-      this.container.classList.add("gallery-loading");
-      pivot.util.getJSON(feed, this.onFlickrResult);
-    },
-
-    onFlickrResult: function (data, page) {
-      console.error("page: " + page);
-
-      var len = data.photos.photo.length
-        for (var i=0; i < len; i += 9){
-          photosPage.push(data.photos.photo.slice(i, i + 9));
-      }
-
-      this.getPhotoGrid(photosPage[currentPage]);
-
-      photosPage[currentPage].forEach(
-        function (data, index) {
-          this.photos[index].insertFlickrData(data);
-      }, this);
-
-      // data.photos.photo.forEach(
-      // function (data, index) {
-      //   console.error("inside the flicker: :" + data)
-      //   this.photos[index].insertFlickrData(data);
-      // }, this);
-
-      // If amount of photos returned is less than space available clear source of unused photos.
-      // Increase photoLoadCount by unused amount as setting source to '' does not generate event.
-      // this.photoLoadCount += this.photos.length - data.photos.photo.length;
-      // this.photos.slice(data.photos.photo.length).forEach(
-      // function (photo) {
-      //   photo.setSource('');
-      // });
-    },
-
-    getNewPage: function (page) {
-      this.currentPage = page;
-      this.data = photosPage[this.currentPage];
-
-      this.getPhotoGrid(photosPage[this.currentPage]);
-
-      photosPage[this.currentPage].forEach(
-        function (data, index) {
-          this.photos[index].insertFlickrData(data);
-      }, this);
-    },
-
-    getFlickrPage: function (page) {
-      this.page = (page > 0) ? page : 1;
-      this.sendFlickrRequest(supplant(this.feed, {
-        page: this.page
-      }));
-    },
-
-    getNextFlickrPage: function () {
-      this.getFlickrPage(this.page + 1);
-    },
-
     cycle: function (direction) {
       var selectedPhoto = this.getSelectedPhoto(),
           row = selectedPhoto ? parseInt(selectedPhoto.getAttribute("data-row"), 10) : 0,
@@ -626,6 +577,50 @@
 
       this.setSelectedPhoto(this.getPhoto(row, column));
     },
+
+    // Flickr XHR
+    // ----------
+
+    sendFlickrRequest: function (feed) {
+      this.photoLoadCount = 0;
+      this.container.classList.add("gallery-loading");
+      pivot.util.getJSON(feed, this.onFlickrResult);
+    },
+
+    onFlickrResult: function (data, page) {
+      //if images exceed photosPerPage slice data into multiple arrays
+      var len = data.photos.photo.length
+      for (var i=0; i < len; i += this.photoPerPage){
+        photosPage.push(data.photos.photo.slice(i, i + this.photoPerPage));
+      }
+      //hack to remove original, unprocessed data set
+      if (len <= this.photoPerPage) {
+        photosPage.splice(1,1);
+      }
+
+      this.photosPage = photosPage;
+
+      this.getPhotoGrid(photosPage[this.currentPage]);
+
+      photosPage[this.currentPage].forEach(
+        function (data, index) {
+          this.photos[index].insertFlickrData(data);
+      }, this);
+    },
+
+    getNewPage: function () {
+      this.getPhotoGrid(this.photosPage[this.currentPage]);
+
+      this.photosPage[this.currentPage].forEach(
+        function (data, index) {
+          this.photos[index].insertFlickrData(data);
+      }, this);
+    },
+
+    getFlickrPage: function () {
+      this.sendFlickrRequest(supplant(this.feed));
+    },
+
 
     // 3D movement
     // -----------
@@ -723,7 +718,7 @@
         if (this.zoomed) {
           this.zoomOut();
         }
-        pivot.setup({quality: 'medium', jsonName: this.childProject, /*wrapper: document.getElementById("about"),*/ currentProjectParent: this.feed});
+        pivot.setup({quality: 'medium', jsonName: this.childProject, currentProjectParent: this.feed});
       }
 
     },
@@ -738,7 +733,7 @@
     onBackButton: function (event) {
       this.path = pivot.Gallery.prototype.getCurrentFileName(event.target.currentProjectParent);
       if (this.path) {
-        pivot.setup({quality: 'medium', jsonName: this.path/*, wrapper: document.getElementById("about")*/});
+        pivot.setup({quality: 'medium', jsonName: this.path});
       }
     },
 
@@ -779,9 +774,6 @@
         break;
       case 13: // Enter. Flip photo.
         this.getSelectedPhoto().classList.toggle("flipped");
-        break;
-      case 82: // R. Next page.
-        this.getNextFlickrPage();
         break;
       case 32: // Spacebar. Toggle zoom.
         if (this.zoomed) {
@@ -851,16 +843,22 @@
     },
 
     onNextPage: function (event) {
-      console.error("Next Page");
-      if (photosPage.length > 1) {
-        $('itemcard').remove();
-        currentPage += 1;
+      console.error(this.backButton.currentProjectParent)
+      if (this.photosPage.length > 1) {
+        this.currentPage += 1;
       }
-      this.getNewPage(currentPage);
+
+      pivot.setup({quality: 'medium', galleryData: this.photosPage, currentPage: this.currentPage, currentProjectParent: this.backButton.currentProjectParent});
+
     },
 
-    onLastPage: function () {
+    onLastPage: function (event) {
       console.error("Last Page")
+      if (this.photosPage.length > 1) {
+        this.currentPage -= 1;
+      }
+
+      pivot.setup({quality: 'medium', galleryData: this.photosPage, currentPage: this.currentPage, currentProjectParent: this.backButton.currentProjectParent});
     }
 
   };
@@ -1064,7 +1062,6 @@
     },
 
     onImageWrapperClick: function (event) {
-      console.error("shit fuck your maom")
       if (pivot.util.matchesSelector(this.container, ".pivot.zoomed .p-photo.selected")) {
         event.stopPropagation();
 

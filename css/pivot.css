@@ -258,7 +258,7 @@
   left: 50%;
   padding: 0px;
 }
-.pivot.zoomed .p-controls {
+.pivot.p-controls {
   top: -50px;
   opacity: 0.0001;
   visibility: hidden;
@@ -283,10 +283,6 @@
 }
 .p-refresh:hover {
   opacity: 1;
-}
-
-.pivot.gallery-loading .p-refresh {
-
 }
 
 .p-backButton-container {
@@ -320,58 +316,60 @@
   -moz-transition-timing-function: ease-in-out;
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
-  position: relative;
+  width: 100%;
+  position: absolute;
   top: 50%;
-  left: 50%;
   padding: 0px;
 }
-.pivot.zoomed .p-pageNavControls {
+.pivot.p-pageNavControls {
   top: -50px;
   opacity: 0.0001;
   visibility: hidden;
 }
 
 .p-nextPage-container {
-  left: 45%;
+  right: 0px;
   top: 0px;
   position: absolute;
   float: right;
 }
 
 .p-nextPage {
-  background: transparent url(../images/closeButton.svg) center center no-repeat;
-  width: 40px;
-  height: 40px;
+  background: transparent url(../images/nextButton.svg) center center no-repeat;
+  width: 80px;
+  height: 80px;
   border: none;
   outline: none;
-  opacity: .5;
+  opacity: .75;
   cursor: pointer;
   z-index: 500;
 }
 
 .p-nextPage:hover {
+  background: transparent url(../images/nextButton_over.svg) center center no-repeat;
   opacity: 1;
 }
 
 .p-lastPage-container {
-  left: -45%;
+  left: 0px;
   top: 0px;
   position: absolute;
   float: right;
 }
 
 .p-lastPage {
-  background: transparent url(../images/closeButton.svg) center center no-repeat;
-  width: 40px;
-  height: 40px;
+  background: transparent url(../images/lastButton.svg) center center no-repeat;
+  width: 80px;
+  height: 80px;
   border: none;
   outline: none;
-  opacity: .5;
+  opacity: .75;
   cursor: pointer;
   z-index: 500;
 }
 
 .p-lastPage:hover {
+  background: transparent url(../images/lastButton_over.svg) center center no-repeat;
   opacity: 1;
 }
 

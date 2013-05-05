@@ -187,7 +187,6 @@
     },
 
     onImageWrapperClick: function (event) {
-      console.error("shit fuck your maom")
       if (pivot.util.matchesSelector(this.container, ".pivot.zoomed .p-photo.selected")) {
         event.stopPropagation();
 
