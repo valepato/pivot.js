@@ -42,7 +42,6 @@
     this.backing = pivot.util.makeElement("div", {
       "class": "p-backing"
     });
-
     // Set random starting position for backing element
     this.backing.style[transform] = supplant("translate3d({x}px, {y}px, {z}px) rotate({r}deg)", {
       x: Math.random() * 2000 - 1000,
@@ -50,13 +49,10 @@
       z: Math.random() * -16000,
       r: Math.random() * -16000
     });
-
     this.backing.style.opacity = 0;
-
     this.container.appendChild(this.backing);
 
     this.imageWrapper = pivot.util.makeElement("div", {"class": "p-image-wrapper"});
-
     this.container.appendChild(this.imageWrapper);
 
     this.caption = pivot.util.makeElement("figcaption");
@@ -65,8 +61,8 @@
     this.image = pivot.util.makeElement("img", {draggable: false});
     this.imageWrapper.appendChild(this.image);
 
-    this.loader = pivot.util.makeElement("img", {"class": "loadingSpinner", draggable: false})
-    this.loader.src = "../images/loader.png"
+    this.loader = pivot.util.makeElement("img", {"class": "loadingSpinner", draggable: false});
+    this.loader.src = "../images/loader.png";
     this.backing.appendChild(this.loader);
 
     this.imagePreloader = new Image();
@@ -101,7 +97,6 @@
         this.container.classList.add("loading");
         this.container.classList.remove("flipped");
         this.imagePreloader.src = source;
-        console.error("Preloader source: " + this.imagePreloader.src)
       } else {
         this.onImagePreloaderError();
       }
@@ -151,7 +146,6 @@
       }
 
      this.imageWrapper.style.cssText = this.wrapperDimensions;
-
 
       // Unhides image wrapper
       this.container.classList.remove("loading");

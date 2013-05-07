@@ -24,8 +24,8 @@
   cursor: -moz-zoom-out;
 }
 .pivot.gallery-fadeOut {
-  -webkit-animation: gallery-fadeOut 1s linear;
-  -moz-animation: gallery-fadeOut 1s linear;
+  -webkit-animation: gallery-fadeOut 1s ease-out;
+  -moz-animation: gallery-fadeOut 1s ease-out;
   visibility: hidden;
 }
 
@@ -183,6 +183,9 @@
 .pivot:not(.zoomed) .p-image-wrapper:hover {
   -webkit-transform: translate3d(0, 0, 150px);
   -moz-transform: translate3d(0, 0, 150px);
+  box-shadow: 2px 40px 40px #000000;
+  -webkit-box-shadow: 2px 40px 40px #000000;
+  -moz-box-shadow: 2px 40px 40px #000000;
 }
 .pivot.zoomed .p-photo.selected.flipped > .p-image-wrapper {
   -webkit-transform: translate3d(0, 0, 150px) rotate3d(0, 1, 0, 180deg);
@@ -243,6 +246,29 @@
   height: 100%;
 }
 
+.p-zoomOut-container {
+  left: -480px;
+  top: 0px;
+  position: absolute;
+  float: left;
+}
+
+.p-zoomOutButton {
+  background: transparent url(../images/zoomOut.svg) center center no-repeat;
+  width: 40px;
+  height: 40px;
+  border: none;
+  outline: none;
+  opacity: .5;
+  cursor: pointer;
+  z-index: 500;
+}
+
+.p-zoomOutButton:hover {
+  background: transparent url(../images/zoomOut_hover.svg) center center no-repeat;
+  opacity: 1;
+}
+
 /* Image inside .p-photo */
 /* Controls */
 .pivot .p-controls {
@@ -257,11 +283,6 @@
   position: relative;
   left: 50%;
   padding: 0px;
-}
-.pivot.p-controls {
-  top: -50px;
-  opacity: 0.0001;
-  visibility: hidden;
 }
 
 .p-refresh-container {
@@ -467,6 +488,30 @@
   100% {
     visibility: hidden;
     opacity: 0.0001;
+  }
+}
+
+@-webkit-keyframes gallery-fadeIn {
+  0% {
+    visibility: hidden;
+    opacity: 0.0001;
+  }
+
+  100% {
+    visibility: visible;
+    opacity: 0.999;
+  }
+}
+
+@-moz-keyframes gallery-fadeIn {
+  0% {
+    visibility: hidden;
+    opacity: 0.0001;
+  }
+
+  100% {
+    visibility: visible;
+    opacity: 0.999;
   }
 }
 

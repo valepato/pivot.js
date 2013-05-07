@@ -309,7 +309,7 @@
     this.rowsMax = 3;
     this.photoPerPage = this.columns * this.rowsMax;
 
-    var oldBodyMarginRight = $("body").css("margin-right", 10);
+    var oldBodyMarginRight = $("body").css("margin-right", "20px");
 
     // Tilt settings/variables
     // -----------------------
@@ -377,6 +377,12 @@
     this.controls.appendChild(this.backButtonContainer);
     this.backButton.currentProjectParent = options.currentProjectParent || "";
 
+    this.zoomOutContainer = pivot.util.makeElement("div", {"class": "p-zoomOut-container"});
+    this.zoomOutButton = pivot.util.makeElement("button", {"class": "p-zoomOutButton"});
+    this.zoomOutContainer.appendChild(this.zoomOutButton);
+    this.controls.appendChild(this.zoomOutContainer);
+
+
     //setup paging controls
     this.navControls = pivot.util.makeElement("div", { "class": "p-pageNavControls" });
     //next page
@@ -412,6 +418,7 @@
 
     this.refresh.addEventListener("click", this.onCloseButton, false);
     this.backButton.addEventListener("click", this.onBackButton, false);
+    this.zoomOutButton.addEventListener("click", this.zoomOut, false);
 
     this.nextPage.addEventListener("click", this.onNextPage.bind(this), false);
     this.lastPage.addEventListener("click", this.onLastPage.bind(this), false);
@@ -436,6 +443,12 @@
     // --------------
 
     this.zoomOut();
+
+    $(".p-backButton-container").hide();
+    $(".p-zoomOut-container").hide();
+    if (this.backButton.currentProjectParent != "") {
+      $(".p-backButton-container").show();
+    }
 
     $(".p-nextPage-container").hide();
     $(".p-lastPage-container").hide();
@@ -593,7 +606,7 @@
       for (var i=0; i < len; i += this.photoPerPage){
         photosPage.push(data.photos.photo.slice(i, i + this.photoPerPage));
       }
-      //hack to remove original, unprocessed data set
+      //hack to remove original, unprocessed data set from object
       if (len <= this.photoPerPage) {
         photosPage.splice(1,1);
       }
@@ -629,6 +642,8 @@
       this.container.classList.add("zoomed");
       this.zoomed = true;
       this.zoomPlane.style[transform] = "translate3d(0, 0, 0)";
+      $(".p-backButton-container").hide();
+      $(".p-zoomOut-container").show();
       this.track();
 
       if (!this.tilting) {
@@ -639,6 +654,8 @@
     zoomOut: function () {
       this.container.classList.remove("zoomed");
       this.zoomed = false;
+      $(".p-zoomOut-container").hide();
+      $(".p-backButton-container").show();
       this.zoomPlane.style[transform] = supplant("translate3d(0, 0, {z}px)", {
         z: -this.rows * 800
       });
@@ -702,14 +719,21 @@
     onPhotoClickDelegate: function (event) {
       var photo = pivot.util.ancestor(event.target, ".p-photo");
 
+      //console.error(this.childProject)
+
       if (event.target !== photo) {
         event.stopPropagation();
       }
 
-      this.setSelectedPhoto(photo);
-      if (!this.zoomed) {
-        this.zoomIn();
+      if (photo.objectType == "nodeCard"){
+        pivot.setup({quality: 'medium', jsonName: photo.childProject, currentProjectParent: this.feed});
+      } else {
+        this.setSelectedPhoto(photo);
+        if (!this.zoomed) {
+          this.zoomIn();
+        }
       }
+
     },
 
     onSelectedClickDelegate: function (event) {
@@ -740,6 +764,7 @@
     onCloseButton: function (event) {
       this.container = pivot.util.ancestor(event.target, ".pivot");
       this.container.classList.add("gallery-fadeOut");
+      $('.galleryNav').removeClass("gallery-fadeOut").addClass("gallery-fadeIn");
       pivot.Gallery.prototype.onClose();
     },
 
@@ -816,11 +841,6 @@
       this.constrainLayout();
     },
 
-    reloadImages: function () {
-      $('itemcard').remove();
-
-    },
-
     onShow: function () {
         // Turn off scroll bars to prevent the scroll wheel from affecting the main page.  Make sure turning off the scrollbars doesn't shift the position of the content.
         // This solution works Chrome 12, Firefox 4, IE 7/8/9, and Safari 5.
@@ -843,21 +863,16 @@
     },
 
     onNextPage: function (event) {
-      console.error(this.backButton.currentProjectParent)
       if (this.photosPage.length > 1) {
         this.currentPage += 1;
       }
-
       pivot.setup({quality: 'medium', galleryData: this.photosPage, currentPage: this.currentPage, currentProjectParent: this.backButton.currentProjectParent});
-
     },
 
     onLastPage: function (event) {
-      console.error("Last Page")
       if (this.photosPage.length > 1) {
         this.currentPage -= 1;
       }
-
       pivot.setup({quality: 'medium', galleryData: this.photosPage, currentPage: this.currentPage, currentProjectParent: this.backButton.currentProjectParent});
     }
 
@@ -917,7 +932,6 @@
     this.backing = pivot.util.makeElement("div", {
       "class": "p-backing"
     });
-
     // Set random starting position for backing element
     this.backing.style[transform] = supplant("translate3d({x}px, {y}px, {z}px) rotate({r}deg)", {
       x: Math.random() * 2000 - 1000,
@@ -925,13 +939,10 @@
       z: Math.random() * -16000,
       r: Math.random() * -16000
     });
-
     this.backing.style.opacity = 0;
-
     this.container.appendChild(this.backing);
 
     this.imageWrapper = pivot.util.makeElement("div", {"class": "p-image-wrapper"});
-
     this.container.appendChild(this.imageWrapper);
 
     this.caption = pivot.util.makeElement("figcaption");
@@ -940,8 +951,8 @@
     this.image = pivot.util.makeElement("img", {draggable: false});
     this.imageWrapper.appendChild(this.image);
 
-    this.loader = pivot.util.makeElement("img", {"class": "loadingSpinner", draggable: false})
-    this.loader.src = "../images/loader.png"
+    this.loader = pivot.util.makeElement("img", {"class": "loadingSpinner", draggable: false});
+    this.loader.src = "../images/loader.png";
     this.backing.appendChild(this.loader);
 
     this.imagePreloader = new Image();
@@ -976,7 +987,6 @@
         this.container.classList.add("loading");
         this.container.classList.remove("flipped");
         this.imagePreloader.src = source;
-        console.error("Preloader source: " + this.imagePreloader.src)
       } else {
         this.onImagePreloaderError();
       }
@@ -1026,7 +1036,6 @@
       }
 
      this.imageWrapper.style.cssText = this.wrapperDimensions;
-
 
       // Unhides image wrapper
       this.container.classList.remove("loading");

@@ -41,7 +41,7 @@ body {
     font-weight: normal;
     font-style: normal;
     font-size: 280px;
-    color: #0D151F;
+    color: #14151C;
     text-align: center;
     text-shadow: 0px -1px 0px rgba(148,159,168, 0.5),
     0px 10px 5px rgba(17,20,22, 0.5); 
@@ -104,13 +104,9 @@ body {
 }
 
 .menu-bar {
-  width: 850px;
-  height: 38px;
-  left: -425px;
   margin: 0px 0px 0px 0px;
   padding: 6px 6px 0px 6px;
   line-height: 100%;
-  border-radius: 15px;
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
   box-shadow: 2px 2px 3px #000000;
@@ -125,6 +121,22 @@ body {
   position:relative;
   pointer-events:visible;
   z-index:999;
+}
+.menu-bar.top {
+  width: 850px;
+  height: 38px;
+  left: -425px;
+  border-radius: 15px;
+}
+.menu-bar.portfolio {
+  width: 125px;
+  height: 125px;
+  left: 81px;
+  top: -215px;
+  text-align: center;
+  line-height: 105px;
+  border-radius: 50%;
+  opacity: .001;
 }
 .menu-bar li {
   margin: 0px 6px 0px 6px;
@@ -162,6 +174,99 @@ body {
   display: inline-block;
 }
 
+/*---------------------------------------------------*/
+
+.galleryNav {
+  background: transparent url(../images/galleryIconBkgd.png) center center no-repeat;
+  width: 300px;
+  height: 300px;
+  margin: 0px 0px 0px 0px;
+  position:relative;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  z-index:500;
+}
+
+.galleryNav.gallery-fadeOut {
+  -webkit-animation: gallery-fadeOut 1s ease-out;
+  -moz-animation: gallery-fadeOut 1s ease-out;
+  visibility: hidden;
+}
+
+.galleryNav.gallery-fadeIn {
+  -webkit-animation: gallery-fadeIn 1s ease-in;
+  -moz-animation: gallery-fadeIn 1s ease-in;
+  visibility: visible;
+}
+
+.galleryIcon {
+  background: transparent url(../images/galleryIcon.png) center center no-repeat;
+  width: 300px;
+  height: 300px;
+  top: -7px;
+  margin: 0px 0px 0px 0px;
+  position:relative;
+  border: none;
+  outline: none;
+  pointer-events:none;
+  z-index:1000;
+}
+
+.galleryIcon.over {
+  background: transparent url(../images/galleryIcon_over.png) center center no-repeat;
+  top: -20px;
+  margin: 0px 0px 0px 0px;
+}
+
+/*---------------------------------------------------*/
+
+.aboutMe {
+  width: 1283px;
+  height: 653px;
+  position: relative;
+  outline: 1px solid;
+  outline-color: #666666;
+  z-index: 500;
+}
+
+.aboutColumn {
+  height: 202px;
+  margin: 8px 8px 8px 8px;
+  position: relative;
+  outline: 1px solid;
+  outline-color: #666666;
+}
+
+.aboutColumn.small {
+  width: 349px;
+  float: left;
+}
+
+.aboutColumn.large {
+  width: 902px;
+  float: right;
+}
+
+.aboutContent {
+  height: 170px;
+  margin: 16px 16px 16px 16px;
+  position: relative;
+  outline: 1px solid;
+  outline-color: #ff0000;
+}
+
+.aboutContent.small {
+  width: 317px;
+}
+
+.aboutContent.large {
+  width: 870px;
+}
+
+
+/*---------------------------------------------------*/
+
 html[xmlns] #menu-bar {
   display: block;
 }
@@ -185,11 +290,6 @@ html[xmlns] #menu-bar {
         position: absolute;
         top: 300px;
         left: 70px;
-        }
-    #bg3-2 {
-        position: absolute;
-        top: 2000px;
-        left: 530px;
         }
     #bg3-3 {
         position: absolute;
@@ -222,8 +322,8 @@ html[xmlns] #menu-bar {
         }
     #bg2-3 {
         position: absolute;
-        top: 1750px;
-        left: 200px;
+        top: 1650px;
+        left: 530px;
         }
     #bg2-4 {
         position: absolute;
@@ -234,6 +334,16 @@ html[xmlns] #menu-bar {
         position: absolute;
         top: 900px;
         left: 890px;
+        }
+    #bg2-6 {
+        position: absolute;
+        top: 3350px;
+        left: 440px;
+        }
+    #bg2-7 {
+        position: absolute;
+        top: 4659px;
+        left: -39px;
         }
 /* background (clouds) */
 #parallax-bg1 {
@@ -269,6 +379,7 @@ html[xmlns] #menu-bar {
         top: 1100px;
         left: 300px;
         }
+    
 
 /*---------------------------------------------------*/
 

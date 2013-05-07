@@ -1,0 +1,102 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+  <title>David L Duckworth - UX Design</title>
+  <meta name="description" content="How to create a parallax scrolling effect using jQuery, HTML5 and CSS3">
+  <meta name="author" content="Mohiuddin Parekh, Nettuts+">
+
+  <!-- CSS Code -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" type="text/css" href="css/pivot.css">
+  <link rel="stylesheet" href="css/jquery.parallax.css" />
+
+  <!-- JS Code -->
+  <script src="lib/modernizr.custom.45730.js"></script>
+   <script src="lib/jquery-1.7.2.min.js"></script>
+  <script src="dist/pivot.js"></script>
+  <script src="lib/script.js"></script>
+  <link href="http://vjs.zencdn.net/c/video-js.css" rel="stylesheet">
+  <script src="http://vjs.zencdn.net/c/video.js"></script>
+</head>
+
+<body>
+  <div id="content">
+    <!-- Section #1 -->
+    <div id="home">
+      <nav id="mainMenu">
+          <ul class="menu-bar">
+           <li id="menu01" category="projects_interface" jumpTo="#portfolio"><a href="javascript:null(0)">Interface</a></li>
+           <li id="menu02" category="projects_design" jumpTo="#portfolio"><a href="javascript:null(0)">Design</a> </li>
+           <li id="menu03" category="projects_modeling" jumpTo="#portfolio"><a href="javascript:null(0)">Modeling</a> </li>
+           <li id="menu04" category="projects_animation" jumpTo="#portfolio"><a href="javascript:null(0)">Animation</a></li>
+           <li id="menu05" category="projects_interface" jumpTo="#portfolio"><a href="javascript:null(0)">Details</a></li>
+          </ul>
+        </nav>
+    </div>
+    <!-- Section #2 -->
+    <div id="about">
+<!--       <img src="images/spacer.png" width='600' height='2800'> -->
+    </div>
+    <!-- Section #2 -->
+    <div id="portfolio">
+<!--       <img src="images/spacer.png" width='600' height='2800'> -->
+    </div>
+    <div id="me">
+<!--       <img src="images/spacer.png" width='600' height='2800'> -->
+<!--       <video id="my_video_1" class="video-js vjs-default-skin" controls
+        preload="auto" width="640" height="264" poster="my_video_poster.png"
+        data-setup="{}">
+        <source src="my_video.mp4" type='video/mp4'>
+        <source src="my_video.webm" type='video/webm'>
+      </video> -->
+    </div>
+  </div>
+
+
+        <!-- Parallax foreground -->
+      <div id="parallax-bg3">
+        <div id="bg3-1" class="bigHeaderText">CREATE.</div>
+        <img id="bg3-2" src="images/powerlines.png" alt="cloud" width="800" height="772"/>
+        <img id="bg3-4" src="images/birds02.png" width="800" height="693" alt="Landscape with trees and cows"/>
+      </div>
+
+      <!-- Parallax  midground clouds -->
+      <div id="parallax-bg2">
+        <div id="bg2-1">
+          <div id="port">
+            <!-- Seven image layers, each layer slightly bigger than the one behind, making 'closer' layers move faster. -->
+            <img class="parallax-layer" src="images/page00.png" alt="" style="width:1600px; height:833px;"/>
+            <img class="parallax-layer" src="images/page01.png" alt="" style="width:1700px; height:885px;"/>
+            <img class="parallax-layer" src="images/page02.png" alt="" style="width:1800px; height:968px;"/>
+          </div>
+        </div>
+        <!-- <img id="bg2-1" src="images/cloud-lg1.png" alt="cloud"/> -->
+        <div id="bg2-2" class="bigHeaderText">EXPERIENCE.</div>
+        <!-- <img id="bg2-3" src="images/birds01.png" alt="cloud"/> -->
+        <!-- <img id="bg2-4" src="images/cloud-lg1.png" alt="cloud"/> -->
+        <!-- <img id="bg2-5" src="images/cloud-lg1.png" alt="cloud"/> -->
+      </div>
+
+      <!-- Parallax  background clouds -->
+      <div id="parallax-bg1">
+        <img id="bg1-1" src="images/bkgd01.jpg" width="1920" height="1000"/>
+        <img id="bg1-2" src="images/bkgd02.jpg" width="1920" height="1000"/>
+        <img id="bg1-5" src="images/birds03.png" width="800" height="693"/>
+        <img id="bg1-3" src="images/bkgd03.jpg" width="1920" height="1000"/>
+        <img id="bg1-4" src="images/bkgd02.png" width="1920" height="1000"/>
+      </div>
+
+  <script src="lib/jquery.parallax.js"></script>
+  <script type="text/javascript">
+
+    jQuery(document).ready(function(){
+      // Declare parallax on layers
+      jQuery('.parallax-layer').parallax();
+    });
+  </script>
+</body>
+
+</html>
