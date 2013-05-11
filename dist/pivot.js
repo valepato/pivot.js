@@ -396,7 +396,6 @@
     this.lastPageContainer.appendChild(this.lastPage);
     this.navControls.appendChild(this.lastPageContainer);
 
-
     this.constrainLayout();
 
     this.container.appendChild(this.viewport);
@@ -418,13 +417,13 @@
 
     this.refresh.addEventListener("click", this.onCloseButton, false);
     this.backButton.addEventListener("click", this.onBackButton, false);
-    this.zoomOutButton.addEventListener("click", this.zoomOut, false);
+    this.zoomOutButton.addEventListener("click", this.zoomOut.bind(this), false);
 
     this.nextPage.addEventListener("click", this.onNextPage.bind(this), false);
-    this.lastPage.addEventListener("click", this.onLastPage.bind(this), false);
+    this.lastPage.addEventListener("click", this.onPreviousPage.bind(this), false);
 
-    this.zoomOut = this.zoomOut.bind(this);
-    this.container.addEventListener("click", this.zoomOut, false);
+    //this.container.zoomOut = this.zoomOut.bind(this);
+    //this.container.addEventListener("click", this.zoomOut, false);
 
     if (Modernizr.devicemotion  && Modernizr.touch) {
       window.addEventListener("devicemotion", this.onDeviceMotion.bind(this), false);
@@ -476,17 +475,31 @@
       }
     },
 
+    showHidePaging: function() {
+      //show next and last depending on page
+      if (this.zoomed) {
+        $(".p-nextPage-container").show();
+        $(".p-lastPage-container").show();
+      } else {
+        if ((this.photosPage.length - 1) > this.currentPage) {
+          $(".p-nextPage-container").show();
+        } else {
+          $(".p-nextPage-container").hide();
+        }
+        if (this.currentPage != 0) {
+          $(".p-lastPage-container").show();
+        } else {
+          $(".p-lastPage-container").hide();
+        }
+      }
+    },
+
     // Set up photo grid
     // ---------------
 
     getPhotoGrid: function (data) {
       //show next and last depending on page
-      if ((this.photosPage.length - 1) > this.currentPage) {
-        $(".p-nextPage-container").show();
-      }
-      if (this.currentPage != 0) {
-        $(".p-lastPage-container").show();
-      }
+      this.showHidePaging();
 
       //determine how many rows based on # of images & columns
       if (data.length < this.columns) {
@@ -552,39 +565,59 @@
       return photo;
     },
 
+    //get column and row coord of next image when paging forward
+    getNextLocation: function(column, row, selectedPhotoNumber) {
+      var newGridLocation = {newColumn: column, newRow: row}
+
+      if (column == (this.columns - 1) || (selectedPhotoNumber == (this.photosPage[this.currentPage].length + 1))) {
+        if (row == (this.rows -1)) {
+          newGridLocation.newColumn = 0;
+          newGridLocation.newRow = 0;
+        } else {
+          newGridLocation.newColumn = (column + 1) % this.columns;
+          newGridLocation.newRow = (row + 1);
+        }
+      } else {
+        newGridLocation.newColumn = (column + 1) % this.columns;
+      }
+      return newGridLocation;
+    },
+
+    //get column and row coord of last image when paging backward
+    getLastLocation: function(column, row, selectedPhotoNumber) {
+      var newGridLocation = {newColumn: column, newRow: row}
+      if (column == 0) {
+        if (row == 0) {
+          newGridLocation.newColumn = ((this.photosPage[this.currentPage].length % this.columns) - 1);
+          if (newGridLocation.newColumn < 0) {newGridLocation.newColumn = (this.columns - 1)}
+          newGridLocation.newRow = ((Math.ceil(this.photosPage[this.currentPage].length / this.columns)) - 1);
+        } else {
+          newGridLocation.newColumn = pivot.util.mod(column - 1, this.columns);
+          newGridLocation.newRow = (row - 1);
+        }
+      } else {
+        newGridLocation.newColumn = pivot.util.mod(column - 1, this.columns);
+      }
+      return newGridLocation;
+    },
+
     cycle: function (direction) {
       var selectedPhoto = this.getSelectedPhoto(),
           row = selectedPhoto ? parseInt(selectedPhoto.getAttribute("data-row"), 10) : 0,
-          column = selectedPhoto ? parseInt(selectedPhoto.getAttribute("data-column"), 10) : 0;
+          column = selectedPhoto ? parseInt(selectedPhoto.getAttribute("data-column"), 10) : 0,
+          selectedPhotoNumber = (Number((selectedPhoto.id).slice(9)) + 2),
+          newGridLocation = {};
 
       switch (direction) {
       case "left":
-        column = pivot.util.mod(column - 1, this.columns);
+        newGridLocation = this.getLastLocation(column, row);
+        column = newGridLocation.newColumn;
+        row = newGridLocation.newRow;
         break;
       case "right":
-        column = (column + 1) % this.columns;
-        break;
-      case "up":
-        row = pivot.util.mod(row - 1, this.rows);
-        break;
-      case "down":
-        row = (row + 1) % this.rows;
-        break;
-      case "next":
-        if (column < this.columns - 1) {
-          column++;
-        } else {
-          column = 0;
-          row = (row < this.rows - 1) ? row + 1 : 0;
-        }
-        break;
-      case "prev":
-        if (column) { // !== 0
-          column--;
-        } else {
-          column = this.columns - 1;
-          row = row ? row - 1 : this.rows - 1;
-        }
+        newGridLocation = this.getNextLocation(column, row, selectedPhotoNumber);
+        column = newGridLocation.newColumn;
+        row = newGridLocation.newRow;
         break;
       }
 
@@ -642,6 +675,7 @@
       this.container.classList.add("zoomed");
       this.zoomed = true;
       this.zoomPlane.style[transform] = "translate3d(0, 0, 0)";
+      //this.showHidePaging();
       $(".p-backButton-container").hide();
       $(".p-zoomOut-container").show();
       this.track();
@@ -654,6 +688,7 @@
     zoomOut: function () {
       this.container.classList.remove("zoomed");
       this.zoomed = false;
+      //this.showHidePaging();
       $(".p-zoomOut-container").hide();
       $(".p-backButton-container").show();
       this.zoomPlane.style[transform] = supplant("translate3d(0, 0, {z}px)", {
@@ -791,12 +826,6 @@
       case 39: // Right arrow. Next Photo.
         this.cycle('right');
         break;
-      case 38: // Up arrow. Photo above.
-        this.cycle('up');
-        break;
-      case 40: // Down arrow. Photo beneath.
-        this.cycle('down');
-        break;
       case 13: // Enter. Flip photo.
         this.getSelectedPhoto().classList.toggle("flipped");
         break;
@@ -842,15 +871,15 @@
     },
 
     onShow: function () {
-        // Turn off scroll bars to prevent the scroll wheel from affecting the main page.  Make sure turning off the scrollbars doesn't shift the position of the content.
-        // This solution works Chrome 12, Firefox 4, IE 7/8/9, and Safari 5.
-        // It turns off the scroll bars, but doesn't prevent the scrolling, in Opera 11 and Safari 5.
-        var oldBodyOuterWidth = $("body").outerWidth(true);
-        var newBodyOuterWidth;
-        $("html").css("overflow-y", "hidden");
-        newBodyOuterWidth = $("body").outerWidth(true);
-        $("body").css("margin-right", (newBodyOuterWidth - oldBodyOuterWidth + parseInt(this.oldBodyMarginRight)) + "px");
-        $("#mainMenu").css("width", oldBodyOuterWidth + "px");
+      // Turn off scroll bars to prevent the scroll wheel from affecting the main page.  Make sure turning off the scrollbars doesn't shift the position of the content.
+      // This solution works Chrome 12, Firefox 4, IE 7/8/9, and Safari 5.
+      // It turns off the scroll bars, but doesn't prevent the scrolling, in Opera 11 and Safari 5.
+      var oldBodyOuterWidth = $("body").outerWidth(true);
+      var newBodyOuterWidth;
+      $("html").css("overflow-y", "hidden");
+      newBodyOuterWidth = $("body").outerWidth(true);
+      $("body").css("margin-right", (newBodyOuterWidth - oldBodyOuterWidth + parseInt(this.oldBodyMarginRight)) + "px");
+      $("#mainMenu").css("width", oldBodyOuterWidth + "px");
     },
 
     onClose: function () {
@@ -863,17 +892,25 @@
     },
 
     onNextPage: function (event) {
-      if (this.photosPage.length > 1) {
-        this.currentPage += 1;
+      if (this.zoomed) {
+        this.cycle('right');
+      } else {
+        if (this.photosPage.length > 1) {
+          this.currentPage += 1;
+        }
+        pivot.setup({quality: 'medium', galleryData: this.photosPage, currentPage: this.currentPage, currentProjectParent: this.backButton.currentProjectParent});
       }
-      pivot.setup({quality: 'medium', galleryData: this.photosPage, currentPage: this.currentPage, currentProjectParent: this.backButton.currentProjectParent});
     },
 
-    onLastPage: function (event) {
-      if (this.photosPage.length > 1) {
-        this.currentPage -= 1;
+    onPreviousPage: function (event) {
+      if (this.zoomed) {
+        this.cycle('left');
+      } else {
+        if (this.photosPage.length > 1) {
+          this.currentPage -= 1;
+        }
+        pivot.setup({quality: 'medium', galleryData: this.photosPage, currentPage: this.currentPage, currentProjectParent: this.backButton.currentProjectParent});
       }
-      pivot.setup({quality: 'medium', galleryData: this.photosPage, currentPage: this.currentPage, currentProjectParent: this.backButton.currentProjectParent});
     }
 
   };

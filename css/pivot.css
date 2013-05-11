@@ -8,8 +8,6 @@
   left: 0;
   width: 100%;
   height: 100%;
-  /*background-image: -webkit-radial-gradient(50% 50%, circle farthest-side, #222222 0%, rgba(0,0,0,0) 100%);
-  background-image: -moz-radial-gradient(50% 50%, circle farthest-side, #222222 0%, rgba(0,0,0,0) 100%);*/
   z-index: 200;
 }
 .pivot.fullscreen {
@@ -124,6 +122,7 @@
   opacity: 0.0001;
 }
 
+/* Individual Image Loader */
 .loadingSpinner {
   -webkit-animation: loadingSpinner 1s infinite linear;
   -moz-animation: loadingSpinner 1s infinite linear;
@@ -265,7 +264,7 @@
 }
 
 .p-zoomOutButton:hover {
-  background: transparent url(../images/zoomOut_hover.svg) center center no-repeat;
+  background: transparent url(../images/zoomOut_over.svg) center center no-repeat;
   opacity: 1;
 }
 
@@ -303,6 +302,7 @@
   z-index: 500;
 }
 .p-refresh:hover {
+  background: transparent url(../images/closeButton_over.svg) center center no-repeat;
   opacity: 1;
 }
 
@@ -325,6 +325,7 @@
 }
 
 .p-backButton:hover {
+  background: transparent url(../images/backButton_over.svg) center center no-repeat;
   opacity: 1;
 }
 
@@ -391,6 +392,29 @@
 
 .p-lastPage:hover {
   background: transparent url(../images/lastButton_over.svg) center center no-repeat;
+  opacity: 1;
+}
+
+.p-nextImage-container {
+  right: 0px;
+  top: 50px;
+  position: absolute;
+  float: right;
+}
+
+.p-nextImage {
+  background: transparent url(../images/nextButton.svg) center center no-repeat;
+  width: 80px;
+  height: 80px;
+  border: none;
+  outline: none;
+  opacity: .75;
+  cursor: pointer;
+  z-index: 500;
+}
+
+.p-nextImage:hover {
+  background: transparent url(../images/nextButton_over.svg) center center no-repeat;
   opacity: 1;
 }
 
