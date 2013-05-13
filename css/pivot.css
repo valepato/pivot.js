@@ -250,6 +250,7 @@
   top: 0px;
   position: absolute;
   float: left;
+  display: none;
 }
 
 .p-zoomOutButton {
@@ -311,6 +312,7 @@
   top: 0px;
   position: absolute;
   float: left;
+  display: none;
 }
 
 .p-backButton {

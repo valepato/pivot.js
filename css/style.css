@@ -60,7 +60,7 @@ body {
 }
 
 .verySmall {
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .small {
@@ -186,7 +186,7 @@ body {
 
 #mainMenu {
   width: 100%;
-  top: 625px;
+  top: 575px;
   left: 50%;
   position:relative;
   z-index: 900;
@@ -315,12 +315,13 @@ body {
 
 .aboutColumn {
   height: 202px;
+  top: 50%;
   margin: 8px 8px 8px 8px;
   position: relative;
-  background-color: #282C3D;
+  background-color: rgba(40, 44, 61, .5);
   /*outline: 1px solid;
   outline-color: #666666;*/
-  opacity: .50;
+  opacity: 1;
   vertical-align: middle;
 }
 
@@ -338,6 +339,7 @@ body {
   height: 170px;
   margin: 16px 16px 16px 16px;
   position: relative;
+  vertical-align: middle;
   /*outline: 1px solid;
   outline-color: #ff0000;*/
 }
@@ -348,6 +350,46 @@ body {
 
 .aboutContent.large {
   width: 870px;
+}
+
+.aboutLink {
+  border-style: none;
+  width: 100%;
+  height: 100%;
+  opacity: .5;
+}
+
+.aboutLink.linkOne {
+  background: transparent url(../images/emailIcon.png) center center no-repeat;
+  width: 95px;
+  height: 54px;
+  margin: 40px 65px;
+}
+
+.aboutLink.linkTwo {
+  background: transparent url(../images/resumeIcon.png) center center no-repeat;
+  width: 72px;
+  height: 85px;
+  margin: 40px 65px;
+
+}
+
+.aboutLink.linkThree {
+  background: transparent url(../images/linkedInIcon.png) center center no-repeat;
+  width: 75px;
+  height: 75px;
+  margin: 40px 65px;
+}
+
+.aboutLink.linkFour {
+  background: transparent url(../images/archiveIcon.png) center center no-repeat;
+  width: 87px;
+  height: 68px;
+  margin: 40px 65px;
+}
+
+.aboutLink:hover {
+  opacity: 1;
 }
 
 /*---------------------------------------------------*/
@@ -373,7 +415,7 @@ html[xmlns] #menu-bar {
     /* balloon */
     #bg3-1 {
         position: absolute;
-        top: 300px;
+        top: 250px;
         left: 70px;
         }
     #bg3-3 {
@@ -458,11 +500,6 @@ html[xmlns] #menu-bar {
         position: absolute;
         top: 3000px;
         left: 0px;
-        }
-    #bg1-5 {
-        position: absolute;
-        top: 1100px;
-        left: 300px;
         }
     
 

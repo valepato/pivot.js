@@ -52,7 +52,7 @@
 
     // Holds how fast tilting reacts to mouse movement.
     // Lower is faster.
-    this.tiltLag = 7;
+    this.tiltLag = 25;
 
     this.rotationDelta = { x: 0, y: 0 };
     this.movementCoordinates = { x: 0, y: 0 };
@@ -110,6 +110,7 @@
     this.backButton = pivot.util.makeElement("button", { "class": "p-backButton" });
     this.backButtonContainer.appendChild(this.backButton);
     this.controls.appendChild(this.backButtonContainer);
+
     this.backButton.currentProjectParent = options.currentProjectParent || "";
 
     this.zoomOutContainer = pivot.util.makeElement("div", {"class": "p-zoomOut-container"});
@@ -140,15 +141,17 @@
     // Setup events
     // ------------
 
+    window.addEventListener("keydown", function(e) {
+      // space and arrow keys
+      if([32, 38, 40].indexOf(e.keyCode) > -1) {
+          e.preventDefault();
+      }
+    }, false);
     window.addEventListener("resize", this.constrainLayout, false);
     this.trackingPlane.addEventListener("load", this.onPhotoLoaded.bind(this), false);
     this.trackingPlane.addEventListener("nodeLoad", this.onSelectedClickDelegate.bind(this), false);
     document.addEventListener("keydown", this.onKeyDown.bind(this), false);
     pivot.util.delegate(this.viewport, ".p-photo", "click", this.onPhotoClickDelegate.bind(this));
-
-    // Turnning off scroll wheel for now
-    // this.viewport.addEventListener("mousewheel", this.onViewportMouseWheel.bind(this), false);
-    // this.viewport.addEventListener("DOMMouseScroll", this.onViewportMouseWheel.bind(this), false);
 
     this.refresh.addEventListener("click", this.onCloseButton, false);
     this.backButton.addEventListener("click", this.onBackButton, false);
@@ -156,9 +159,6 @@
 
     this.nextPage.addEventListener("click", this.onNextPage.bind(this), false);
     this.lastPage.addEventListener("click", this.onPreviousPage.bind(this), false);
-
-    //this.container.zoomOut = this.zoomOut.bind(this);
-    //this.container.addEventListener("click", this.zoomOut, false);
 
     if (Modernizr.devicemotion  && Modernizr.touch) {
       window.addEventListener("devicemotion", this.onDeviceMotion.bind(this), false);
@@ -211,6 +211,8 @@
     },
 
     showHidePaging: function() {
+      $(".p-nextPage-container").hide();
+      $(".p-lastPage-container").hide();
       //show next and last depending on page
       if (this.zoomed) {
         $(".p-nextPage-container").show();
@@ -410,7 +412,9 @@
       this.container.classList.add("zoomed");
       this.zoomed = true;
       this.zoomPlane.style[transform] = "translate3d(0, 0, 0)";
-      //this.showHidePaging();
+      if (photosPage) {
+        this.showHidePaging();
+      }
       $(".p-backButton-container").hide();
       $(".p-zoomOut-container").show();
       this.track();
@@ -423,9 +427,13 @@
     zoomOut: function () {
       this.container.classList.remove("zoomed");
       this.zoomed = false;
-      //this.showHidePaging();
+      if (photosPage) {
+        this.showHidePaging();
+      }
       $(".p-zoomOut-container").hide();
-      $(".p-backButton-container").show();
+      if (this.backButton.currentProjectParent != "") {
+        $(".p-backButton-container").show();
+      }
       this.zoomPlane.style[transform] = supplant("translate3d(0, 0, {z}px)", {
         z: -this.rows * 800
       });
@@ -532,10 +540,16 @@
     },
 
     onCloseButton: function (event) {
-      this.container = pivot.util.ancestor(event.target, ".pivot");
-      this.container.classList.add("gallery-fadeOut");
       $('.galleryNav').removeClass("gallery-fadeOut").addClass("gallery-fadeIn");
-      pivot.Gallery.prototype.onClose();
+      $('.menu-bar').children().each( function( index ) {
+        if (!($(this).attr('jumpTo') == '#me')) {
+          $(this).removeClass('menu-bar-selected');
+        }
+      });
+      var html = $("html");
+      html.css("overflow-y", "scroll");
+      $("#mainMenu").css("width", "100%");
+      $('.pivot').remove();
     },
 
     onViewportMouseWheel: function (event) {
@@ -615,15 +629,6 @@
       newBodyOuterWidth = $("body").outerWidth(true);
       $("body").css("margin-right", (newBodyOuterWidth - oldBodyOuterWidth + parseInt(this.oldBodyMarginRight)) + "px");
       $("#mainMenu").css("width", oldBodyOuterWidth + "px");
-    },
-
-    onClose: function () {
-        $('.menu-bar').children().each( function( index ) {
-          $(this).removeClass('menu-bar-selected');
-        });
-        var html = $("html");
-        html.css("overflow-y", "scroll");
-        $("#mainMenu").css("width", "100%");
     },
 
     onNextPage: function (event) {
