@@ -3,23 +3,27 @@
         "photo": 
         [
             {
-                "objectType": "imageCard",
+                "objectType": "video",
+                "MP4Name": "01_phoenix.mp4",
+                "webMName": "01_phoenix.webm",
                 "childProject": "",
                 "imagePath": "portfolio/images",
                 "category": "animation",
                 "project": "comps",
-                "imageName_lg": "01_phoenix.jpg",
+                "imageName_lg": "01_phoenix_LG.jpg",
                 "title": "Demo Comp",
                 "description": ""
             }, 
             
              {
-                "objectType": "imageCard",
+                "objectType": "video",
+                "MP4Name": "02_viz.mp4",
+                "webMName": "02_viz.webm",
                 "childProject": "",
                 "imagePath": "portfolio/images",
                 "category": "animation",
                 "project": "comps",
-                "imageName_lg": "02_viz.jpg",
+                "imageName_lg": "02_viz_LG.jpg",
                 "title": "Demo Comp",
                 "description": ""
             }

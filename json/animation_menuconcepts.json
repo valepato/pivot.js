@@ -3,7 +3,9 @@
         "photo": 
         [
             {
-                "objectType": "imageCard",
+                "objectType": "video",
+                "MP4Name": "01_menuconcept.mp4",
+                "webMName": "01_menuconcept.webm",
                 "childProject": "",
                 "imagePath": "portfolio/images",
                 "category": "animation",
@@ -14,7 +16,9 @@
             }, 
 
             {
-                "objectType": "imageCard",
+                "objectType": "video",
+                "MP4Name": "02_menuconcept.mp4",
+                "webMName": "02_menuconcept.webm",
                 "childProject": "",
                 "imagePath": "portfolio/images",
                 "category": "animation",
@@ -25,7 +29,9 @@
             }, 
 
             {
-                "objectType": "imageCard",
+                "objectType": "video",
+                "MP4Name": "03_menuconcept.mp4",
+                "webMName": "03_menuconcept.webm",
                 "childProject": "",
                 "imagePath": "portfolio/images",
                 "category": "animation",
@@ -36,7 +42,9 @@
             }, 
 
             {
-                "objectType": "imageCard",
+                "objectType": "video",
+                "MP4Name": "04_menuconcept.mp4",
+                "webMName": "04_menuconcept.webm",
                 "childProject": "",
                 "imagePath": "portfolio/images",
                 "category": "animation",
@@ -47,7 +55,9 @@
             }, 
 
             {
-                "objectType": "imageCard",
+                "objectType": "video",
+                "MP4Name": "05_phone.mp4",
+                "webMName": "05_phone.webm",
                 "childProject": "",
                 "imagePath": "portfolio/images",
                 "category": "animation",

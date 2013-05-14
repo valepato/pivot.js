@@ -497,15 +497,36 @@
     onPhotoClickDelegate: function (event) {
       var photo = pivot.util.ancestor(event.target, ".p-photo");
 
-      //console.error(this.childProject)
-
       if (event.target !== photo) {
         event.stopPropagation();
       }
 
+      if (photo.objectType =='video') {
+
+        $('#videoPopup').bPopup({
+          positionStyle: "fixed",
+          scrollBar: false,
+          onClose: function() { console.error('onClose fired'); videojs.players = {} ; }
+        });
+
+        var myPlayer = videojs("example_video_1", {"autoplay": true});
+
+        //$(myPlayer).attr('poster', '..images/animation/comps/01_phoenix.png')
+
+        myPlayer.src([
+          { type: "video/mp4", src: $(photo).data('video').MP4Url },
+          { type: "video/webm", src: $(photo).data('video').webMUrl }
+          // { type: "video/ogg", src: "http://www.example.com/path/to/video.ogv" }
+        ]);
+
+      }
+
+
       if (photo.objectType == "nodeCard"){
         pivot.setup({quality: 'medium', jsonName: photo.childProject, currentProjectParent: this.feed});
-      } else {
+      }
+
+      if (photo.objectType != "nodeCard" && photo.objectType != "video") {
         this.setSelectedPhoto(photo);
         if (!this.zoomed) {
           this.zoomIn();
@@ -515,12 +536,12 @@
     },
 
     onSelectedClickDelegate: function (event) {
-      this.childProject = event.target.childProject;
-      if (this.childProject) {
+      this.photoItem = event.target;
+      if (this.photoItem.childProject) {
         if (this.zoomed) {
           this.zoomOut();
         }
-        pivot.setup({quality: 'medium', jsonName: this.childProject, currentProjectParent: this.feed});
+        pivot.setup({quality: 'medium', jsonName: this.photoItem.childProject, currentProjectParent: this.feed});
       }
 
     },

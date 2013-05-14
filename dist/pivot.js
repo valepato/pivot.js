@@ -762,15 +762,36 @@
     onPhotoClickDelegate: function (event) {
       var photo = pivot.util.ancestor(event.target, ".p-photo");
 
-      //console.error(this.childProject)
-
       if (event.target !== photo) {
         event.stopPropagation();
       }
 
+      if (photo.objectType =='video') {
+
+        $('#videoPopup').bPopup({
+          positionStyle: "fixed",
+          scrollBar: false,
+          onClose: function() { console.error('onClose fired'); videojs.players = {} ; }
+        });
+
+        var myPlayer = videojs("example_video_1", {"autoplay": true});
+
+        //$(myPlayer).attr('poster', '..images/animation/comps/01_phoenix.png')
+
+        myPlayer.src([
+          { type: "video/mp4", src: $(photo).data('video').MP4Url },
+          { type: "video/webm", src: $(photo).data('video').webMUrl }
+          // { type: "video/ogg", src: "http://www.example.com/path/to/video.ogv" }
+        ]);
+
+      }
+
+
       if (photo.objectType == "nodeCard"){
         pivot.setup({quality: 'medium', jsonName: photo.childProject, currentProjectParent: this.feed});
-      } else {
+      }
+
+      if (photo.objectType != "nodeCard" && photo.objectType != "video") {
         this.setSelectedPhoto(photo);
         if (!this.zoomed) {
           this.zoomIn();
@@ -780,12 +801,12 @@
     },
 
     onSelectedClickDelegate: function (event) {
-      this.childProject = event.target.childProject;
-      if (this.childProject) {
+      this.photoItem = event.target;
+      if (this.photoItem.childProject) {
         if (this.zoomed) {
           this.zoomOut();
         }
-        pivot.setup({quality: 'medium', jsonName: this.childProject, currentProjectParent: this.feed});
+        pivot.setup({quality: 'medium', jsonName: this.photoItem.childProject, currentProjectParent: this.feed});
       }
 
     },
@@ -963,7 +984,8 @@
     this.container = pivot.util.makeElement("itemCard", {
       "class": "p-photo loading no-img",
       "data-row": this.row,
-      "data-column": this.column
+      "data-column": this.column,
+      "data-video": {}
     });
 
     this.container.style[transform] = supplant("translate3d({x}%, {y}%, 1px)", {
@@ -1048,6 +1070,17 @@
       this.container.objectType = data.objectType;
       this.container.childProject = data.childProject;
 
+      if (this.container.objectType == 'video') {
+        this.container.MP4Url = data.MP4Name;
+        this.container.webMUrl = data.webMName;
+        // var urlPath = data.pageURL.substr(0, data.pageURL.lastIndexOf('/'));
+        var urlPath = "portfolio/images/animation/comps";
+
+        $(this.container).data('video', {MP4Url: urlPath + "/" + this.container.MP4Url, webMUrl: urlPath + "/" + this.container.webMUrl});
+        // $(this.container).data('video', {MP4Url: urlPath + "/" + this.container.MP4Url, webMUrl: urlPath + "/" + this.container.webMUrl});
+        console.error($(this.container).data('video'))
+      }
+
       data.title = data.title || "Untitled";
       this.setCaption(supplant(pivot.flickr.captionTemplate, data));
       this.setSource(supplant(pivot.flickr.sourceURLs[this.quality], data));
@@ -1121,10 +1154,11 @@
         e = e.parentNode;
 
         //if card is not a node show the back otherwise load children of node
-        if (e.objectType !== "nodeCard") {
-          this.container.classList.toggle("flipped");
-        } else {
+        if (e.objectType == "nodeCard") {
+          console.error("fuck the bullshit")
           this.container.dispatchEvent(this.nodeLoadEvent);
+        } else {
+          this.container.classList.toggle("flipped");
         }
       }
     }

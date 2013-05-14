@@ -125,6 +125,16 @@ body {
     max-height: 400px;
 }
 
+#videoPopup { 
+    width: 720px;
+    height: 406px;
+    background-color: #282C3D;
+    border-radius: 15px;
+    color: #000;
+    display: none; 
+    padding: 40px;
+}
+
 .modalButton {
   height: 35px;
   background-color: #F15A24;

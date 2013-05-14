@@ -31,7 +31,8 @@
     this.container = pivot.util.makeElement("itemCard", {
       "class": "p-photo loading no-img",
       "data-row": this.row,
-      "data-column": this.column
+      "data-column": this.column,
+      "data-video": {}
     });
 
     this.container.style[transform] = supplant("translate3d({x}%, {y}%, 1px)", {
@@ -116,6 +117,17 @@
       this.container.objectType = data.objectType;
       this.container.childProject = data.childProject;
 
+      if (this.container.objectType == 'video') {
+        this.container.MP4Url = data.MP4Name;
+        this.container.webMUrl = data.webMName;
+        // var urlPath = data.pageURL.substr(0, data.pageURL.lastIndexOf('/'));
+        var urlPath = "portfolio/images/animation/comps";
+
+        $(this.container).data('video', {MP4Url: urlPath + "/" + this.container.MP4Url, webMUrl: urlPath + "/" + this.container.webMUrl});
+        // $(this.container).data('video', {MP4Url: urlPath + "/" + this.container.MP4Url, webMUrl: urlPath + "/" + this.container.webMUrl});
+        console.error($(this.container).data('video'))
+      }
+
       data.title = data.title || "Untitled";
       this.setCaption(supplant(pivot.flickr.captionTemplate, data));
       this.setSource(supplant(pivot.flickr.sourceURLs[this.quality], data));
@@ -189,10 +201,11 @@
         e = e.parentNode;
 
         //if card is not a node show the back otherwise load children of node
-        if (e.objectType !== "nodeCard") {
-          this.container.classList.toggle("flipped");
-        } else {
+        if (e.objectType == "nodeCard") {
+          console.error("fuck the bullshit")
           this.container.dispatchEvent(this.nodeLoadEvent);
+        } else {
+          this.container.classList.toggle("flipped");
         }
       }
     }
