@@ -8,9 +8,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "projectphoenix",
-                "imageName_lg": "01_phoenix_LG.jpg",
+                "imageName_lg": "01_phoenix_XL.jpg",
                 "title": "Project Phoenix",
-                "description": ""
+                "description": "Spatial, object-bound main menu system."
             }, 
 
             {
@@ -19,9 +19,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "projectphoenix",
-                "imageName_lg": "02_phoenix_LG.jpg",
+                "imageName_lg": "02_phoenix_XL.jpg",
                 "title": "Project Phoenix",
-                "description": ""
+                "description": "Song selection with mood matching."
             }, 
 
             {
@@ -30,9 +30,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "projectphoenix",
-                "imageName_lg": "03_phoenix_LG.jpg",
+                "imageName_lg": "03_phoenix_XL.jpg",
                 "title": "Project Phoenix",
-                "description": ""
+                "description": "Song selection with mood matching."
             }, 
 
             {
@@ -41,9 +41,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "projectphoenix",
-                "imageName_lg": "04_phoenix_LG.jpg",
+                "imageName_lg": "04_phoenix_XL.jpg",
                 "title": "Project Phoenix",
-                "description": ""
+                "description": "DJ song mixing HUD mockup."
             }, 
 
             {
@@ -52,9 +52,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "projectphoenix",
-                "imageName_lg": "05_phoenix_LG.jpg",
+                "imageName_lg": "05_phoenix_XL.jpg",
                 "title": "Project Phoenix",
-                "description": ""
+                "description": "DJ song mixing HUD"
             }, 
 
             {
@@ -63,9 +63,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "projectphoenix",
-                "imageName_lg": "06_phoenix_LG.jpg",
+                "imageName_lg": "06_phoenix_XL.jpg",
                 "title": "Project Phoenix",
-                "description": ""
+                "description": "Menu for access to social component."
             }, 
 
             {
@@ -74,9 +74,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "projectphoenix",
-                "imageName_lg": "07_phoenix_LG.jpg",
+                "imageName_lg": "07_phoenix_XL.jpg",
                 "title": "Project Phoenix",
-                "description": ""
+                "description": "Gig objectives map."
             }, 
 
             {
@@ -85,9 +85,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "projectphoenix",
-                "imageName_lg": "08_phoenix_LG.jpg",
+                "imageName_lg": "08_phoenix_XL.jpg",
                 "title": "Project Phoenix",
-                "description": ""
+                "description": "Menu background image."
             }, 
 
             {
@@ -96,9 +96,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "projectphoenix",
-                "imageName_lg": "09_phoenix_LG.jpg",
+                "imageName_lg": "09_phoenix_XL.jpg",
                 "title": "Project Phoenix",
-                "description": ""
+                "description": "WIP view of main menu items."
             }
         ]
     },

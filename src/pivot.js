@@ -1,7 +1,7 @@
 /*
- * Pivot: A photo gallery using CSS3 3D transforms.
+ * By David Duckworth
  *
- * By Markus Messner-Chaney, http://markusmessnerchaney.com
+ * Based on Pivot By Markus Messner-Chaney, http://markusmessnerchaney.com
  * Public Domain.
  */
 

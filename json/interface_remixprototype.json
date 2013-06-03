@@ -8,9 +8,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "remixprototype",
-                "imageName_lg": "01_remix_LG.jpg",
+                "imageName_lg": "01_remix_XL.jpg",
                 "title": "Remix Prototype",
-                "description": "Interface designs"
+                "description": "Procedural remix demo main menu."
             }, 
 
             {
@@ -19,9 +19,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "remixprototype",
-                "imageName_lg": "02_remix_LG.jpg",
+                "imageName_lg": "02_remix_XL.jpg",
                 "title": "Remix Prototype",
-                "description": "Interface designs"
+                "description": "Loop group selection menu."
             }, 
             {
                 "objectType": "imageCard",
@@ -29,9 +29,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "remixprototype",
-                "imageName_lg": "03_remix_LG.jpg",
+                "imageName_lg": "03_remix_XL.jpg",
                 "title": "Remix Prototype",
-                "description": "Interface designs"
+                "description": "Difficulty selection."
             }, 
             {
                 "objectType": "imageCard",
@@ -39,9 +39,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "remixprototype",
-                "imageName_lg": "04_remix_LG.jpg",
+                "imageName_lg": "04_remix_XL.jpg",
                 "title": "Remix Prototype",
-                "description": "Interface designs"
+                "description": "Procedural music generation interface."
             }, 
             {
                 "objectType": "imageCard",
@@ -49,9 +49,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "remixprototype",
-                "imageName_lg": "05_remix_LG.jpg",
+                "imageName_lg": "05_remix_XL.jpg",
                 "title": "Remix Prototype",
-                "description": "Interface designs"
+                "description": "Procedural music generation interface."
             }, 
             {
                 "objectType": "imageCard",
@@ -59,9 +59,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "remixprototype",
-                "imageName_lg": "06_remix_LG.jpg",
+                "imageName_lg": "06_remix_XL.jpg",
                 "title": "Remix Prototype",
-                "description": "Interface designs"
+                "description": "Procedural music generation interface."
             }, 
             {
                 "objectType": "imageCard",
@@ -69,9 +69,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "remixprototype",
-                "imageName_lg": "07_remix_LG.jpg",
+                "imageName_lg": "07_remix_XL.jpg",
                 "title": "Remix Prototype",
-                "description": "Interface designs"
+                "description": "Song end screen."
             }, 
             {
                 "objectType": "imageCard",
@@ -79,9 +79,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "remixprototype",
-                "imageName_lg": "08_remix_LG.jpg",
+                "imageName_lg": "08_remix_XL.jpg",
                 "title": "Remix Prototype",
-                "description": "Interface designs"
+                "description": "Custom loop group editor."
             }, 
             {
                 "objectType": "imageCard",
@@ -89,9 +89,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "remixprototype",
-                "imageName_lg": "09_remix_LG.jpg",
+                "imageName_lg": "09_remix_XL.jpg",
                 "title": "Remix Prototype",
-                "description": "Interface designs"
+                "description": "Custom loop group editor."
             }, 
             {
                 "objectType": "imageCard",
@@ -99,9 +99,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "remixprototype",
-                "imageName_lg": "10_remix_LG.jpg",
+                "imageName_lg": "10_remix_XL.jpg",
                 "title": "Remix Prototype",
-                "description": "Interface designs"
+                "description": "Custom loop group editor."
             }, 
             {
                 "objectType": "imageCard",
@@ -109,9 +109,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "remixprototype",
-                "imageName_lg": "11_remix_LG.jpg",
+                "imageName_lg": "11_remix_XL.jpg",
                 "title": "Remix Prototype",
-                "description": "Interface designs"
+                "description": "Original programmer art :)"
             }
         ]
     },

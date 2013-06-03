@@ -8,9 +8,9 @@
                 "imagePath": "portfolio/images",
                 "category": "designs",
                 "project": "mixconcepts",
-                "imageName_lg": "01_mix_LG.jpg",
+                "imageName_lg": "01_mix_XL.jpg",
                 "title": "Mix Concepts",
-                "description": ""
+                "description": "Abstract landscape concept V1."
             },
 
             {
@@ -19,9 +19,9 @@
                 "imagePath": "portfolio/images",
                 "category": "designs",
                 "project": "mixconcepts",
-                "imageName_lg": "02_mix_LG.jpg",
+                "imageName_lg": "02_mix_XL.jpg",
                 "title": "Mix Concepts",
-                "description": ""
+                "description": "Abstract landscape concept V2"
             },
 
             {
@@ -30,9 +30,9 @@
                 "imagePath": "portfolio/images",
                 "category": "designs",
                 "project": "mixconcepts",
-                "imageName_lg": "03_mix_LG.jpg",
+                "imageName_lg": "03_mix_XL.jpg",
                 "title": "Mix Concepts",
-                "description": ""
+                "description": "Inside a box concept."
             },
 
             {
@@ -41,9 +41,9 @@
                 "imagePath": "portfolio/images",
                 "category": "designs",
                 "project": "mixconcepts",
-                "imageName_lg": "04_mix_LG.jpg",
+                "imageName_lg": "04_mix_XL.jpg",
                 "title": "Mix Concepts",
-                "description": ""
+                "description": "Retro throw-back title screen concept."
             },
 
             {
@@ -52,9 +52,9 @@
                 "imagePath": "portfolio/images",
                 "category": "designs",
                 "project": "mixconcepts",
-                "imageName_lg": "05_mix_LG.jpg",
+                "imageName_lg": "05_mix_XL.jpg",
                 "title": "Mix Concepts",
-                "description": ""
+                "description": "Retro throw-back main menu concept."
             },
 
             {
@@ -63,9 +63,9 @@
                 "imagePath": "portfolio/images",
                 "category": "designs",
                 "project": "mixconcepts",
-                "imageName_lg": "06_mix_LG.jpg",
+                "imageName_lg": "06_mix_XL.jpg",
                 "title": "Mix Concepts",
-                "description": ""
+                "description": "Minimal retro throw-back title screen."
             },
 
             {
@@ -74,9 +74,9 @@
                 "imagePath": "portfolio/images",
                 "category": "designs",
                 "project": "mixconcepts",
-                "imageName_lg": "07_mix_LG.jpg",
+                "imageName_lg": "07_mix_XL.jpg",
                 "title": "Mix Concepts",
-                "description": ""
+                "description": "Minimal retro throw-back main menu."
             },
 
             {
@@ -85,9 +85,9 @@
                 "imagePath": "portfolio/images",
                 "category": "designs",
                 "project": "mixconcepts",
-                "imageName_lg": "08_mix_LG.jpg",
+                "imageName_lg": "08_mix_XL.jpg",
                 "title": "Mix Concepts",
-                "description": ""
+                "description": "Bright and fun title screen concept."
             },
 
             {
@@ -96,9 +96,9 @@
                 "imagePath": "portfolio/images",
                 "category": "designs",
                 "project": "mixconcepts",
-                "imageName_lg": "09_mix_LG.jpg",
+                "imageName_lg": "09_mix_XL.jpg",
                 "title": "Mix Concepts",
-                "description": ""
+                "description": "Bright and fun main menu concept."
             },
 
             {
@@ -107,9 +107,9 @@
                 "imagePath": "portfolio/images",
                 "category": "designs",
                 "project": "mixconcepts",
-                "imageName_lg": "10_mix_LG.jpg",
+                "imageName_lg": "10_mix_XL.jpg",
                 "title": "Mix Concepts",
-                "description": ""
+                "description": "Future origami title screen concept."
             },
 
             {
@@ -118,9 +118,9 @@
                 "imagePath": "portfolio/images",
                 "category": "designs",
                 "project": "mixconcepts",
-                "imageName_lg": "11_mix_LG.jpg",
+                "imageName_lg": "11_mix_XL.jpg",
                 "title": "Mix Concepts",
-                "description": ""
+                "description": "Earthy, paper title screen concept."
             },
 
             {
@@ -129,9 +129,9 @@
                 "imagePath": "portfolio/images",
                 "category": "designs",
                 "project": "mixconcepts",
-                "imageName_lg": "12_mix_LG.jpg",
+                "imageName_lg": "12_mix_XL.jpg",
                 "title": "Mix Concepts",
-                "description": ""
+                "description": "Colorful, paper title screen concept."
             },
 
             {
@@ -140,9 +140,9 @@
                 "imagePath": "portfolio/images",
                 "category": "designs",
                 "project": "mixconcepts",
-                "imageName_lg": "13_mix_LG.jpg",
+                "imageName_lg": "13_mix_XL.jpg",
                 "title": "Mix Concepts",
-                "description": ""
+                "description": "Warm, abstract cubes title screen concept."
             },
 
             {
@@ -151,9 +151,9 @@
                 "imagePath": "portfolio/images",
                 "category": "designs",
                 "project": "mixconcepts",
-                "imageName_lg": "14_mix_LG.jpg",
+                "imageName_lg": "14_mix_XL.jpg",
                 "title": "Mix Concepts",
-                "description": ""
+                "description": "Cool, abstract cubes title screen concept."
             },
 
             {
@@ -162,9 +162,9 @@
                 "imagePath": "portfolio/images",
                 "category": "designs",
                 "project": "mixconcepts",
-                "imageName_lg": "15_mix_LG.jpg",
+                "imageName_lg": "15_mix_XL.jpg",
                 "title": "Mix Concepts",
-                "description": ""
+                "description": "Abstract drum machine notation concept V1."
             },
 
             {
@@ -173,9 +173,9 @@
                 "imagePath": "portfolio/images",
                 "category": "designs",
                 "project": "mixconcepts",
-                "imageName_lg": "16_mix_LG.jpg",
+                "imageName_lg": "16_mix_XL.jpg",
                 "title": "Mix Concepts",
-                "description": ""
+                "description": "Abstract drum machine notation concept V2."
             }
         ]
     },

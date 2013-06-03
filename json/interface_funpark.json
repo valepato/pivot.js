@@ -10,7 +10,7 @@
                 "project": "funpark",
                 "imageName_lg": "funpark001_LG.jpg",
                 "title": "FunPark",
-                "description": ""
+                "description": "The logo and title screen."
             },
 
             {
@@ -21,7 +21,7 @@
                 "project": "funpark",
                 "imageName_lg": "funpark002_LG.jpg",
                 "title": "FunPark",
-                "description": ""
+                "description": "Main menu."
             },
 
             {
@@ -32,7 +32,7 @@
                 "project": "funpark",
                 "imageName_lg": "funpark003_LG.jpg",
                 "title": "FunPark",
-                "description": ""
+                "description": "Pick saved game or start new game."
             },
 
             {
@@ -43,7 +43,7 @@
                 "project": "funpark",
                 "imageName_lg": "funpark004_LG.jpg",
                 "title": "FunPark",
-                "description": ""
+                "description": "Character customization screen."
             },
 
             {
@@ -54,7 +54,7 @@
                 "project": "funpark",
                 "imageName_lg": "funpark005_LG.jpg",
                 "title": "FunPark",
-                "description": ""
+                "description": "Name input screen."
             },
 
             {
@@ -65,7 +65,7 @@
                 "project": "funpark",
                 "imageName_lg": "funpark006_LG.jpg",
                 "title": "FunPark",
-                "description": ""
+                "description": "Name input screen."
             },
 
             {
@@ -76,7 +76,7 @@
                 "project": "funpark",
                 "imageName_lg": "funpark007_LG.jpg",
                 "title": "FunPark",
-                "description": ""
+                "description": "Name input screen."
             },
 
             {
@@ -87,7 +87,7 @@
                 "project": "funpark",
                 "imageName_lg": "funpark008_LG.jpg",
                 "title": "FunPark",
-                "description": ""
+                "description": "Auto-save notification popup."
             },
 
             {
@@ -98,7 +98,7 @@
                 "project": "funpark",
                 "imageName_lg": "funpark009_LG.jpg",
                 "title": "FunPark",
-                "description": ""
+                "description": "NPC conversation dialog."
             },
 
             {
@@ -109,7 +109,7 @@
                 "project": "funpark",
                 "imageName_lg": "funpark010_LG.jpg",
                 "title": "FunPark",
-                "description": ""
+                "description": "Resource HUD"
             },
 
             {
@@ -120,7 +120,7 @@
                 "project": "funpark",
                 "imageName_lg": "funpark011_LG.jpg",
                 "title": "FunPark",
-                "description": ""
+                "description": "Multifunction D-Pad menu selector."
             },
 
             {
@@ -131,7 +131,7 @@
                 "project": "funpark",
                 "imageName_lg": "funpark012_LG.jpg",
                 "title": "FunPark",
-                "description": ""
+                "description": "Inventory menu."
             },
 
             {
@@ -142,7 +142,7 @@
                 "project": "funpark",
                 "imageName_lg": "funpark013_LG.jpg",
                 "title": "FunPark",
-                "description": ""
+                "description": "Park Map and Quest Manager."
             },
 
             {
@@ -153,7 +153,7 @@
                 "project": "funpark",
                 "imageName_lg": "funpark014_LG.jpg",
                 "title": "FunPark",
-                "description": ""
+                "description": "Environmental interaction menu."
             },
 
             {
@@ -164,7 +164,7 @@
                 "project": "funpark",
                 "imageName_lg": "funpark015_LG.jpg",
                 "title": "FunPark",
-                "description": ""
+                "description": "Minigame summary popup."
             },
 
             {
@@ -175,7 +175,7 @@
                 "project": "funpark",
                 "imageName_lg": "funpark016_LG.jpg",
                 "title": "FunPark",
-                "description": ""
+                "description": "Controller help tutorial."
             },
 
             {
@@ -186,7 +186,7 @@
                 "project": "funpark",
                 "imageName_lg": "funpark017_LG.jpg",
                 "title": "FunPark",
-                "description": ""
+                "description": "Settings menu."
             },
 
             {
@@ -197,7 +197,7 @@
                 "project": "funpark",
                 "imageName_lg": "funpark018_LG.jpg",
                 "title": "FunPark",
-                "description": ""
+                "description": "Minigame tutorial screen."
             },
 
             {
@@ -208,7 +208,7 @@
                 "project": "funpark",
                 "imageName_lg": "funpark019_LG.jpg",
                 "title": "FunPark",
-                "description": ""
+                "description": "Minigame end screen."
             },
 
             {
@@ -219,7 +219,7 @@
                 "project": "funpark",
                 "imageName_lg": "funpark020_LG.jpg",
                 "title": "FunPark",
-                "description": ""
+                "description": "Environmental interaction menu."
             },
 
             {
@@ -230,7 +230,7 @@
                 "project": "funpark",
                 "imageName_lg": "funpark021_LG.jpg",
                 "title": "FunPark",
-                "description": ""
+                "description": "Environmental interaction menu."
             },
 
             {
@@ -241,7 +241,7 @@
                 "project": "funpark",
                 "imageName_lg": "funpark022_LG.jpg",
                 "title": "FunPark",
-                "description": ""
+                "description": "Multiplayer setup menu."
             },
 
             {
@@ -252,7 +252,7 @@
                 "project": "funpark",
                 "imageName_lg": "funpark023_LG.jpg",
                 "title": "FunPark",
-                "description": ""
+                "description": "Multiplayer minigame queue screen."
             },
 
             {
@@ -263,7 +263,7 @@
                 "project": "funpark",
                 "imageName_lg": "funpark024_LG.jpg",
                 "title": "FunPark",
-                "description": ""
+                "description": "Minigame tutorial screen."
             },
 
             {
@@ -274,7 +274,7 @@
                 "project": "funpark",
                 "imageName_lg": "funpark025_LG.jpg",
                 "title": "FunPark",
-                "description": ""
+                "description": "Minigame HUD."
             },
 
             {
@@ -285,7 +285,7 @@
                 "project": "funpark",
                 "imageName_lg": "funpark026_LG.jpg",
                 "title": "FunPark",
-                "description": ""
+                "description": "Multiplayer end screen."
             },
 
             {
@@ -296,7 +296,7 @@
                 "project": "funpark",
                 "imageName_lg": "funpark027_LG.jpg",
                 "title": "FunPark",
-                "description": ""
+                "description": "Minigame HUD."
             },
 
             {
@@ -307,7 +307,7 @@
                 "project": "funpark",
                 "imageName_lg": "funpark028_LG.jpg",
                 "title": "FunPark",
-                "description": ""
+                "description": "Minigame HUD."
             }
         ]
     },

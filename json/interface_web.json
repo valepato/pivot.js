@@ -9,8 +9,8 @@
                 "category": "interface",
                 "project": "web",
                 "imageName_lg": "001digitaljams_LG.jpg",
-                "title": "Web Projects",
-                "description": ""
+                "title": "Digital Jams",
+                "description": "This MP3 download site predates the reality that sharing copyrighted music isn't kosher."
             }, 
 
             {
@@ -20,8 +20,8 @@
                 "category": "interface",
                 "project": "web",
                 "imageName_lg": "002diz_LG.jpg",
-                "title": "Web Projects",
-                "description": ""
+                "title": "DJ Diz",
+                "description": "I created this interactive flyer for a club event."
             }, 
 
             {
@@ -31,8 +31,8 @@
                 "category": "interface",
                 "project": "web",
                 "imageName_lg": "003deepfix_LG.jpg",
-                "title": "Web Projects",
-                "description": ""
+                "title": "DeepFix Events",
+                "description": "The website for my production company used to inform people of upcoming events."
             }, 
 
             {
@@ -42,8 +42,8 @@
                 "category": "interface",
                 "project": "web",
                 "imageName_lg": "004jonene_LG.jpg",
-                "title": "Web Projects",
-                "description": ""
+                "title": "DJ Jonene",
+                "description": "I created this interactive flyer for a club event."
             }, 
 
             {
@@ -53,8 +53,8 @@
                 "category": "interface",
                 "project": "web",
                 "imageName_lg": "005brett_LG.jpg",
-                "title": "Web Projects",
-                "description": ""
+                "title": "DJ Brett Johnson",
+                "description": "I created this interactive flyer for a club event."
             }, 
 
             {
@@ -64,8 +64,8 @@
                 "category": "interface",
                 "project": "web",
                 "imageName_lg": "006deepfix_LG.jpg",
-                "title": "Web Projects",
-                "description": ""
+                "title": "DeepFixRecords.com",
+                "description": "The ecommerce I built for my records store. It served record enthusiasts all over the world."
             }, 
 
             {
@@ -75,8 +75,8 @@
                 "category": "interface",
                 "project": "web",
                 "imageName_lg": "007perspective_LG.jpg",
-                "title": "Web Projects",
-                "description": ""
+                "title": "Perspective",
+                "description": "I created this interactive flyer for a club event."
             }, 
 
             {
@@ -86,8 +86,8 @@
                 "category": "interface",
                 "project": "web",
                 "imageName_lg": "008simply_LG.jpg",
-                "title": "Web Projects",
-                "description": ""
+                "title": "Simply Soul Website",
+                "description": "This is the promotional frontend I created for the Simply Soul Syndicate"
             }, 
 
             {
@@ -98,7 +98,7 @@
                 "project": "web",
                 "imageName_lg": "009designer_LG.jpg",
                 "title": "Web Projects",
-                "description": ""
+                "description": "I created this interactive flyer for a club event."
             }, 
 
             {
@@ -109,7 +109,7 @@
                 "project": "web",
                 "imageName_lg": "010machine_LG.jpg",
                 "title": "Web Projects",
-                "description": ""
+                "description": "I created this interactive flyer for a club event."
             },
 
             {
@@ -119,8 +119,8 @@
                 "category": "interface",
                 "project": "web",
                 "imageName_lg": "011shirt_LG.jpg",
-                "title": "Web Projects",
-                "description": ""
+                "title": "Shirt Promo",
+                "description": "A animated promo I created to market shirts for my record store."
             } 
         ]
     },

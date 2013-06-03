@@ -33,6 +33,17 @@
                 "imageName_lg": "neonElectric.jpg",
                 "title": "",
                 "description": ""
+            },
+
+            {
+                "objectType": "nodeCard",
+                "childProject": "interface_web",
+                "imagePath": "portfolio/images",
+                "category": "interface",
+                "project": "projectsInterfaceIcons",
+                "imageName_lg": "web.jpg",
+                "title": "The Title",
+                "description": "Interface designs"
             }, 
 
             {
@@ -44,18 +55,7 @@
                 "imageName_lg": "friskyFliers.jpg",
                 "title": "",
                 "description": ""
-            }, 
-
-            {
-                "objectType": "nodeCard",
-                "childProject": "design_branding",
-                "imagePath": "portfolio/images",
-                "category": "designs",
-                "project": "projectsDesignsIcons",
-                "imageName_lg": "branding.jpg",
-                "title": "",
-                "description": ""
-            }, 
+            },  
 
             {
                 "objectType": "nodeCard",

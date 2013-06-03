@@ -8,9 +8,9 @@
                 "imagePath": "portfolio/images",
                 "category": "designs",
                 "project": "neonelectric",
-                "imageName_lg": "01_poster_LG.jpg",
-                "title": "The Title",
-                "description": "Interface designs"
+                "imageName_lg": "01_poster_XL.jpg",
+                "title": "Neonelectric Poster",
+                "description": "Poster design V1."
             }, 
             
             {
@@ -19,9 +19,9 @@
                 "imagePath": "portfolio/images",
                 "category": "designs",
                 "project": "neonelectric",
-                "imageName_lg": "02_poster_LG.jpg",
-                "title": "The Title",
-                "description": "Interface designs"
+                "imageName_lg": "02_poster_XL.jpg",
+                "title": "Neonelectric Poster",
+                "description": "Poster design V2."
             }, 
             
             {
@@ -30,9 +30,9 @@
                 "imagePath": "portfolio/images",
                 "category": "designs",
                 "project": "neonelectric",
-                "imageName_lg": "03_poster_LG.jpg",
-                "title": "The Title",
-                "description": "Interface designs"
+                "imageName_lg": "03_poster_XL.jpg",
+                "title": "Neonelectric Poster",
+                "description": "Poster design V3."
             }, 
             
             {
@@ -41,9 +41,9 @@
                 "imagePath": "portfolio/images",
                 "category": "designs",
                 "project": "neonelectric",
-                "imageName_lg": "04_poster_LG.jpg",
-                "title": "The Title",
-                "description": "Interface designs"
+                "imageName_lg": "04_poster_XL.jpg",
+                "title": "Neonelectric Poster",
+                "description": "Poster design V4."
             }
         ]
     },

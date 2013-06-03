@@ -8,9 +8,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "mixprototype",
-                "imageName_lg": "01_titlescreen_LG.jpg",
-                "title": "The Title",
-                "description": "Interface designs"
+                "imageName_lg": "01_titlescreen_XL.jpg",
+                "title": "Hero Mix",
+                "description": "Title and start screen."
             }, 
 
             {
@@ -19,9 +19,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "mixprototype",
-                "imageName_lg": "02_cityselection_LG.jpg",
-                "title": "The Title",
-                "description": "Interface designs"
+                "imageName_lg": "02_cityselection_XL.jpg",
+                "title": "Hero Mix",
+                "description": "New player home city selection screen."
             },
 
             {
@@ -30,9 +30,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "mixprototype",
-                "imageName_lg": "03_mainmenu_LG.jpg",
-                "title": "The Title",
-                "description": "Interface designs"
+                "imageName_lg": "03_mainmenu_XL.jpg",
+                "title": "Hero Mix",
+                "description": "Main menu."
             },
 
             {
@@ -41,9 +41,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "mixprototype",
-                "imageName_lg": "04_profile_LG.jpg",
-                "title": "The Title",
-                "description": "Interface designs"
+                "imageName_lg": "04_profile_XL.jpg",
+                "title": "Hero Mix",
+                "description": "Player profile screen."
             },
 
             {
@@ -52,9 +52,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "mixprototype",
-                "imageName_lg": "05_library_LG.jpg",
-                "title": "The Title",
-                "description": "Interface designs"
+                "imageName_lg": "05_library_XL.jpg",
+                "title": "Hero Mix",
+                "description": "Player song library."
             },
 
             {
@@ -63,9 +63,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "mixprototype",
-                "imageName_lg": "06_challenge_LG.jpg",
-                "title": "The Title",
-                "description": "Interface designs"
+                "imageName_lg": "06_challenge_XL.jpg",
+                "title": "Hero Mix",
+                "description": "Challenge / objective menu."
             },
 
             {
@@ -74,9 +74,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "mixprototype",
-                "imageName_lg": "07_modselection_LG.jpg",
-                "title": "The Title",
-                "description": "Interface designs"
+                "imageName_lg": "07_modselection_XL.jpg",
+                "title": "Hero Mix",
+                "description": "Mix mode gameplay HUD."
             },
 
             {
@@ -85,9 +85,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "mixprototype",
-                "imageName_lg": "08_songselection_LG.jpg",
-                "title": "The Title",
-                "description": "Interface designs"
+                "imageName_lg": "08_songselection_XL.jpg",
+                "title": "Hero Mix",
+                "description": "Ingame song selector."
             },
 
             {
@@ -96,9 +96,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "mixprototype",
-                "imageName_lg": "09_playselection_LG.jpg",
-                "title": "The Title",
-                "description": "Interface designs"
+                "imageName_lg": "09_playselection_XL.jpg",
+                "title": "Hero Mix",
+                "description": "Ingame filter selector."
             },
 
             {
@@ -107,9 +107,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "mixprototype",
-                "imageName_lg": "10_songmixing_LG.jpg",
-                "title": "The Title",
-                "description": "Interface designs"
+                "imageName_lg": "10_songmixing_XL.jpg",
+                "title": "Hero Mix",
+                "description": "Song mixing gameplay lane."
             },
 
             {
@@ -118,9 +118,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "mixprototype",
-                "imageName_lg": "11_summary_LG.jpg",
-                "title": "The Title",
-                "description": "Interface designs"
+                "imageName_lg": "11_summary_XL.jpg",
+                "title": "Hero Mix",
+                "description": "Challenge summary screen."
             },
 
             {
@@ -129,9 +129,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "mixprototype",
-                "imageName_lg": "12_menualt01_LG.jpg",
-                "title": "The Title",
-                "description": "Interface designs"
+                "imageName_lg": "12_menualt01_XL.jpg",
+                "title": "Hero Mix",
+                "description": "Alternative main menu."
             },
 
             {
@@ -140,9 +140,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "mixprototype",
-                "imageName_lg": "13_menualt02_LG.jpg",
-                "title": "The Title",
-                "description": "Interface designs"
+                "imageName_lg": "13_menualt02_XL.jpg",
+                "title": "Hero Mix",
+                "description": "Alternative main menu."
             },
 
             {
@@ -151,9 +151,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "mixprototype",
-                "imageName_lg": "14_profilealt01_LG.jpg",
-                "title": "The Title",
-                "description": "Interface designs"
+                "imageName_lg": "14_profilealt01_XL.jpg",
+                "title": "Hero Mix",
+                "description": "Alternative player profile screen."
             },
 
             {
@@ -162,9 +162,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "mixprototype",
-                "imageName_lg": "15_libraryalt01_LG.jpg",
-                "title": "The Title",
-                "description": "Interface designs"
+                "imageName_lg": "15_libraryalt01_XL.jpg",
+                "title": "Hero Mix",
+                "description": "Alternative song library."
             }
         ]
     },

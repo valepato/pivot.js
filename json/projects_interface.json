@@ -11,18 +11,18 @@
                 "imageName_lg": "dimsong.jpg",
                 "title": "The Title",
                 "description": "Interface designs"
-            }, 
+            },
 
             {
                 "objectType": "nodeCard",
-                "childProject": "interface_mixprototype",
+                "childProject": "interface_coasterville",
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "projectsInterfaceIcons",
-                "imageName_lg": "mixPrototype.jpg",
+                "imageName_lg": "coasterville.jpg",
                 "title": "The Title",
                 "description": "Interface designs"
-            }, 
+            },
 
             {
                 "objectType": "nodeCard",
@@ -44,18 +44,7 @@
                 "imageName_lg": "miscInterface.jpg",
                 "title": "The Title",
                 "description": "Interface designs"
-            }, 
-
-            {
-                "objectType": "nodeCard",
-                "childProject": "interface_remixprototype",
-                "imagePath": "portfolio/images",
-                "category": "interface",
-                "project": "projectsInterfaceIcons",
-                "imageName_lg": "remixer.jpg",
-                "title": "The Title",
-                "description": "Interface designs"
-            }, 
+            },
 
             {
                 "objectType": "nodeCard",
@@ -92,11 +81,11 @@
 
             {
                 "objectType": "nodeCard",
-                "childProject": "interface_web",
+                "childProject": "interface_remixprototype",
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "projectsInterfaceIcons",
-                "imageName_lg": "web.jpg",
+                "imageName_lg": "remixer.jpg",
                 "title": "The Title",
                 "description": "Interface designs"
             }

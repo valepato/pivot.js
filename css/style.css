@@ -94,7 +94,7 @@ body {
     right:0;
     bottom:0;
     background-color:#fff; /* change if the mask should have another color then white */
-    z-index:999999; /* makes sure it stays on top */
+    z-index:99999; /* makes sure it stays on top */
 }
 
 #status {
@@ -109,6 +109,23 @@ body {
     background-repeat:no-repeat;
     background-position:center;
     margin:-100px 0 0 -100px; /* is width and height divided by two */
+}
+
+#loadText {
+  width:200px;
+  height:200px;
+  font-family: 'DezenProRegular';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  text-align: center;
+  position: absolute;
+  left:50%; /* centers the loading animation horizontally one the screen */
+  top:50%; /* centers the loading animation vertically one the screen */
+  margin-left: -100px;
+  margin-top: 60px;
+  color: #b4c2d4;
+  z-index: 99999;
 }
 
 /*---------------------------------------------------*/
@@ -315,8 +332,10 @@ body {
 /*---------------------------------------------------*/
 
 .aboutMe {
-  width: 1283px;
+  width: 902px;
   height: 653px;
+  left: 50%;
+  margin-left: 185px;
   position: relative;
   /*outline: 1px solid;
   outline-color: #666666;*/
@@ -328,7 +347,8 @@ body {
   top: 50%;
   margin: 8px 8px 8px 8px;
   position: relative;
-  background-color: rgba(40, 44, 61, .5);
+  border-radius: 15px;
+  background-color: rgba(40, 44, 61, .55);
   /*outline: 1px solid;
   outline-color: #666666;*/
   opacity: 1;
@@ -342,12 +362,12 @@ body {
 
 .aboutColumn.largeColumn {
   width: 902px;
-  float: right;
+  /*text-align: center;*/
 }
 
 .aboutContent {
   height: 170px;
-  margin: 16px 16px 16px 16px;
+  margin: 32px 32px 32px 32px;
   position: relative;
   vertical-align: middle;
   /*outline: 1px solid;
@@ -371,31 +391,31 @@ body {
 
 .aboutLink.linkOne {
   background: transparent url(../images/emailIcon.png) center center no-repeat;
-  width: 95px;
-  height: 54px;
-  margin: 40px 65px;
+  width: 80px;
+  height: 80px;
+  margin: 40px 63px;
 }
 
 .aboutLink.linkTwo {
   background: transparent url(../images/resumeIcon.png) center center no-repeat;
-  width: 72px;
-  height: 85px;
-  margin: 40px 65px;
+  width: 80px;
+  height: 80px;
+  margin: 40px 63px;
 
 }
 
 .aboutLink.linkThree {
   background: transparent url(../images/linkedInIcon.png) center center no-repeat;
-  width: 75px;
-  height: 75px;
-  margin: 40px 65px;
+  width: 80px;
+  height: 80px;
+  margin: 40px 63px;
 }
 
 .aboutLink.linkFour {
   background: transparent url(../images/archiveIcon.png) center center no-repeat;
-  width: 87px;
-  height: 68px;
-  margin: 40px 65px;
+  width: 80px;
+  height: 80px;
+  margin: 40px 63px;
 }
 
 .aboutLink:hover {
@@ -445,6 +465,7 @@ html[xmlns] #menu-bar {
     left: 50%; /* align left edge with center of viewport */
     top: 0;
     width: 1200px;
+    height: 900px;
     margin-left: -600px; /* move left by half element's width */
     }
     #bg2-1 {
@@ -519,21 +540,8 @@ html[xmlns] #menu-bar {
     position: absolute;
 }
 
-.site_wrap {
-  width: 100%;
-  max-width: 60rem;
-  min-width: 292px;
-}
-
 #port {
-  overflow: show;
-  position: fixed;
-  left: 50%;
-  margin-left: -960px;
-  text-align: center;
-  height: 1000px;
-  width: 1920px;
-  
+  margin-left: -100px;
 }
 
 

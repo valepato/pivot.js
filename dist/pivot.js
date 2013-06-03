@@ -1,7 +1,7 @@
 /*
- * Pivot: A photo gallery using CSS3 3D transforms.
+ * By David Duckworth
  *
- * By Markus Messner-Chaney, http://markusmessnerchaney.com
+ * Based on Pivot By Markus Messner-Chaney, http://markusmessnerchaney.com
  * Public Domain.
  */
 
@@ -1172,7 +1172,7 @@
   var pivot = window.pivot || (window.pivot = {});
 
   pivot.flickr = {
-    captionTemplate: '<h1><a href="{pageURL}" target="blank" tabindex="-1">{title}</a></h1><p>{description}</p>',
+    captionTemplate: '<div class="cardBack"><h1><a href="{pageURL}" target="blank" tabindex="-1">{title}</a></h1><p>{description}</p></div>',
 
     sourceURLs: {
       high: "http://farm{farm}.static.flickr.com/{server}/{id}_{secret}_b.jpg",

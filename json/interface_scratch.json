@@ -8,9 +8,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "scratch",
-                "imageName_lg": "01_scratch_LG.jpg",
+                "imageName_lg": "01_scratch_XL.jpg",
                 "title": "Scratch: The Ultimate DJ",
-                "description": ""
+                "description": "Standard gameplay HUD."
             }, 
 
             {
@@ -19,9 +19,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "scratch",
-                "imageName_lg": "02_scratch_LG.jpg",
+                "imageName_lg": "02_scratch_XL.jpg",
                 "title": "Scratch: The Ultimate DJ",
-                "description": ""
+                "description": "Solo mode gameplay with FX"
             },
 
             {
@@ -30,9 +30,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "scratch",
-                "imageName_lg": "03_scratch_LG.jpg",
+                "imageName_lg": "03_scratch_XL.jpg",
                 "title": "Scratch: The Ultimate DJ",
-                "description": ""
+                "description": "Standard gameplay HUD."
             },
 
             {
@@ -41,9 +41,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "scratch",
-                "imageName_lg": "04_scratch_LG.jpg",
+                "imageName_lg": "04_scratch_XL.jpg",
                 "title": "Scratch: The Ultimate DJ",
-                "description": ""
+                "description": "Freestyle scratch window HUD."
             },
 
             {
@@ -52,9 +52,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "scratch",
-                "imageName_lg": "05_scratch_LG.jpg",
+                "imageName_lg": "05_scratch_XL.jpg",
                 "title": "Scratch: The Ultimate DJ",
-                "description": ""
+                "description": "Incoming scratch window HUD."
             },
 
             {
@@ -63,9 +63,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "scratch",
-                "imageName_lg": "06_scratch_LG.jpg",
+                "imageName_lg": "06_scratch_XL.jpg",
                 "title": "Scratch: The Ultimate DJ",
-                "description": ""
+                "description": "Standard gameplay HUD."
             },
 
             {
@@ -74,9 +74,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "scratch",
-                "imageName_lg": "07_scratch_LG.jpg",
+                "imageName_lg": "07_scratch_XL.jpg",
                 "title": "Scratch: The Ultimate DJ",
-                "description": ""
+                "description": "Shot of live demo w/ controller."
             }
         ]
     },

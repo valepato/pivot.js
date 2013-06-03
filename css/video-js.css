@@ -151,13 +151,21 @@ so you can upgrade to newer versions easier. You can remove all these styles by 
 -------------------------------------------------------------------------------- */
 @font-face{
   font-family: 'VideoJS';
-  src: url('../webFonts/vjs.eot');
-  src: url('../webFonts/vjs.eot') format('embedded-opentype'),
-  url('../webFonts/vjs.woff') format('woff'),
-  url('../webFonts/vjs.ttf') format('truetype');
+  src: url('font/vjs.eot');
+  src: url('font/vjs.eot') format('embedded-opentype'),
+  url('font/vjs.woff') format('woff'),
+  url('font/vjs.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
+
+/*@font-face {
+    font-family: 'VideoJS';
+    src: url('../webFonts/vjs.eot');
+    src: url('../webFonts/vjs.eot?#iefix') format('embedded-opentype'),url('../webFonts/vjs.woff') format('woff'),url('../webFonts/vjs.ttf') format('truetype');
+    font-weight: normal;
+  font-style: normal;
+}*/
 
 .vjs-default-skin {
   color: #ccc;

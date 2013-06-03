@@ -8,9 +8,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "misc",
-                "imageName_lg": "06_celestialExplorer_LG.jpg",
-                "title": "Misc",
-                "description": ""
+                "imageName_lg": "06_celestialExplorer_XL.jpg",
+                "title": "Planetary Recon",
+                "description": "Mockup for a planetary recon system."
             }, 
             {
                 "objectType": "imageCard",
@@ -18,9 +18,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "misc",
-                "imageName_lg": "07_analyzer_LG.jpg",
+                "imageName_lg": "07_analyzer_XL.jpg",
                 "title": "Misc",
-                "description": ""
+                "description": "Mockup for a multibanded matter analyzer."
             }, 
             {
                 "objectType": "imageCard",
@@ -28,9 +28,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "misc",
-                "imageName_lg": "08_hud_03_LG.jpg",
-                "title": "Misc",
-                "description": ""
+                "imageName_lg": "08_hud_03_XL.jpg",
+                "title": "FPS HUD V1",
+                "description": "Single player controlled team HUD."
             }, 
             {
                 "objectType": "imageCard",
@@ -38,9 +38,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "misc",
-                "imageName_lg": "09_hud_03_popup_LG.jpg",
-                "title": "Misc",
-                "description": ""
+                "imageName_lg": "09_hud_03_popup_XL.jpg",
+                "title": "Weapon Detail V1",
+                "description": "A detailed weapon readout screen."
             }, 
             {
                 "objectType": "imageCard",
@@ -48,9 +48,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "misc",
-                "imageName_lg": "10_hud_06_LG.jpg",
-                "title": "Misc",
-                "description": ""
+                "imageName_lg": "10_hud_06_XL.jpg",
+                "title": "FPS HUD V2",
+                "description": "Single player controlled team HUD."
             }, 
             {
                 "objectType": "imageCard",
@@ -58,9 +58,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "misc",
-                "imageName_lg": "11_hud_06_popup_LG.jpg",
-                "title": "Misc",
-                "description": ""
+                "imageName_lg": "11_hud_06_popup_XL.jpg",
+                "title": "Weapon Detail V2",
+                "description": "A detailed weapon readout screen."
             }, 
             {
                 "objectType": "imageCard",
@@ -68,9 +68,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "misc",
-                "imageName_lg": "12_hud_09_LG.jpg",
-                "title": "Misc",
-                "description": ""
+                "imageName_lg": "12_hud_09_XL.jpg",
+                "title": "FPS HUD V3",
+                "description": "Single player controlled team HUD."
             }, 
             {
                 "objectType": "imageCard",
@@ -78,9 +78,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "misc",
-                "imageName_lg": "13_hud_09_popup_LG.jpg",
-                "title": "Misc",
-                "description": ""
+                "imageName_lg": "13_hud_09_popup_XL.jpg",
+                "title": "Objective Map",
+                "description": "Ingame popup for objective map."
             }, 
             {
                 "objectType": "imageCard",
@@ -89,8 +89,8 @@
                 "category": "interface",
                 "project": "misc",
                 "imageName_lg": "14_kogamu_LG.jpg",
-                "title": "Misc",
-                "description": ""
+                "title": "Kogamu",
+                "description": "HUD for Kogamu a multiplayer Facebook game."
             },
             {
                 "objectType": "imageCard",
@@ -99,8 +99,8 @@
                 "category": "interface",
                 "project": "misc",
                 "imageName_lg": "01_menuconcept_LG.jpg",
-                "title": "Misc",
-                "description": ""
+                "title": "Menu Concept 1",
+                "description": "Concept for a spatial main menu."
             }, 
 
             {
@@ -110,8 +110,8 @@
                 "category": "interface",
                 "project": "misc",
                 "imageName_lg": "02_menuconcept_LG.jpg",
-                "title": "Misc",
-                "description": ""
+                "title": "Menu Concept 2",
+                "description": "Concept for a spatial main menu."
             }, 
             {
                 "objectType": "imageCard",
@@ -120,8 +120,8 @@
                 "category": "interface",
                 "project": "misc",
                 "imageName_lg": "03_autodjskin_LG.jpg",
-                "title": "Misc",
-                "description": ""
+                "title": "DJ Prototype Skin",
+                "description": "Skin for a MAX DJ prototype."
             }, 
             {
                 "objectType": "imageCard",
@@ -130,8 +130,8 @@
                 "category": "interface",
                 "project": "misc",
                 "imageName_lg": "04_autodjskin_LG.jpg",
-                "title": "Misc",
-                "description": ""
+                "title": "DJ Prototype",
+                "description": "Skin implemented with the MAX patch."
             }, 
             {
                 "objectType": "imageCard",
@@ -140,8 +140,8 @@
                 "category": "interface",
                 "project": "misc",
                 "imageName_lg": "05_songmix_LG.jpg",
-                "title": "Misc",
-                "description": ""
+                "title": "Mix Concpet",
+                "description": "HUD concept for DJ mixing."
             }
         ]
     },

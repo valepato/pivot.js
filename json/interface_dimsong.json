@@ -8,9 +8,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "dimsong",
-                "imageName_lg": "01_dimsong_LG.jpg",
-                "title": "The Title",
-                "description": "Interface designs"
+                "imageName_lg": "01_dimsong_XL.jpg",
+                "title": "Dim Song",
+                "description": "Music gadget available in Apple App Store."
             }, 
 
             {
@@ -19,9 +19,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "dimsong",
-                "imageName_lg": "02_dimsong_LG.jpg",
-                "title": "The Title",
-                "description": "Interface designs"
+                "imageName_lg": "02_dimsong_XL.jpg",
+                "title": "Dim Song",
+                "description": "Main interface for controlling the music intensity."
             },
 
             {
@@ -30,9 +30,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "dimsong",
-                "imageName_lg": "03_dimsong_LG.jpg",
-                "title": "The Title",
-                "description": "Interface designs"
+                "imageName_lg": "03_dimsong_XL.jpg",
+                "title": "Dim Song",
+                "description": "Input settings slide out UI."
             },
 
             {
@@ -41,9 +41,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "dimsong",
-                "imageName_lg": "04_dimsong_LG.jpg",
-                "title": "The Title",
-                "description": "Interface designs"
+                "imageName_lg": "04_dimsong_XL.jpg",
+                "title": "Dim Song",
+                "description": "List for song selection."
             },
 
             {
@@ -52,9 +52,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "dimsong",
-                "imageName_lg": "05_dimsong_LG.jpg",
-                "title": "The Title",
-                "description": "Interface designs"
+                "imageName_lg": "05_dimsong_XL.jpg",
+                "title": "Dim Song",
+                "description": "Store for purchase of additional songs."
             },
 
             {
@@ -63,9 +63,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "dimsong",
-                "imageName_lg": "06_dimsong_LG.jpg",
-                "title": "The Title",
-                "description": "Interface designs"
+                "imageName_lg": "06_dimsong_XL.jpg",
+                "title": "Dim Song",
+                "description": "Settings menu."
             },
 
             {
@@ -74,9 +74,9 @@
                 "imagePath": "portfolio/images",
                 "category": "interface",
                 "project": "dimsong",
-                "imageName_lg": "07_dimsong_LG.jpg",
-                "title": "The Title",
-                "description": "Interface designs"
+                "imageName_lg": "07_dimsong_XL.jpg",
+                "title": "Dim Song",
+                "description": "Credits screen."
             }
         ]
     },
